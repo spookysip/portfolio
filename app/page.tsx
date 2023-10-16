@@ -1,95 +1,42 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import dynamic from "next/dynamic";
 
-export default function Home() {
+const HomePage = dynamic(() => import("./Home"), {
+  ssr: false,
+});
+
+const tech = [
+  { id: 1, name: "Next JS", type: "Front End", selected: false },
+  { id: 2, name: "Typescript", type: "Front End", selected: false },
+  { id: 3, name: "SCSS", type: "Front End", selected: false },
+  { id: 4, name: "Express", type: "Back End", selected: false },
+  { id: 5, name: "Next JS", type: "Back End", selected: false },
+  { id: 6, name: "Typescript", type: "Back End", selected: false },
+  { id: 7, name: "REST", type: "API", selected: false },
+  { id: 8, name: "GraphQL", type: "API", selected: false },
+  { id: 9, name: "SQL", type: "Database", selected: false },
+  { id: 10, name: "NoSQL", type: "Database", selected: false },
+  { id: 11, name: "Amplify", type: "AWS", selected: false },
+  { id: 12, name: "Lambda", type: "AWS", selected: false },
+  { id: 13, name: "RDS", type: "AWS", selected: false },
+  { id: 14, name: "DynamoDB", type: "AWS", selected: false },
+  { id: 15, name: "CloudFormation", type: "AWS", selected: false },
+  { id: 16, name: "CloudPipeline", type: "AWS", selected: false },
+  { id: 17, name: "CloudFront", type: "AWS", selected: false },
+  { id: 18, name: "CloudWatch", type: "AWS", selected: false },
+  { id: 19, name: "CDK", type: "AWS", selected: false },
+  { id: 20, name: "SDK", type: "AWS", selected: false },
+  { id: 21, name: "S3", type: "AWS", selected: false },
+  { id: 22, name: "API Gateway", type: "AWS", selected: false },
+  { id: 23, name: "Route 53", type: "AWS", selected: false },
+  { id: 24, name: "Secrets Manager", type: "AWS", selected: false },
+  { id: 25, name: "IAM", type: "AWS", selected: false },
+  { id: 26, name: "KMS", type: "AWS", selected: false },
+];
+
+export default async function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    <div>
+      <HomePage tech={tech} />
+    </div>
+  );
 }
