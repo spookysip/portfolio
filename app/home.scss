@@ -42,9 +42,12 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-height: 340px;
-  padding-top: 30px;
-  padding-bottom: 20px;
+  height: 100%;
+  margin-top: -40px;
+  min-height: 440px;
+  // min-height: 340px;
+  // padding-top: 30px;
+  // padding-bottom: 20px;
 }
 
 .options {
@@ -178,6 +181,7 @@ body {
   font-family: var(--font-roboto-medium);
   font-size: 17px;
   margin-bottom: 10px;
+  margin-left: -2px;
 }
 
 .animate:hover {
@@ -217,12 +221,13 @@ body {
 .highlight-item {
   margin-bottom: 10px;
   line-height: 1.3;
+  margin-left: 8px;
 }
 
 .timeframe {
   font-family: var(--font-roboto-bold);
   font-size: 17px;
-  margin-left: 5px;
+  margin-left: 8px;
 }
 
 @keyframes infiniteScroll {
@@ -347,7 +352,7 @@ body {
   padding-right: 12px;
   padding-bottom: 20px;
   padding-top: 20px;
-  min-height: 350px;
+  min-height: 360px;
 }
 
 .custom-item:hover {
@@ -386,4 +391,29 @@ body {
   35% {
     transform: scale(1);
   }
+}
+
+.timeframe-section {
+  display: flex;
+  flex-direction: row;
+  margin-top: 6px;
+}
+
+.highlight-section {
+  max-width: 800px;
+  width: 75%;
+  margin-top: 17px;
+}
+
+.experience-title {
+  font-family: var(--font-roboto-black);
+  font-size: 18px;
+}
+
+.experience-summary {
+  font-family: var(--font-roboto-bold);
+  font-size: 17px;
+  margin-top: 5px;
+  margin-bottom: 17px;
+  line-height: 1.3;
 }

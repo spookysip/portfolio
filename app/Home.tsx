@@ -5,7 +5,8 @@ import Link from "./icons/Link";
 import Download from "./icons/Download";
 import Clipboard from "./icons/Clipboard";
 import React, { useEffect, useState } from "react";
-import Heart from "./Heart";
+import Heart from "./icons/Heart";
+import Clock from "./icons/Clock";
 
 interface Tech {
   id: Number;
@@ -328,30 +329,45 @@ export default function Home({ tech }: Props) {
           >
             cozyPunk
           </div>
-          <div className="timeframe">Jan. 2023 - Present</div>
-          <ul className="highlights">
-            <li className="highlight-item">
-              Spearheaded and implemented the development and continual
-              maintenance of a full-stack application for Filmsupply's content
-              department. // Back End: SQL relational database, Node/Express
-              API, Node/Express service built behind a Forest Admin application
-              // Front End: React with CRUD functionality.
-            </li>
-          </ul>
-        </div>
+          <div className="experience-title">Founder/Full-Stack Developer</div>
+          <div className="timeframe-section">
+            <Clock />
+            <div className="timeframe">Jan. 2023 - Present</div>
+          </div>
+          <div className="highlight-section">
+            <div className="experience-summary">
+              cozyPunk is a "passion product" I created to be a comforting study
+              buddy that makes working feel like a game. It allows users to play
+              relaxing music and soundscapes, keep track of quests to achieve,
+              and run campaign/rest timers.
+            </div>
+            <ul className="highlights">
+              <li className="highlight-item">
+                Developed a feature-rich, full-stack web application from
+                concept to production. Front End: Next JS // React //
+                Typescript. Back End: Node JS // Typescript. Database: MySQL //
+                Planetscale // Prisma. Infrastructure: Vercel // S3.
+              </li>
 
-        <div className="experience-item">
-          <div className="website">Independent</div>
-          <div className="timeframe">Dec. 2021 - Present</div>
-          <ul className="highlights">
-            <li className="highlight-item">
-              Spearheaded and implemented the development and continual
-              maintenance of a full-stack application for Filmsupply's content
-              department. // Back End: SQL relational database, Node/Express
-              API, Node/Express service built behind a Forest Admin application
-              // Front End: React with CRUD functionality.
-            </li>
-          </ul>
+              <li className="highlight-item">
+                Designed a custom UI/UX for the entire site. Utilized Adobe XD
+                and Figma to translate designs and svg's into a custom and fully
+                responsive css design system.
+              </li>
+
+              <li className="highlight-item">
+                Created functionality for the website to act as a full
+                functioning product, including business formation, legal copy,
+                cookie policies and Stripe API integration.
+              </li>
+
+              <li className="highlight-item">
+                Continually designing, coding and shipping new features,
+                auditing and improving infrastructure development and
+                refactoring the current codebase for improved performance.
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div>
@@ -373,36 +389,49 @@ export default function Home({ tech }: Props) {
           >
             Musicbed
           </div>
-          <div className="timeframe">Nov. 2016 - Nov. 2021</div>
-          <ul className="highlights">
-            <li className="highlight-item">
-              Spearheaded and implemented the development and continual
-              maintenance of a full-stack application for Filmsupply's content
-              department. // Back End: SQL relational database, Node/Express
-              API, Node/Express service built behind a Forest Admin application
-              // Front End: React with CRUD functionality.
-            </li>
+          <div className="experience-title">Full-Stack Developer</div>
 
-            <li className="highlight-item">
-              Delivered continued architecture improvements for services within
-              AWS. // Back End: Express services built on a serverless Lambda,
-              accessed through API Gateway // Front End: Amplify App.
-              Architecture is deployed through CDK and Serverless written within
-              the services.
-            </li>
+          <div className="timeframe-section">
+            <Clock />
+            <div className="timeframe">Jan. 2020 - Nov. 2021</div>
+          </div>
+          <div className="highlight-section">
+            <div className="experience-summary">
+              Filmsupply and Musicbed are sister companies dedicated to
+              supporting creatives through licensing premium footage and music.
+              I had the opportunity to create an internal back end to manage the
+              footage curation pipeline and create a front end to communicate
+              its progress to filmmakers.
+            </div>
+            <ul className="highlights">
+              <li className="highlight-item">
+                Spearheaded and implemented the development and continual
+                maintenance of a full-stack application for Filmsupply's content
+                department. Back End: MySQL database // REST API //
+                NodeJS/Express server built behind a Forest Admin application.
+                Front End: React
+              </li>
 
-            <li className="highlight-item">
-              Contributor of 5+ repositories, weekly. Responsible for
-              architecture support, front end and back end stories in React,
-              Node/Express and Javascript/Typescript within a given sprint.
-            </li>
+              <li className="highlight-item">
+                Delivered continued architecture imporvements for services
+                within AWS. Back End: NodeJS/Express server deployed to Lambda
+                function through serverless framework and accessed through API
+                Gateway. Front End: React App deployed through Amplify.
+              </li>
 
-            <li className="highlight-item">
-              Maintained integrity with third party APIs, improving the current
-              codebases with refactoring strategies. Contributed to the
-              transition of legacy monolithic architecture to microservices.
-            </li>
-          </ul>
+              <li className="highlight-item">
+                Maintained inegrity with third party API's, improved existing
+                codebases through refactoring strategies, and contributed to the
+                transition of legacy monolithic architecture to microservices.
+              </li>
+
+              <li className="highlight-item">
+                Contributed to 5+ repositories weekly. Responsible for
+                architeture support, front end stories within React and back end
+                storeis in NodeJS/Express within any given sprint.
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
