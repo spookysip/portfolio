@@ -2,9 +2,9 @@ body {
   background-color: #ffd8d0;
 }
 
-html {
-  cursor: none;
-}
+// html {
+//   cursor: none;
+// }
 
 .all {
   color: black;
@@ -38,7 +38,13 @@ html {
 }
 
 .section {
-  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
 .options {
@@ -72,6 +78,7 @@ html {
   box-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 1);
   transition: box-shadow 0.15s;
   font-family: var(--font-roboto-bold);
+  cursor: pointer;
 }
 
 .experience {
@@ -134,7 +141,7 @@ html {
 
 .link-parent:hover {
   background-color: #f9e585;
-  cursor: none;
+  cursor: pointer;
 }
 
 // .link:hover,
@@ -174,7 +181,7 @@ html {
 }
 
 .animate:hover {
-  //   cursor: pointer;
+  cursor: pointer;
   background-color: #6d6bfe;
   box-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 1);
   transition: box-shadow 0.15s;
@@ -263,7 +270,7 @@ html {
 .name-horizontal-scrolling-items {
   display: flex;
   font-size: 23px;
-  width: 1950px;
+  width: 2488px;
   animation-name: infiniteScroll;
   animation-duration: 50s;
   animation-iteration-count: infinite;
@@ -287,39 +294,44 @@ html {
   font-family: var(--font-roboto-medium);
 }
 
-// .bottom-container:hover {
-//   cursor: pointer;
-// }
+.bottom-container:hover {
+  cursor: pointer;
+}
 
 .bottom-horizontal-scrolling-items {
   display: flex;
   font-size: 18px;
-  width: 1950px;
+  width: 2180px;
   animation-name: infiniteScroll;
   animation-duration: 40s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+.bottom-horizontal-scrolling-items:hover {
+  cursor: pointer;
+}
+
 .bottom-horizontal-scrolling-items__item {
   white-space: nowrap;
 }
 
-.circular-cursor {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  position: absolute;
-  z-index: 1;
-  scale: 100%;
-  transition: scale 0.15s;
-}
+// .circular-cursor {
+//   height: 20px;
+//   width: 20px;
+//   border-radius: 50%;
+//   -moz-border-radius: 50%;
+//   -webkit-border-radius: 50%;
+//   position: absolute;
+//   z-index: 1;
+//   scale: 100%;
+//   transition: scale 0.15s;
+// }
 
-.cursor-press {
-  scale: 75%;
-  transition: scale 0.1s;
-}
+// .cursor-press {
+//   scale: 75%;
+//   transition: scale 0.1s;
+// }
 
 .progress-bar {
   background-color: #90a8ec;
@@ -334,6 +346,8 @@ html {
   padding-left: 9px;
   padding-right: 12px;
   padding-bottom: 20px;
+  padding-top: 20px;
+  min-height: 350px;
 }
 
 .custom-item:hover {
@@ -346,4 +360,30 @@ html {
   margin-left: 2px;
   font-family: var(--font-roboto-black);
   font-size: 18px;
+}
+
+.skill-section {
+  padding-top: 20px;
+}
+
+.heart {
+  animation: beat 2s linear infinite;
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(0.9);
+  }
+  21% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1);
+  }
 }
