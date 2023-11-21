@@ -5,6 +5,7 @@ import Link from "./icons/Link";
 import Download from "./icons/Download";
 import Clipboard from "./icons/Clipboard";
 import React, { useEffect, useState } from "react";
+import Heart from "./Heart";
 
 interface Tech {
   id: Number;
@@ -157,32 +158,41 @@ export default function Home({ tech }: Props) {
             </div>
             <div className="role">Full-Stack Developer</div>
 
-            {customStack && (
-              <div
-                className={!customStack ? "section" : "section custom-stack"}
-                onMouseEnter={() => setCursorColor("#F1F232")}
-                onMouseLeave={() => setCursorColor("#fe8fe6")}
-              >
-                <div className="custom-type">Custom Stack</div>
-                <div className="options">
-                  {consolidatedStack.map(
-                    (item: any) =>
-                      item.selected && (
-                        <div
-                          key={item.id}
-                          className="item custom-item"
-                          onMouseDown={() => setCursorPress(true)}
-                          onMouseEnter={() => setCursorColor("#23A094")}
-                          onMouseLeave={() => setCursorColor("#F1F232")}
-                          onClick={() => clickCustomStack(item)}
-                        >
-                          {item.name}
-                        </div>
-                      )
-                  )}
+            <div
+              className={!customStack ? "section" : "custom-stack"}
+              onMouseEnter={() => setCursorColor("#F1F232")}
+              onMouseLeave={() => setCursorColor("#fe8fe6")}
+            >
+              {customStack && (
+                <div>
+                  <div className="custom-type">Custom Stack</div>
+
+                  <div className="options">
+                    {consolidatedStack.map(
+                      (item: any) =>
+                        item.selected && (
+                          <div
+                            key={item.id}
+                            className="item custom-item"
+                            onMouseDown={() => setCursorPress(true)}
+                            onMouseEnter={() => setCursorColor("#23A094")}
+                            onMouseLeave={() => setCursorColor("#F1F232")}
+                            onClick={() => clickCustomStack(item)}
+                          >
+                            {item.name}
+                          </div>
+                        )
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+
+              {!customStack && (
+                <div className="heart">
+                  <Heart />
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="links">
@@ -191,7 +201,7 @@ export default function Home({ tech }: Props) {
               onMouseDown={() => setCursorPress(true)}
               onMouseEnter={() => setCursorColor("#6d6bfe")}
               onMouseLeave={() => setCursorColor("#fe8fe6")}
-              onClick={() => window.open("https://github.com/matt-laughlin")}
+              onClick={() => window.open("https://github.com/taylorlaughlin")}
             >
               <div>GitHub</div>
               <Link />
@@ -202,7 +212,7 @@ export default function Home({ tech }: Props) {
               onMouseDown={() => setCursorPress(true)}
               onMouseEnter={() => setCursorColor("#6d6bfe")}
               onMouseLeave={() => setCursorColor("#fe8fe6")}
-              onClick={() => window.open("https://linkedin.com/matt-laughlin")}
+              onClick={() => window.open("https://linkedin.com/taylorlaughlin")}
             >
               <div>LinkedIn</div>
               <Link />
@@ -250,7 +260,7 @@ export default function Home({ tech }: Props) {
               techDisplay.filter(
                 (item: any) => item.type === type && !item.selected
               ).length > 0 && (
-                <div key={type} className="section">
+                <div key={type} className="skill-section">
                   <div className="type">{type}</div>
 
                   <div className="options">
