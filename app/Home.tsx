@@ -137,20 +137,20 @@ export default function Home({ tech }: Props) {
             >
               <div className="name-horizontal-scrolling-items">
                 <div className="name-horizontal-scrolling-items__item">
-                  Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
+                  Taylor Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;
                 </div>
 
                 <div className="name-horizontal-scrolling-items__item">
-                  Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp; Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Taylor Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp; Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
                   Laughlin&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
                 </div>
               </div>
