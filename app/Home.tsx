@@ -414,7 +414,7 @@ export default function Home({ tech }: Props) {
           >
             cozyPunk
           </div>
-          <div className="experience-title">Founder/Full-Stack Developer</div>
+          <div className="experience-title">Full-Stack Developer</div>
           <div className="timeframe-section">
             <Clock />
             <div className="timeframe">Jan. 2023 - Present</div>
@@ -430,8 +430,9 @@ export default function Home({ tech }: Props) {
               <li className="highlight-item">
                 Developed a feature-rich, full-stack web application from
                 concept to production. Front End: Next JS // React //
-                Typescript. Back End: Node JS // Typescript. Database: MySQL //
+                Typescript. Back End: Node JS // Typescript // MySQL // REST //
                 Planetscale // Prisma. Infrastructure: Vercel // S3.
+                Infrastructure: Vercel // S3.
               </li>
 
               <div
@@ -475,8 +476,8 @@ export default function Home({ tech }: Props) {
               </li>
 
               <li className="highlight-item">
-                Created functionality for the website to act as a full
-                functioning product, including business formation, legal copy,
+                Created functionality for the website to act as a fully
+                functional product, including business formation, legal copy,
                 cookie policies and Stripe API integration.
               </li>
 
@@ -518,9 +519,9 @@ export default function Home({ tech }: Props) {
             <div className="experience-summary">
               Filmsupply and Musicbed are sister companies dedicated to
               supporting creatives through licensing premium footage and music.
-              I had the opportunity to create an internal back end to manage the
-              footage curation pipeline and create a front end to communicate
-              its progress to filmmakers.
+              I had the opportunity to create an internal back end server and
+              client to manage the footage curation pipeline and create another
+              client to communicate its progress to filmmakers.
             </div>
             <ul className="highlights">
               <li className="highlight-item">
@@ -528,7 +529,7 @@ export default function Home({ tech }: Props) {
                 maintenance of a full-stack application for Filmsupply's content
                 department. Back End: MySQL database // REST API //
                 NodeJS/Express server built behind a Forest Admin application.
-                Front End: React
+                Front End: React.
               </li>
 
               <div
@@ -578,20 +579,20 @@ export default function Home({ tech }: Props) {
               <li className="highlight-item">
                 Delivered continued architecture imporvements for services
                 within AWS. Back End: NodeJS/Express server deployed to Lambda
-                function through serverless framework and accessed through API
-                Gateway. Front End: React App deployed through Amplify.
+                function through the serverless framework and accessed through
+                API Gateway. Front End: React App deployed through Amplify.
               </li>
 
               <li className="highlight-item">
                 Maintained integrity with third party API's, improved existing
-                codebases through refactoring strategies, and contributed to the
+                codebases through refactoring strategies and contributed to the
                 transition of legacy monolithic architecture to microservices.
               </li>
 
               <li className="highlight-item">
                 Contributed to 5+ repositories weekly. Responsible for
-                architecture support, front end stories within React and back
-                end stories in NodeJS/Express within any given sprint.
+                architecture support, front end stories in React and back end
+                stories in NodeJS/Express within any given sprint.
               </li>
             </ul>
           </div>
