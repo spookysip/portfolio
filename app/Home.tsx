@@ -4,7 +4,7 @@ import "./home.scss";
 import Link from "./icons/Link";
 import Download from "./icons/Download";
 import Clipboard from "./icons/Clipboard";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Heart from "./icons/Heart";
 import Clock from "./icons/Clock";
 
@@ -21,12 +21,15 @@ interface Props {
 
 export default function Home({ tech }: Props) {
   const [techDisplay, setTechDisplay] = useState(tech) as any;
-  const [cursorPosition, setCursorPosition] = useState({ left: 0, top: 0 });
-  const [cursorColor, setCursorColor] = useState("#fe8fe6") as any;
+  // const [cursorPosition, setCursorPosition] = useState({ left: 0, top: 0 });
+  // const [cursorColor, setCursorColor] = useState("#fe8fe6") as any;
   const [scrolled, setScrolled] = useState() as any;
-  const [cursorPress, setCursorPress] = useState(false) as any;
+  // const [cursorPress, setCursorPress] = useState(false) as any;
   const [copy, setCopy] = useState(false) as any;
   const [download, setDownload] = useState(false) as any;
+  const [stackTitle, setStackTitle] = useState("") as any;
+
+  const stackElement = useRef() as any;
 
   useEffect(() => {
     // window.onscroll = function (e) {
@@ -51,10 +54,10 @@ export default function Home({ tech }: Props) {
     // setCursorPosition({ ...cursorPosition, top: pageY });
   }
 
-  function handleMouseMove(e: any) {
-    const { pageX, pageY } = e;
-    setCursorPosition({ left: pageX, top: pageY });
-  }
+  // function handleMouseMove(e: any) {
+  //   const { pageX, pageY } = e;
+  //   setCursorPosition({ left: pageX, top: pageY });
+  // }
 
   const groupedData = techDisplay.reduce((acc: any, obj: any) => {
     const type = obj.type;
@@ -86,9 +89,9 @@ export default function Home({ tech }: Props) {
           : tech
       )
     );
-    if (techDisplay.filter((item: any) => item.selected).length === 1) {
-      setCursorColor("#fe8fe6");
-    }
+    // if (techDisplay.filter((item: any) => item.selected).length === 1) {
+    //   setCursorColor("#fe8fe6");
+    // }
   }
 
   const consolidateStackMap = {} as any;
@@ -107,8 +110,8 @@ export default function Home({ tech }: Props) {
 
   return (
     <div
-      onMouseMove={handleMouseMove}
-      onMouseUp={() => setCursorPress(false)}
+      // onMouseMove={handleMouseMove}
+      // onMouseUp={() => setCursorPress(false)}
       className="all"
     >
       <div className="progress-container">
@@ -119,7 +122,7 @@ export default function Home({ tech }: Props) {
           }}
         ></div>
       </div>
-      <div
+      {/* <div
         className={
           !cursorPress ? "circular-cursor" : "circular-cursor cursor-press"
         }
@@ -128,14 +131,14 @@ export default function Home({ tech }: Props) {
           top: cursorPosition.top,
           backgroundColor: cursorColor,
         }}
-      />
+      /> */}
       <div className="top">
         <div className="about">
           <div className="title">
             <div
               className="name-container"
-              onMouseEnter={() => setCursorColor("#22a094")}
-              onMouseLeave={() => setCursorColor("#fe8fe6")}
+              // onMouseEnter={() => setCursorColor("#22a094")}
+              // onMouseLeave={() => setCursorColor("#fe8fe6")}
             >
               <div className="name-horizontal-scrolling-items">
                 <div className="name-horizontal-scrolling-items__item">
@@ -158,15 +161,94 @@ export default function Home({ tech }: Props) {
               </div>
             </div>
             <div className="role">Full-Stack Developer</div>
+            <div className="mobile-links">
+              <div className="mobile-links-row-1">
+                <div
+                  className="mobile-link mobile-link-border-right"
+                  onClick={() =>
+                    window.open("https://github.com/taylorlaughlin")
+                  }
+                >
+                  GitHub
+                  <Link />
+                </div>
+                <div
+                  className="mobile-link"
+                  onClick={() =>
+                    window.open("https://linkedin.com/in/taylor-laughlin")
+                  }
+                >
+                  LinkedIn
+                  <Link />
+                </div>
+              </div>
+
+              <div className="mobile-links-row-2">
+                <div
+                  className="mobile-link mobile-link-border-right"
+                  onClick={() => {
+                    navigator.clipboard.writeText("hi@taylorlaughl.in");
+                    setCopy(true),
+                      setTimeout(() => {
+                        setCopy(false);
+                      }, 3000);
+                  }}
+                >
+                  Copy Email
+                  <Clipboard copy={copy} />
+                </div>
+                <div
+                  className="mobile-link"
+                  onClick={() => {
+                    setDownload(true),
+                      handleDownload(),
+                      setTimeout(() => {
+                        setDownload(false);
+                      }, 3000);
+                  }}
+                >
+                  Resume
+                  <Download download={download} />
+                </div>
+              </div>
+            </div>
+
+            <div ref={stackElement} />
 
             <div
               className={!customStack ? "section" : "custom-stack"}
-              onMouseEnter={() => setCursorColor("#F1F232")}
-              onMouseLeave={() => setCursorColor("#fe8fe6")}
+              // onMouseEnter={() => setCursorColor("#F1F232")}
+              // onMouseLeave={() => setCursorColor("#fe8fe6")}
             >
               {customStack && (
                 <div>
-                  <div className="custom-type">Custom Stack</div>
+                  <div className="custom-type">
+                    {stackTitle === ""
+                      ? "Custom Stack"
+                      : "Custom Stack (" + stackTitle + ")"}
+                  </div>
+
+                  {techDisplay.filter((item: any) => item.selected).length >
+                    4 && (
+                    <div
+                      className="clear-all"
+                      onClick={() => {
+                        setStackTitle(""),
+                          setTechDisplay((previous: any) =>
+                            previous.map((tech: any) =>
+                              tech.selected
+                                ? {
+                                    ...tech,
+                                    selected: false,
+                                  }
+                                : tech
+                            )
+                          );
+                      }}
+                    >
+                      Clear All
+                    </div>
+                  )}
 
                   <div className="options">
                     {consolidatedStack.map(
@@ -175,9 +257,9 @@ export default function Home({ tech }: Props) {
                           <div
                             key={item.id}
                             className="item custom-item"
-                            onMouseDown={() => setCursorPress(true)}
-                            onMouseEnter={() => setCursorColor("#23A094")}
-                            onMouseLeave={() => setCursorColor("#F1F232")}
+                            // onMouseDown={() => setCursorPress(true)}
+                            // onMouseEnter={() => setCursorColor("#23A094")}
+                            // onMouseLeave={() => setCursorColor("#F1F232")}
                             onClick={() => clickCustomStack(item)}
                           >
                             {item.name}
@@ -199,9 +281,9 @@ export default function Home({ tech }: Props) {
           <div className="links">
             <div
               className="link-parent"
-              onMouseDown={() => setCursorPress(true)}
-              onMouseEnter={() => setCursorColor("#6d6bfe")}
-              onMouseLeave={() => setCursorColor("#fe8fe6")}
+              // onMouseDown={() => setCursorPress(true)}
+              // onMouseEnter={() => setCursorColor("#6d6bfe")}
+              // onMouseLeave={() => setCursorColor("#fe8fe6")}
               onClick={() => window.open("https://github.com/taylorlaughlin")}
             >
               <div>GitHub</div>
@@ -210,10 +292,12 @@ export default function Home({ tech }: Props) {
 
             <div
               className="link-parent"
-              onMouseDown={() => setCursorPress(true)}
-              onMouseEnter={() => setCursorColor("#6d6bfe")}
-              onMouseLeave={() => setCursorColor("#fe8fe6")}
-              onClick={() => window.open("https://linkedin.com/taylorlaughlin")}
+              // onMouseDown={() => setCursorPress(true)}
+              // onMouseEnter={() => setCursorColor("#6d6bfe")}
+              // onMouseLeave={() => setCursorColor("#fe8fe6")}
+              onClick={() =>
+                window.open("https://linkedin.com/in/taylor-laughlin")
+              }
             >
               <div>LinkedIn</div>
               <Link />
@@ -221,11 +305,11 @@ export default function Home({ tech }: Props) {
 
             <div
               className="link-parent"
-              onMouseEnter={() => setCursorColor("#6d6bfe")}
-              onMouseLeave={() => setCursorColor("#fe8fe6")}
-              onMouseDown={() => setCursorPress(true)}
+              // onMouseEnter={() => setCursorColor("#6d6bfe")}
+              // onMouseLeave={() => setCursorColor("#fe8fe6")}
+              // onMouseDown={() => setCursorPress(true)}
               onClick={() => {
-                navigator.clipboard.writeText("hi@mattlaughl.in");
+                navigator.clipboard.writeText("hi@taylorlaughl.in");
                 setCopy(true),
                   setTimeout(() => {
                     setCopy(false);
@@ -238,9 +322,9 @@ export default function Home({ tech }: Props) {
 
             <div
               className="link-parent"
-              onMouseEnter={() => setCursorColor("#6d6bfe")}
-              onMouseLeave={() => setCursorColor("#fe8fe6")}
-              onMouseDown={() => setCursorPress(true)}
+              // onMouseEnter={() => setCursorColor("#6d6bfe")}
+              // onMouseLeave={() => setCursorColor("#fe8fe6")}
+              // onMouseDown={() => setCursorPress(true)}
               onClick={() => {
                 setDownload(true),
                   handleDownload(),
@@ -271,24 +355,25 @@ export default function Home({ tech }: Props) {
                           <div
                             key={item.id}
                             className="item"
-                            onMouseDown={() => setCursorPress(true)}
-                            onMouseEnter={() => setCursorColor("#f1f233")}
-                            onMouseLeave={() => setCursorColor("#fe8fe6")}
-                            onClick={() => {
-                              setTechDisplay((previous: any) =>
-                                previous.map((tech: any) =>
-                                  tech.id === item.id
-                                    ? {
-                                        ...tech,
-                                        selected: true,
-                                      }
-                                    : tech
+                            // onMouseDown={() => setCursorPress(true)}
+                            // onMouseEnter={() => setCursorColor("#f1f233")}
+                            // onMouseLeave={() => setCursorColor("#fe8fe6")}
+                            onClick={
+                              () =>
+                                setTechDisplay((previous: any) =>
+                                  previous.map((tech: any) =>
+                                    tech.id === item.id
+                                      ? {
+                                          ...tech,
+                                          selected: true,
+                                        }
+                                      : tech
+                                  )
                                 )
-                              ),
-                                techDisplay.filter(
-                                  (item: any) => !item.selected
-                                ).length === 1 && setCursorColor("#fe8fe6");
-                            }}
+                              // techDisplay.filter(
+                              //   (item: any) => !item.selected
+                              // ).length === 1 && setCursorColor("#fe8fe6");
+                            }
                           >
                             {item.name}
                           </div>
@@ -302,9 +387,9 @@ export default function Home({ tech }: Props) {
       </div>
 
       <div
-        className="container"
-        onMouseEnter={() => setCursorColor("#f18458")}
-        onMouseLeave={() => setCursorColor("#fe8fe6")}
+        className="container container-border-top"
+        // onMouseEnter={() => setCursorColor("#f18458")}
+        // onMouseLeave={() => setCursorColor("#fe8fe6")}
       >
         <div className="horizontal-scrolling-items">
           <div className="horizontal-scrolling-items__item">
@@ -323,9 +408,9 @@ export default function Home({ tech }: Props) {
           <div
             className="website animate"
             onClick={() => window.open("https://cozypunk.io")}
-            onMouseEnter={() => setCursorColor("#f9e585")}
-            onMouseLeave={() => setCursorColor("#fe8fe6")}
-            onMouseDown={() => setCursorPress(true)}
+            // onMouseEnter={() => setCursorColor("#f9e585")}
+            // onMouseLeave={() => setCursorColor("#fe8fe6")}
+            // onMouseDown={() => setCursorPress(true)}
           >
             cozyPunk
           </div>
@@ -348,6 +433,40 @@ export default function Home({ tech }: Props) {
                 Typescript. Back End: Node JS // Typescript. Database: MySQL //
                 Planetscale // Prisma. Infrastructure: Vercel // S3.
               </li>
+
+              <div
+                className="create-stack"
+                onClick={() => {
+                  setStackTitle("cozyPunk"),
+                    setTechDisplay((previous: any) =>
+                      previous.map((tech: any) =>
+                        tech.id === 1 ||
+                        tech.id === 2 ||
+                        tech.id === 3 ||
+                        tech.id === 5 ||
+                        tech.id === 7 ||
+                        tech.id === 9 ||
+                        tech.id === 10 ||
+                        tech.id === 11 ||
+                        tech.id === 25 ||
+                        tech.id === 31 ||
+                        tech.id === 4 ||
+                        tech.id === 8 ||
+                        tech.id === 32 ||
+                        tech.id === 33 ||
+                        tech.id === 35
+                          ? {
+                              ...tech,
+                              selected: true,
+                            }
+                          : tech
+                      )
+                    ),
+                    stackElement.current.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Create Stack
+              </div>
 
               <li className="highlight-item">
                 Designed a custom UI/UX for the entire site. Utilized Adobe XD
@@ -374,18 +493,18 @@ export default function Home({ tech }: Props) {
           <div
             className="website animate"
             onClick={() => window.open("https://filmsupply.com")}
-            onMouseEnter={() => setCursorColor("#f9e585")}
-            onMouseLeave={() => setCursorColor("#fe8fe6")}
-            onMouseDown={() => setCursorPress(true)}
+            // onMouseEnter={() => setCursorColor("#f9e585")}
+            // onMouseLeave={() => setCursorColor("#fe8fe6")}
+            // onMouseDown={() => setCursorPress(true)}
           >
             Filmsupply
           </div>
           <div
             className="website space animate"
             onClick={() => window.open("https://musicbed.com")}
-            onMouseEnter={() => setCursorColor("#f1f233")}
-            onMouseLeave={() => setCursorColor("#fe8fe6")}
-            onMouseDown={() => setCursorPress(true)}
+            // onMouseEnter={() => setCursorColor("#f1f233")}
+            // onMouseLeave={() => setCursorColor("#fe8fe6")}
+            // onMouseDown={() => setCursorPress(true)}
           >
             Musicbed
           </div>
@@ -412,6 +531,50 @@ export default function Home({ tech }: Props) {
                 Front End: React
               </li>
 
+              <div
+                className="create-stack"
+                onClick={() => {
+                  setStackTitle("Filmsupply & Musicbed"),
+                    setTechDisplay((previous: any) =>
+                      previous.map((tech: any) =>
+                        tech.id === 2 ||
+                        tech.id === 3 ||
+                        tech.id === 4 ||
+                        tech.id === 5 ||
+                        tech.id === 6 ||
+                        tech.id === 7 ||
+                        tech.id === 8 ||
+                        tech.id === 9 ||
+                        tech.id === 15 ||
+                        tech.id === 16 ||
+                        tech.id === 17 ||
+                        tech.id === 19 ||
+                        tech.id === 20 ||
+                        tech.id === 21 ||
+                        tech.id === 22 ||
+                        tech.id === 23 ||
+                        tech.id === 24 ||
+                        tech.id === 25 ||
+                        tech.id === 26 ||
+                        tech.id === 27 ||
+                        tech.id === 28 ||
+                        tech.id === 29 ||
+                        tech.id === 30 ||
+                        tech.id === 34 ||
+                        tech.id === 36
+                          ? {
+                              ...tech,
+                              selected: true,
+                            }
+                          : tech
+                      )
+                    ),
+                    stackElement.current.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Create Stack
+              </div>
+
               <li className="highlight-item">
                 Delivered continued architecture imporvements for services
                 within AWS. Back End: NodeJS/Express server deployed to Lambda
@@ -420,15 +583,15 @@ export default function Home({ tech }: Props) {
               </li>
 
               <li className="highlight-item">
-                Maintained inegrity with third party API's, improved existing
+                Maintained integrity with third party API's, improved existing
                 codebases through refactoring strategies, and contributed to the
                 transition of legacy monolithic architecture to microservices.
               </li>
 
               <li className="highlight-item">
                 Contributed to 5+ repositories weekly. Responsible for
-                architeture support, front end stories within React and back end
-                storeis in NodeJS/Express within any given sprint.
+                architecture support, front end stories within React and back
+                end stories in NodeJS/Express within any given sprint.
               </li>
             </ul>
           </div>
@@ -437,8 +600,8 @@ export default function Home({ tech }: Props) {
 
       <div
         className="bottom-container"
-        onMouseEnter={() => setCursorColor("#f1f233")}
-        onMouseLeave={() => setCursorColor("#fe8fe6")}
+        // onMouseEnter={() => setCursorColor("#f1f233")}
+        // onMouseLeave={() => setCursorColor("#fe8fe6")}
         onClick={() =>
           window.scrollTo({
             top: 0,
@@ -448,7 +611,7 @@ export default function Home({ tech }: Props) {
       >
         <div
           className="bottom-horizontal-scrolling-items"
-          onMouseDown={() => setCursorPress(true)}
+          // onMouseDown={() => setCursorPress(true)}
         >
           <div className="bottom-horizontal-scrolling-items__item">
             Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to

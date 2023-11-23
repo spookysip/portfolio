@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Taylor Laughlin",
-  description: "An overview of my work",
+  description: "Full-Stack Developer",
 };
 
 const robotoBlack = localFont({
