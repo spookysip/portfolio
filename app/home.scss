@@ -1,3 +1,5 @@
+$responsive: 800px;
+
 body {
   background-color: #ffd8d0;
 }
@@ -37,17 +39,63 @@ body {
   padding-left: 10px;
 }
 
+.mobile-links {
+  font-family: var(--font-roboto-medium);
+  font-size: 16px;
+  border-bottom: 3px solid black;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  @media screen and (max-width: $responsive) {
+    display: flex;
+  }
+}
+
+.mobile-links-row-1 {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 3px solid black;
+}
+
+.mobile-links-row-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.mobile-link {
+  width: 50%;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-link:hover {
+  background-color: #f9e585;
+  cursor: pointer;
+}
+
+.mobile-link-border-right {
+  border-right: 3px solid black;
+}
+
 .section {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 100%;
+  // background-color: red;
   margin-top: -40px;
-  min-height: 440px;
+  min-height: 200px;
   // min-height: 340px;
   // padding-top: 30px;
   // padding-bottom: 20px;
+  @media screen and (max-width: $responsive) {
+    border-bottom: 3px solid black;
+    margin-top: 0px;
+  }
 }
 
 .options {
@@ -97,6 +145,9 @@ body {
 .top {
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: $responsive) {
+    flex-direction: column;
+  }
 }
 
 .about {
@@ -104,24 +155,38 @@ body {
   flex-direction: column;
   width: 35%;
   justify-content: space-between;
-  border-bottom: 3px solid black;
+  @media screen and (max-width: $responsive) {
+    width: 100%;
+  }
 }
 
 .skills {
   width: 65%;
   margin-top: -4px;
-  border-bottom: 3px solid black;
   padding: 0px 15px 23px 15px;
+  @media screen and (max-width: $responsive) {
+    width: 90%;
+  }
+}
+
+.container-border-top {
+  border-top: 3px solid black;
 }
 
 .title {
   border-right: 3px solid black;
   height: 100%;
+  @media screen and (max-width: $responsive) {
+    border-right: none;
+  }
 }
 
 .links {
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: $responsive) {
+    display: none;
+  }
 }
 
 .link-parent {
@@ -140,6 +205,9 @@ body {
   padding-right: 8px;
   text-decoration: none;
   background-color: #ffd8d0;
+  @media screen and (max-width: $responsive) {
+    border-right: none;
+  }
 }
 
 .link-parent:hover {
@@ -225,7 +293,7 @@ body {
 }
 
 .timeframe {
-  font-family: var(--font-roboto-bold);
+  font-family: var(--font-roboto-regular);
   font-size: 17px;
   margin-left: 8px;
 }
@@ -352,7 +420,10 @@ body {
   padding-right: 12px;
   padding-bottom: 20px;
   padding-top: 20px;
-  min-height: 360px;
+  // min-height: 360px;
+  @media screen and (max-width: $responsive) {
+    border-bottom: 3px solid black;
+  }
 }
 
 .custom-item:hover {
@@ -400,20 +471,62 @@ body {
 }
 
 .highlight-section {
-  max-width: 800px;
-  width: 75%;
   margin-top: 17px;
 }
 
 .experience-title {
-  font-family: var(--font-roboto-black);
+  font-family: var(--font-roboto-bold);
   font-size: 18px;
 }
 
 .experience-summary {
-  font-family: var(--font-roboto-bold);
+  font-family: var(--font-roboto-regular);
   font-size: 17px;
   margin-top: 5px;
   margin-bottom: 17px;
   line-height: 1.3;
+}
+
+.create-stack {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 9px;
+  border: 2.5px solid black;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+  transition: box-shadow 0.15s;
+  font-family: var(--font-roboto-medium);
+  font-size: 17px;
+  margin-bottom: 14px;
+  margin-left: 6px;
+}
+
+.create-stack:hover {
+  cursor: pointer;
+  background-color: #ffa8e7;
+  box-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 1);
+  transition: box-shadow 0.15s;
+  font-family: var(--font-roboto-bold);
+}
+
+.clear-all {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 9px;
+  border: 2.5px solid black;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+  transition: box-shadow 0.15s;
+  font-family: var(--font-roboto-medium);
+  font-size: 17px;
+  margin-bottom: 17px;
+  margin-top: 10px;
+}
+
+.clear-all:hover {
+  cursor: pointer;
+  background-color: #22a094;
+  box-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 1);
+  transition: box-shadow 0.15s;
+  font-family: var(--font-roboto-bold);
 }
