@@ -72,7 +72,7 @@ export default function Home({ tech }: Props) {
     const pdfURL = "/resume.pdf";
     const link = document.createElement("a");
     link.href = pdfURL;
-    link.download = "Matt_Laughlin_Resume.pdf";
+    link.download = "Taylor_Laughlin_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
