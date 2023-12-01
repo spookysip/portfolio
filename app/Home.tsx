@@ -1,12 +1,12 @@
 "use client";
 
 import "./home.scss";
-import Link from "./icons/Link";
-import Download from "./icons/Download";
-import Clipboard from "./icons/Clipboard";
+// import Link from "./icons/Link";
+// import Download from "./icons/Download";
+// import Clipboard from "./icons/Clipboard";
 import React, { useEffect, useState, useRef } from "react";
-import Heart from "./icons/Heart";
-import Clock from "./icons/Clock";
+// import Heart from "./icons/Heart";
+// import Clock from "./icons/Clock";
 
 interface Tech {
   id: Number;
@@ -22,11 +22,11 @@ interface Props {
 export default function Home({ tech }: Props) {
   const [techDisplay, setTechDisplay] = useState(tech) as any;
   const [scrolled, setScrolled] = useState() as any;
-  const [copy, setCopy] = useState(false) as any;
-  const [download, setDownload] = useState(false) as any;
-  const [stackTitle, setStackTitle] = useState("") as any;
+  // const [copy, setCopy] = useState(false) as any;
+  // const [download, setDownload] = useState(false) as any;
+  // const [stackTitle, setStackTitle] = useState("") as any;
 
-  const stackElement = useRef() as any;
+  // const stackElement = useRef() as any;
 
   useEffect(() => {
     (async () => {
@@ -56,10 +56,10 @@ export default function Home({ tech }: Props) {
   }, {});
 
   function handleDownload() {
-    const pdfURL = "/resume.pdf";
+    const pdfURL = "/Taylor_Laughlin_Resume.pdf";
     const link = document.createElement("a");
     link.href = pdfURL;
-    link.download = "Matt_Laughlin_Resume.pdf";
+    link.download = "Taylor_Laughlin_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -89,8 +89,8 @@ export default function Home({ tech }: Props) {
     return false;
   });
 
-  const customStack =
-    techDisplay.filter((item: any) => item.selected).length > 0;
+  // const customStack =
+  //   techDisplay.filter((item: any) => item.selected).length > 0;
 
   return (
     // <div
@@ -417,11 +417,12 @@ export default function Home({ tech }: Props) {
     //             responsive css design system.
     //           </li>
 
-    //           <li className="highlight-item">
-    //             Created functionality for the website to act as a fully
-    //             functional product, including business formation, legal copy,
-    //             cookie policies and Stripe API integration.
-    //           </li>
+              // <li className="highlight-item">
+              //   Seamlessly integrated a robust MySQL database solution,
+              //   optimizing data storage and retrieval processes. Implemented
+              //   effective data schemas and management strategies, ensuring data
+              //   integrity, security, and scalability.
+              // </li>
 
     //           <li className="highlight-item">
     //             Continually designing, coding and shipping new features,
