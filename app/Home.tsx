@@ -69,7 +69,7 @@ export default function Home({ tech }: Props) {
   }, {});
 
   function handleDownload() {
-    const pdfURL = "/resume.pdf";
+    const pdfURL = "/Taylor_Laughlin_Resume.pdf";
     const link = document.createElement("a");
     link.href = pdfURL;
     link.download = "Taylor_Laughlin_Resume.pdf";
