@@ -164,7 +164,7 @@ export default function Home({ tech }: Props) {
             <div className="mobile-links">
               <div className="mobile-links-row-1">
                 <div
-                  className="mobile-link mobile-link-border-right"
+                  className="mobile-link-github"
                   onClick={() =>
                     window.open("https://github.com/taylorlaughlin")
                   }
@@ -172,7 +172,8 @@ export default function Home({ tech }: Props) {
                   GitHub
                   <Link />
                 </div>
-                <div
+
+                {/* <div
                   className="mobile-link"
                   onClick={() =>
                     window.open("https://linkedin.com/in/taylor-laughlin")
@@ -180,7 +181,7 @@ export default function Home({ tech }: Props) {
                 >
                   LinkedIn
                   <Link />
-                </div>
+                </div> */}
               </div>
 
               <div className="mobile-links-row-2">
@@ -290,18 +291,18 @@ export default function Home({ tech }: Props) {
               <Link />
             </div>
 
-            <div
-              className="link-parent"
-              // onMouseDown={() => setCursorPress(true)}
-              // onMouseEnter={() => setCursorColor("#6d6bfe")}
-              // onMouseLeave={() => setCursorColor("#fe8fe6")}
-              onClick={() =>
+            {/* <div
+              className="link-parent" */}
+            {/* onMouseDown={() => setCursorPress(true)}
+              onMouseEnter={() => setCursorColor("#6d6bfe")}
+              onMouseLeave={() => setCursorColor("#fe8fe6")} */}
+            {/* onClick={() =>
                 window.open("https://linkedin.com/in/taylor-laughlin")
               }
             >
               <div>LinkedIn</div>
               <Link />
-            </div>
+            </div> */}
 
             <div
               className="link-parent"
@@ -476,9 +477,10 @@ export default function Home({ tech }: Props) {
               </li>
 
               <li className="highlight-item">
-                Created functionality for the website to act as a fully
-                functional product, including business formation, legal copy,
-                cookie policies and Stripe API integration.
+                Seamlessly integrated a robust MySQL database solution,
+                optimizing data storage and retrieval processes. Implemented
+                effective data schemas and management strategies, ensuring data
+                integrity, security, and scalability.
               </li>
 
               <li className="highlight-item">
