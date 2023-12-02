@@ -250,8 +250,9 @@ body {
 
 .website {
   white-space: nowrap;
-  display: inline-block;
-  padding: 8px 15px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
   border-radius: 9px;
   margin-top: 15px;
   border: 2.5px solid black;
@@ -261,6 +262,10 @@ body {
   font-size: 17px;
   margin-bottom: 10px;
   margin-left: -2px;
+}
+
+.website-text {
+  margin-right: 6px;
 }
 
 .animate:hover {

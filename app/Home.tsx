@@ -345,7 +345,8 @@ export default function Home({ tech }: Props) {
             className="website animate"
             onClick={() => window.open("https://cozypunk.io")}
           >
-            cozyPunk
+            <span className="website-text">cozyPunk</span>
+            <Link />
           </div>
           <div className="experience-title">Full-Stack Developer</div>
           <div className="timeframe-section">
@@ -429,13 +430,15 @@ export default function Home({ tech }: Props) {
             className="website animate"
             onClick={() => window.open("https://filmsupply.com")}
           >
-            Filmsupply
+            <span className="website-text">Filmsupply</span>
+            <Link />
           </div>
           <div
             className="website space animate"
             onClick={() => window.open("https://musicbed.com")}
           >
-            Musicbed
+            <span className="website-text">Musicbed</span>
+            <Link />
           </div>
           <div className="experience-title">Full-Stack Developer</div>
 
