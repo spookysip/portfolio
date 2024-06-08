@@ -56,10 +56,10 @@ export default function Home({ tech }: Props) {
   }, {});
 
   function handleDownload() {
-    const pdfURL = "/Taylor_Laughlin_Resume.pdf";
+    const pdfURL = "/Matt_Laughlin_Resume.pdf";
     const link = document.createElement("a");
     link.href = pdfURL;
-    link.download = "Taylor_Laughlin_Resume.pdf";
+    link.download = "Matt_Laughlin_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -108,20 +108,20 @@ export default function Home({ tech }: Props) {
             <div className="name-container">
               <div className="name-horizontal-scrolling-items">
                 <div className="name-horizontal-scrolling-items__item">
-                  Taylor Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;
+                  Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
                 </div>
 
                 <div className="name-horizontal-scrolling-items__item">
-                  Taylor Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp; Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
-                  Laughlin&nbsp;•&nbsp;Taylor Laughlin&nbsp;•&nbsp;Taylor
+                  Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp; Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
                   Laughlin&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
                 </div>
               </div>
@@ -131,9 +131,7 @@ export default function Home({ tech }: Props) {
               <div className="mobile-links-row-1">
                 <div
                   className="mobile-link mobile-link-border-right"
-                  onClick={() =>
-                    window.open("https://github.com/taylorlaughlin")
-                  }
+                  onClick={() => window.open("https://github.com/Mattlaughlin")}
                 >
                   GitHub
                   <Link />
@@ -141,7 +139,7 @@ export default function Home({ tech }: Props) {
                 <div
                   className="mobile-link"
                   onClick={() =>
-                    window.open("https://linkedin.com/in/taylor-laughlin")
+                    window.open("https://linkedin.com/in/Matt-laughlin")
                   }
                 >
                   LinkedIn
@@ -153,7 +151,7 @@ export default function Home({ tech }: Props) {
                 <div
                   className="mobile-link mobile-link-border-right"
                   onClick={() => {
-                    navigator.clipboard.writeText("hi@taylorlaughl.in");
+                    navigator.clipboard.writeText("hi@mattlaughl.in");
                     setCopy(true),
                       setTimeout(() => {
                         setCopy(false);
@@ -228,19 +226,19 @@ export default function Home({ tech }: Props) {
                   </div>
                 </div>
               )}
-
+              {/* 
               {!customStack && (
                 <div className="heart">
                   <Heart />
                 </div>
-              )}
+              )} */}
             </div>
           </div>
 
           <div className="links">
             <div
               className="link-parent"
-              onClick={() => window.open("https://github.com/taylorlaughlin")}
+              onClick={() => window.open("https://github.com/spookysip")}
             >
               <div>GitHub</div>
               <Link />
@@ -249,7 +247,7 @@ export default function Home({ tech }: Props) {
             <div
               className="link-parent"
               onClick={() =>
-                window.open("https://linkedin.com/in/taylor-laughlin")
+                window.open("https://linkedin.com/in/mattclaughlin")
               }
             >
               <div>LinkedIn</div>
@@ -259,7 +257,7 @@ export default function Home({ tech }: Props) {
             <div
               className="link-parent"
               onClick={() => {
-                navigator.clipboard.writeText("hi@taylorlaughl.in");
+                navigator.clipboard.writeText("hi@mattlaughl.in");
                 setCopy(true),
                   setTimeout(() => {
                     setCopy(false);
