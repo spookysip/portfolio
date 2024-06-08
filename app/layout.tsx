@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Taylor Laughlin",
+  title: "Matt Laughlin",
   description: "Full-Stack Developer",
 };
 
