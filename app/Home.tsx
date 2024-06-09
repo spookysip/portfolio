@@ -102,38 +102,42 @@ export default function Home({ tech }: Props) {
           }}
         ></div>
       </div>
+      <div className="name-container">
+        <div className="name-horizontal-scrolling-items">
+          <div className="name-horizontal-scrolling-items__item">
+            Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
+          </div>
+
+          <div className="name-horizontal-scrolling-items__item">
+            Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp; Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
+          </div>
+        </div>
+      </div>
+      <div className="role">
+        Full-Stack Developer&nbsp;•&nbsp;Administrative
+        Coordinator&nbsp;•&nbsp;Media Producer
+      </div>
+
       <div className="top">
         <div className="about">
           <div className="title">
-            <div className="name-container">
-              <div className="name-horizontal-scrolling-items">
-                <div className="name-horizontal-scrolling-items__item">
-                  Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
-                </div>
-
-                <div className="name-horizontal-scrolling-items__item">
-                  Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp; Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
-                </div>
-              </div>
-            </div>
-            <div className="role">Full-Stack Developer</div>
             <div className="mobile-links">
               <div className="mobile-links-row-1">
                 <div
                   className="mobile-link mobile-link-border-right"
                   onClick={() => window.open("https://github.com/Mattlaughlin")}
                 >
-                  GitHub
+                  💽 GitHub
                   <Link />
                 </div>
                 <div
@@ -142,7 +146,7 @@ export default function Home({ tech }: Props) {
                     window.open("https://linkedin.com/in/Matt-laughlin")
                   }
                 >
-                  LinkedIn
+                  💼 LinkedIn
                   <Link />
                 </div>
               </div>
@@ -158,7 +162,7 @@ export default function Home({ tech }: Props) {
                       }, 3000);
                   }}
                 >
-                  Copy Email
+                  📬 Copy Email
                   <Clipboard copy={copy} />
                 </div>
                 <div
@@ -171,7 +175,7 @@ export default function Home({ tech }: Props) {
                       }, 3000);
                   }}
                 >
-                  Resume
+                  📜 Resume
                   <Download download={download} />
                 </div>
               </div>
@@ -236,11 +240,15 @@ export default function Home({ tech }: Props) {
           </div>
 
           <div className="links">
+            <div className="link-parent">
+              <div>Links</div>
+            </div>
+
             <div
               className="link-parent"
               onClick={() => window.open("https://github.com/spookysip")}
             >
-              <div>GitHub</div>
+              <div>💽 GitHub</div>
               <Link />
             </div>
 
@@ -250,7 +258,7 @@ export default function Home({ tech }: Props) {
                 window.open("https://linkedin.com/in/mattclaughlin")
               }
             >
-              <div>LinkedIn</div>
+              <div>💼 LinkedIn</div>
               <Link />
             </div>
 
@@ -264,7 +272,7 @@ export default function Home({ tech }: Props) {
                   }, 3000);
               }}
             >
-              <div>Copy Email</div>
+              <div>📬 Copy Email</div>
               <Clipboard copy={copy} />
             </div>
 
@@ -278,7 +286,7 @@ export default function Home({ tech }: Props) {
                   }, 3000);
               }}
             >
-              <div>Resume</div>
+              <div>📜 Resume</div>
               <Download download={download} />
             </div>
           </div>
@@ -353,14 +361,14 @@ export default function Home({ tech }: Props) {
           </div>
           <div className="highlight-section">
             <div className="experience-summary">
-              cozyPunk is a "passion product" I created to be a comforting study
-              buddy that makes working feel like a game. It allows users to play
-              relaxing music and soundscapes, keep track of quests to achieve,
-              and run campaign/rest timers.
+              🍵 cozyPunk is a "passion product" I created to be a comforting
+              study buddy that makes working feel like a game. It allows users
+              to play relaxing music and soundscapes, keep track of quests to
+              achieve, and run campaign/rest timers.
             </div>
             <ul className="highlights">
               <li className="highlight-item">
-                Developed a feature-rich, full-stack web application from
+                💻 Developed a feature-rich, full-stack web application from
                 concept to production. Front End: Next JS // React //
                 Typescript. Back End: Node JS // Typescript // MySQL // REST //
                 Planetscale // Prisma. Infrastructure: Vercel // S3.
@@ -402,20 +410,20 @@ export default function Home({ tech }: Props) {
               </div>
 
               <li className="highlight-item">
-                Designed a custom UI/UX for the entire site. Utilized Adobe XD
-                and Figma to translate designs and svg's into a custom and fully
-                responsive css design system.
+                🎨 Designed a custom UI/UX for the entire site. Utilized Adobe
+                XD and Figma to translate designs and svg's into a custom and
+                fully responsive css design system.
               </li>
 
               <li className="highlight-item">
-                Seamlessly integrated a robust MySQL database solution,
+                📋 Seamlessly integrated a robust MySQL database solution,
                 optimizing data storage and retrieval processes. Implemented
                 effective data schemas and management strategies, ensuring data
                 integrity, security, and scalability.
               </li>
 
               <li className="highlight-item">
-                Continually designing, coding and shipping new features,
+                ⛟ Continually designing, coding and shipping new features,
                 auditing and improving infrastructure development and
                 refactoring the current codebase for improved performance.
               </li>
@@ -446,7 +454,7 @@ export default function Home({ tech }: Props) {
           </div>
           <div className="highlight-section">
             <div className="experience-summary">
-              Filmsupply and Musicbed are sister companies dedicated to
+              🎥 Filmsupply and 🎹 Musicbed are sister companies dedicated to
               supporting creatives through licensing premium footage and music.
               I had the opportunity to create an internal back end server and
               client to manage the footage curation pipeline and create another
@@ -454,7 +462,7 @@ export default function Home({ tech }: Props) {
             </div>
             <ul className="highlights">
               <li className="highlight-item">
-                Spearheaded and implemented the development and continual
+                💾 Spearheaded and implemented the development and continual
                 maintenance of a full-stack application for Filmsupply's content
                 department. Back End: MySQL database // REST API //
                 NodeJS/Express server built behind a Forest Admin application.
@@ -506,20 +514,21 @@ export default function Home({ tech }: Props) {
               </div>
 
               <li className="highlight-item">
-                Delivered continued architecture imporvements for services
+                🏠 Delivered continued architecture imporvements for services
                 within AWS. Back End: NodeJS/Express server deployed to Lambda
                 function through the serverless framework and accessed through
                 API Gateway. Front End: React App deployed through Amplify.
               </li>
 
               <li className="highlight-item">
-                Maintained integrity with third party API's, improved existing
-                codebases through refactoring strategies and contributed to the
-                transition of legacy monolithic architecture to microservices.
+                📎 Maintained integrity with third party API's, improved
+                existing codebases through refactoring strategies and
+                contributed to the transition of legacy monolithic architecture
+                to microservices.
               </li>
 
               <li className="highlight-item">
-                Contributed to 5+ repositories weekly. Responsible for
+                ✒️ Contributed to 5+ repositories weekly. Responsible for
                 architecture support, front end stories in React and back end
                 stories in NodeJS/Express within any given sprint.
               </li>
