@@ -34,6 +34,30 @@ const robotoRegular = localFont({
   variable: "--font-roboto-regular",
 });
 
+const montRegular = localFont({
+  src: "../public/fonts/Montserrat-Regular.woff2",
+  display: "swap",
+  variable: "--font-mont-regular",
+});
+
+const montMedium = localFont({
+  src: "../public/fonts/Montserrat-Medium.woff2",
+  display: "swap",
+  variable: "--font-mont-medium",
+});
+
+const montSemiBold = localFont({
+  src: "../public/fonts/Montserrat-SemiBold.woff2",
+  display: "swap",
+  variable: "--font-mont-semibold",
+});
+
+const pixel = localFont({
+  src: "../public/fonts/Pixel.woff2",
+  display: "swap",
+  variable: "--font-pixel",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -42,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${robotoBlack.variable} ${robotoBold.variable} ${robotoMedium.variable} ${robotoRegular.variable}`}
+      className={`${robotoBlack.variable} ${robotoBold.variable} ${robotoMedium.variable} ${robotoRegular.variable} ${montSemiBold.variable} ${montMedium.variable} ${montRegular.variable} ${pixel.variable}`}
     >
       <body className={inter.className}>{children}</body>
     </html>

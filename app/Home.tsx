@@ -2,11 +2,12 @@
 
 import "./home.scss";
 import Link from "./icons/Link";
+import ExperienceLink from "./icons/ExperienceLink";
 import Download from "./icons/Download";
 import Clipboard from "./icons/Clipboard";
 import React, { useEffect, useState, useRef } from "react";
-import Heart from "./icons/Heart";
 import Clock from "./icons/Clock";
+import Monster from "./icons/Monster";
 
 interface Tech {
   id: Number;
@@ -25,7 +26,9 @@ export default function Home({ tech }: Props) {
   const [copy, setCopy] = useState(false) as any;
   const [download, setDownload] = useState(false) as any;
   const [stackTitle, setStackTitle] = useState("") as any;
-
+  const [animationSpeed, setAnimationSpeed] = useState(4);
+  const [score, setScore] = useState(0) as any;
+  const [monsterHit, setMonsterHit] = useState(false) as any;
   const stackElement = useRef() as any;
 
   useEffect(() => {
@@ -89,8 +92,25 @@ export default function Home({ tech }: Props) {
     return false;
   });
 
+  const getRandomNumber = () => (Math.random() * 180 - 90).toFixed(2);
+
   const customStack =
     techDisplay.filter((item: any) => item.selected).length > 0;
+
+  const getRandomMargin = () => {
+    const marginTop = getRandomNumber();
+    const marginLeft = getRandomNumber();
+    return { marginTop, marginLeft };
+  };
+
+  const [margin, setMargin] = useState(getRandomMargin());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMargin(getRandomMargin());
+    }, 700);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="all">
@@ -102,48 +122,56 @@ export default function Home({ tech }: Props) {
           }}
         ></div>
       </div>
+      <div className="name-container">
+        <div className="name-horizontal-scrolling-items">
+          <div className="name-horizontal-scrolling-items__item">
+            Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
+          </div>
+
+          <div className="name-horizontal-scrolling-items__item">
+            Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp; Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
+          </div>
+        </div>
+      </div>
+      <div className="role">
+        Full-Stack Developer&nbsp;•&nbsp;Administrative
+        Coordinator&nbsp;•&nbsp;Media Producer
+      </div>
+
       <div className="top">
         <div className="about">
           <div className="title">
-            <div className="name-container">
-              <div className="name-horizontal-scrolling-items">
-                <div className="name-horizontal-scrolling-items__item">
-                  Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
-                </div>
-
-                <div className="name-horizontal-scrolling-items__item">
-                  Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp; Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-                  Laughlin&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
-                </div>
-              </div>
-            </div>
-            <div className="role">Full-Stack Developer</div>
             <div className="mobile-links">
               <div className="mobile-links-row-1">
                 <div
                   className="mobile-link mobile-link-border-right"
-                  onClick={() => window.open("https://github.com/Mattlaughlin")}
+                  onClick={() => window.open("https://github.com/spookysip")}
                 >
-                  GitHub
-                  <Link />
+                  💽 GitHub
+                  <div className="link-icon link-color">
+                    <Link />
+                  </div>
                 </div>
                 <div
                   className="mobile-link"
                   onClick={() =>
-                    window.open("https://linkedin.com/in/Matt-laughlin")
+                    window.open("https://linkedin.com/in/mattclaughlin")
                   }
                 >
-                  LinkedIn
-                  <Link />
+                  🤝 LinkedIn
+                  <span className="link-icon link-color">
+                    <Link />
+                  </span>
                 </div>
               </div>
 
@@ -158,8 +186,12 @@ export default function Home({ tech }: Props) {
                       }, 3000);
                   }}
                 >
-                  Copy Email
-                  <Clipboard copy={copy} />
+                  📬 Copy Email
+                  <span
+                    className={!copy ? "link-icon link-color" : "link-icon"}
+                  >
+                    <Clipboard copy={copy} />
+                  </span>
                 </div>
                 <div
                   className="mobile-link"
@@ -171,15 +203,48 @@ export default function Home({ tech }: Props) {
                       }, 3000);
                   }}
                 >
-                  Resume
-                  <Download download={download} />
+                  📜 Resume
+                  <span
+                    className={!download ? "link-icon link-color" : "link-icon"}
+                  >
+                    <Download download={download} />
+                  </span>
                 </div>
               </div>
             </div>
 
             <div ref={stackElement} />
 
-            <div className={!customStack ? "section" : "custom-stack"}>
+            <div
+              className={
+                !customStack && monsterHit
+                  ? "section game-background"
+                  : !customStack && !monsterHit
+                  ? "section"
+                  : "custom-stack"
+              }
+            >
+              {!customStack && (
+                <div
+                  className="move"
+                  // style={{
+                  //   animationDuration: `${animationSpeed}s`,
+                  //   marginTop: `${margin.marginTop}%`,
+                  //   marginLeft: `${margin.marginLeft}%`,
+                  // }}
+                  onClick={() => {
+                    setScore((prev: any) => prev + 1);
+                    setMonsterHit(true);
+                    setTimeout(() => {
+                      setCopy(false);
+                      setMonsterHit(false);
+                    }, 30);
+                  }}
+                >
+                  <Monster />
+                </div>
+              )}
+
               {customStack && (
                 <div>
                   <div className="custom-type">
@@ -216,7 +281,7 @@ export default function Home({ tech }: Props) {
                         item.selected && (
                           <div
                             key={item.id}
-                            className="item custom-item"
+                            className="custom-item"
                             onClick={() => clickCustomStack(item)}
                           >
                             {item.name}
@@ -236,12 +301,40 @@ export default function Home({ tech }: Props) {
           </div>
 
           <div className="links">
+            {!customStack && (
+              <div
+                className={
+                  monsterHit ? "game-controls game-background" : "game-controls"
+                }
+              >
+                <div className="socre">Score: {score}</div>
+                <div>Start</div>
+
+                {/* <div className="speed-parent">
+                  <div className="speed">Speed</div>
+                  <div className="less-speed">-</div>
+                  <div
+                    className="more-speed"
+                    onClick={() => setAnimationSpeed((prev) => prev - 0.1)}
+                  >
+                    +
+                  </div>
+                </div> */}
+              </div>
+            )}
+
+            <div className="link-parent">
+              <div>Links</div>
+            </div>
+
             <div
               className="link-parent"
               onClick={() => window.open("https://github.com/spookysip")}
             >
-              <div>GitHub</div>
-              <Link />
+              <div>💽 GitHub</div>
+              <span className="link-icon link-color">
+                <Link />
+              </span>
             </div>
 
             <div
@@ -250,8 +343,10 @@ export default function Home({ tech }: Props) {
                 window.open("https://linkedin.com/in/mattclaughlin")
               }
             >
-              <div>LinkedIn</div>
-              <Link />
+              <div>🤝 LinkedIn</div>
+              <span className="link-icon link-color">
+                <Link />
+              </span>
             </div>
 
             <div
@@ -264,8 +359,10 @@ export default function Home({ tech }: Props) {
                   }, 3000);
               }}
             >
-              <div>Copy Email</div>
-              <Clipboard copy={copy} />
+              <div>📬 Copy Email</div>
+              <span className={!copy ? "link-icon link-color" : "link-icon"}>
+                <Clipboard copy={copy} />
+              </span>
             </div>
 
             <div
@@ -278,8 +375,12 @@ export default function Home({ tech }: Props) {
                   }, 3000);
               }}
             >
-              <div>Resume</div>
-              <Download download={download} />
+              <div>📜 Resume</div>
+              <span
+                className={!download ? "link-icon link-color" : "link-icon"}
+              >
+                <Download download={download} />
+              </span>
             </div>
           </div>
         </div>
@@ -344,7 +445,9 @@ export default function Home({ tech }: Props) {
             onClick={() => window.open("https://cozypunk.io")}
           >
             <span className="website-text">cozyPunk</span>
-            <Link />
+            <span className="experience-link">
+              <ExperienceLink />
+            </span>
           </div>
           <div className="experience-title">Full-Stack Developer</div>
           <div className="timeframe-section">
@@ -353,14 +456,14 @@ export default function Home({ tech }: Props) {
           </div>
           <div className="highlight-section">
             <div className="experience-summary">
-              cozyPunk is a "passion product" I created to be a comforting study
-              buddy that makes working feel like a game. It allows users to play
-              relaxing music and soundscapes, keep track of quests to achieve,
-              and run campaign/rest timers.
+              🍵 cozyPunk is a "passion product" I created to be a comforting
+              study buddy that makes working feel like a game. It allows users
+              to play relaxing music and soundscapes, keep track of quests to
+              achieve, and run campaign/rest timers.
             </div>
             <ul className="highlights">
               <li className="highlight-item">
-                Developed a feature-rich, full-stack web application from
+                💻 Developed a feature-rich, full-stack web application from
                 concept to production. Front End: Next JS // React //
                 Typescript. Back End: Node JS // Typescript // MySQL // REST //
                 Planetscale // Prisma. Infrastructure: Vercel // S3.
@@ -402,20 +505,20 @@ export default function Home({ tech }: Props) {
               </div>
 
               <li className="highlight-item">
-                Designed a custom UI/UX for the entire site. Utilized Adobe XD
-                and Figma to translate designs and svg's into a custom and fully
-                responsive css design system.
+                🎨 Designed a custom UI/UX for the entire site. Utilized Adobe
+                XD and Figma to translate designs and svg's into a custom and
+                fully responsive css design system.
               </li>
 
               <li className="highlight-item">
-                Seamlessly integrated a robust MySQL database solution,
+                📋 Seamlessly integrated a robust MySQL database solution,
                 optimizing data storage and retrieval processes. Implemented
                 effective data schemas and management strategies, ensuring data
                 integrity, security, and scalability.
               </li>
 
               <li className="highlight-item">
-                Continually designing, coding and shipping new features,
+                ⛟ Continually designing, coding and shipping new features,
                 auditing and improving infrastructure development and
                 refactoring the current codebase for improved performance.
               </li>
@@ -429,14 +532,18 @@ export default function Home({ tech }: Props) {
             onClick={() => window.open("https://filmsupply.com")}
           >
             <span className="website-text">Filmsupply</span>
-            <Link />
+            <span className="experience-link">
+              <ExperienceLink />
+            </span>
           </div>
           <div
             className="website space animate"
             onClick={() => window.open("https://musicbed.com")}
           >
             <span className="website-text">Musicbed</span>
-            <Link />
+            <span className="experience-link">
+              <ExperienceLink />
+            </span>
           </div>
           <div className="experience-title">Full-Stack Developer</div>
 
@@ -446,7 +553,7 @@ export default function Home({ tech }: Props) {
           </div>
           <div className="highlight-section">
             <div className="experience-summary">
-              Filmsupply and Musicbed are sister companies dedicated to
+              🎥 Filmsupply and 🎹 Musicbed are sister companies dedicated to
               supporting creatives through licensing premium footage and music.
               I had the opportunity to create an internal back end server and
               client to manage the footage curation pipeline and create another
@@ -454,7 +561,7 @@ export default function Home({ tech }: Props) {
             </div>
             <ul className="highlights">
               <li className="highlight-item">
-                Spearheaded and implemented the development and continual
+                💾 Spearheaded and implemented the development and continual
                 maintenance of a full-stack application for Filmsupply's content
                 department. Back End: MySQL database // REST API //
                 NodeJS/Express server built behind a Forest Admin application.
@@ -506,20 +613,21 @@ export default function Home({ tech }: Props) {
               </div>
 
               <li className="highlight-item">
-                Delivered continued architecture imporvements for services
+                🏠 Delivered continued architecture imporvements for services
                 within AWS. Back End: NodeJS/Express server deployed to Lambda
                 function through the serverless framework and accessed through
                 API Gateway. Front End: React App deployed through Amplify.
               </li>
 
               <li className="highlight-item">
-                Maintained integrity with third party API's, improved existing
-                codebases through refactoring strategies and contributed to the
-                transition of legacy monolithic architecture to microservices.
+                📎 Maintained integrity with third party API's, improved
+                existing codebases through refactoring strategies and
+                contributed to the transition of legacy monolithic architecture
+                to microservices.
               </li>
 
               <li className="highlight-item">
-                Contributed to 5+ repositories weekly. Responsible for
+                ✒️ Contributed to 5+ repositories weekly. Responsible for
                 architecture support, front end stories in React and back end
                 stories in NodeJS/Express within any given sprint.
               </li>
