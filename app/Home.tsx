@@ -2,11 +2,12 @@
 
 import "./home.scss";
 import Link from "./icons/Link";
+import ExperienceLink from "./icons/ExperienceLink";
 import Download from "./icons/Download";
 import Clipboard from "./icons/Clipboard";
 import React, { useEffect, useState, useRef } from "react";
-import Heart from "./icons/Heart";
 import Clock from "./icons/Clock";
+import Monster from "./icons/Monster";
 
 interface Tech {
   id: Number;
@@ -25,7 +26,9 @@ export default function Home({ tech }: Props) {
   const [copy, setCopy] = useState(false) as any;
   const [download, setDownload] = useState(false) as any;
   const [stackTitle, setStackTitle] = useState("") as any;
-
+  const [animationSpeed, setAnimationSpeed] = useState(4);
+  const [score, setScore] = useState(0) as any;
+  const [monsterHit, setMonsterHit] = useState(false) as any;
   const stackElement = useRef() as any;
 
   useEffect(() => {
@@ -89,8 +92,25 @@ export default function Home({ tech }: Props) {
     return false;
   });
 
+  const getRandomNumber = () => (Math.random() * 180 - 90).toFixed(2);
+
   const customStack =
     techDisplay.filter((item: any) => item.selected).length > 0;
+
+  const getRandomMargin = () => {
+    const marginTop = getRandomNumber();
+    const marginLeft = getRandomNumber();
+    return { marginTop, marginLeft };
+  };
+
+  const [margin, setMargin] = useState(getRandomMargin());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMargin(getRandomMargin());
+    }, 700);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="all">
@@ -135,19 +155,23 @@ export default function Home({ tech }: Props) {
               <div className="mobile-links-row-1">
                 <div
                   className="mobile-link mobile-link-border-right"
-                  onClick={() => window.open("https://github.com/Mattlaughlin")}
+                  onClick={() => window.open("https://github.com/spookysip")}
                 >
                   💽 GitHub
-                  <Link />
+                  <div className="link-icon link-color">
+                    <Link />
+                  </div>
                 </div>
                 <div
                   className="mobile-link"
                   onClick={() =>
-                    window.open("https://linkedin.com/in/Matt-laughlin")
+                    window.open("https://linkedin.com/in/mattclaughlin")
                   }
                 >
-                  💼 LinkedIn
-                  <Link />
+                  🤝 LinkedIn
+                  <span className="link-icon link-color">
+                    <Link />
+                  </span>
                 </div>
               </div>
 
@@ -163,7 +187,11 @@ export default function Home({ tech }: Props) {
                   }}
                 >
                   📬 Copy Email
-                  <Clipboard copy={copy} />
+                  <span
+                    className={!copy ? "link-icon link-color" : "link-icon"}
+                  >
+                    <Clipboard copy={copy} />
+                  </span>
                 </div>
                 <div
                   className="mobile-link"
@@ -176,14 +204,47 @@ export default function Home({ tech }: Props) {
                   }}
                 >
                   📜 Resume
-                  <Download download={download} />
+                  <span
+                    className={!download ? "link-icon link-color" : "link-icon"}
+                  >
+                    <Download download={download} />
+                  </span>
                 </div>
               </div>
             </div>
 
             <div ref={stackElement} />
 
-            <div className={!customStack ? "section" : "custom-stack"}>
+            <div
+              className={
+                !customStack && monsterHit
+                  ? "section game-background"
+                  : !customStack && !monsterHit
+                  ? "section"
+                  : "custom-stack"
+              }
+            >
+              {!customStack && (
+                <div
+                  className="move"
+                  // style={{
+                  //   animationDuration: `${animationSpeed}s`,
+                  //   marginTop: `${margin.marginTop}%`,
+                  //   marginLeft: `${margin.marginLeft}%`,
+                  // }}
+                  onClick={() => {
+                    setScore((prev: any) => prev + 1);
+                    setMonsterHit(true);
+                    setTimeout(() => {
+                      setCopy(false);
+                      setMonsterHit(false);
+                    }, 30);
+                  }}
+                >
+                  <Monster />
+                </div>
+              )}
+
               {customStack && (
                 <div>
                   <div className="custom-type">
@@ -220,7 +281,7 @@ export default function Home({ tech }: Props) {
                         item.selected && (
                           <div
                             key={item.id}
-                            className="item custom-item"
+                            className="custom-item"
                             onClick={() => clickCustomStack(item)}
                           >
                             {item.name}
@@ -240,6 +301,28 @@ export default function Home({ tech }: Props) {
           </div>
 
           <div className="links">
+            {!customStack && (
+              <div
+                className={
+                  monsterHit ? "game-controls game-background" : "game-controls"
+                }
+              >
+                <div className="socre">Score: {score}</div>
+                <div>Start</div>
+
+                {/* <div className="speed-parent">
+                  <div className="speed">Speed</div>
+                  <div className="less-speed">-</div>
+                  <div
+                    className="more-speed"
+                    onClick={() => setAnimationSpeed((prev) => prev - 0.1)}
+                  >
+                    +
+                  </div>
+                </div> */}
+              </div>
+            )}
+
             <div className="link-parent">
               <div>Links</div>
             </div>
@@ -249,7 +332,9 @@ export default function Home({ tech }: Props) {
               onClick={() => window.open("https://github.com/spookysip")}
             >
               <div>💽 GitHub</div>
-              <Link />
+              <span className="link-icon link-color">
+                <Link />
+              </span>
             </div>
 
             <div
@@ -258,8 +343,10 @@ export default function Home({ tech }: Props) {
                 window.open("https://linkedin.com/in/mattclaughlin")
               }
             >
-              <div>💼 LinkedIn</div>
-              <Link />
+              <div>🤝 LinkedIn</div>
+              <span className="link-icon link-color">
+                <Link />
+              </span>
             </div>
 
             <div
@@ -273,7 +360,9 @@ export default function Home({ tech }: Props) {
               }}
             >
               <div>📬 Copy Email</div>
-              <Clipboard copy={copy} />
+              <span className={!copy ? "link-icon link-color" : "link-icon"}>
+                <Clipboard copy={copy} />
+              </span>
             </div>
 
             <div
@@ -287,7 +376,11 @@ export default function Home({ tech }: Props) {
               }}
             >
               <div>📜 Resume</div>
-              <Download download={download} />
+              <span
+                className={!download ? "link-icon link-color" : "link-icon"}
+              >
+                <Download download={download} />
+              </span>
             </div>
           </div>
         </div>
@@ -352,7 +445,9 @@ export default function Home({ tech }: Props) {
             onClick={() => window.open("https://cozypunk.io")}
           >
             <span className="website-text">cozyPunk</span>
-            <Link />
+            <span className="experience-link">
+              <ExperienceLink />
+            </span>
           </div>
           <div className="experience-title">Full-Stack Developer</div>
           <div className="timeframe-section">
@@ -437,14 +532,18 @@ export default function Home({ tech }: Props) {
             onClick={() => window.open("https://filmsupply.com")}
           >
             <span className="website-text">Filmsupply</span>
-            <Link />
+            <span className="experience-link">
+              <ExperienceLink />
+            </span>
           </div>
           <div
             className="website space animate"
             onClick={() => window.open("https://musicbed.com")}
           >
             <span className="website-text">Musicbed</span>
-            <Link />
+            <span className="experience-link">
+              <ExperienceLink />
+            </span>
           </div>
           <div className="experience-title">Full-Stack Developer</div>
 
