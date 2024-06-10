@@ -143,15 +143,57 @@ export default function Home({ tech }: Props) {
           </div>
         </div>
       </div>
+
       <div className="role">
-        Full-Stack Developer&nbsp;•&nbsp;Administrative
-        Coordinator&nbsp;•&nbsp;Media Producer
+        <div className="horizontal-scrolling-items">
+          <div className="horizontal-scrolling-items__item">
+            Full-Stack Developer&nbsp;•&nbsp;Administrative
+            Coordinator&nbsp;•&nbsp;Media Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp;
+          </div>
+
+          <div className="horizontal-scrolling-items__item">
+            Full-Stack Developer&nbsp;•&nbsp;Administrative
+            Coordinator&nbsp;•&nbsp;Media Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp; Full-Stack
+            Developer&nbsp;•&nbsp;Administrative Coordinator&nbsp;•&nbsp;Media
+            Producer&nbsp;•&nbsp;
+          </div>
+        </div>
       </div>
 
       <div className="top">
         <div className="about">
           <div className="title">
             <div className="mobile-links">
+              <div className="mobile-link-parent">
+                <div className="horizontal-scrolling-items">
+                  <div className="horizontal-scrolling-items__item">
+                    Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;
+                  </div>
+
+                  <div className="horizontal-scrolling-items__item">
+                    Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;
+                  </div>
+                </div>
+              </div>
+
               <div className="mobile-links-row-1">
                 <div
                   className="mobile-link mobile-link-border-right"
@@ -248,9 +290,67 @@ export default function Home({ tech }: Props) {
               {customStack && (
                 <div>
                   <div className="custom-type">
-                    {stackTitle === ""
-                      ? "Custom Stack"
-                      : "Custom Stack (" + stackTitle + ")"}
+                    {stackTitle === "" ? (
+                      <div className="mobile-link-parent">
+                        <div className="horizontal-scrolling-items">
+                          <div className="horizontal-scrolling-items__item">
+                            Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;
+                          </div>
+
+                          <div className="horizontal-scrolling-items__item">
+                            Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
+                            Stack&nbsp;•&nbsp;
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="mobile-link-parent">
+                        <div className="horizontal-scrolling-items">
+                          <div className="horizontal-scrolling-items__item">
+                            Custom Stack: {stackTitle}&nbsp;•&nbsp;Custom Stack:{" "}
+                            {stackTitle} &nbsp;•&nbsp;Custom Stack -{" "}
+                            {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;
+                          </div>
+
+                          <div className="horizontal-scrolling-items__item">
+                            Custom Stack: {stackTitle}&nbsp;•&nbsp;Custom Stack:{" "}
+                            {stackTitle} &nbsp;•&nbsp;Custom Stack -{" "}
+                            {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
+                            &nbsp;•&nbsp;
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {techDisplay.filter((item: any) => item.selected).length >
@@ -300,7 +400,7 @@ export default function Home({ tech }: Props) {
             </div>
           </div>
 
-          <div className="links">
+          <div className="Custom Stack">
             {!customStack && (
               <div
                 className={
@@ -324,7 +424,16 @@ export default function Home({ tech }: Props) {
             )}
 
             <div className="link-parent">
-              <div>Links</div>
+              <div className="horizontal-scrolling-items">
+                <div className="horizontal-scrolling-items__item">
+                  Custom
+                  Stack&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;
+                </div>
+
+                <div className="horizontal-scrolling-items__item">
+                  Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;
+                </div>
+              </div>
             </div>
 
             <div
@@ -386,6 +495,28 @@ export default function Home({ tech }: Props) {
         </div>
 
         <div className="skills">
+          <div className="technologies-title">
+            <div className="horizontal-scrolling-items">
+              <div className="horizontal-scrolling-items__item">
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+              </div>
+
+              <div className="horizontal-scrolling-items__item">
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+              </div>
+            </div>
+          </div>
+
           {Object.keys(groupedData).map(
             (type) =>
               techDisplay.filter(
