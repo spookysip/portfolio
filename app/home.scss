@@ -223,7 +223,7 @@ html {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-right: 6px;
+  padding-right: 26px;
   margin-top: 25px;
   margin-bottom: 14px;
   margin-left: -8px;
@@ -714,11 +714,19 @@ html {
 //   transition: scale 0.1s;
 // }
 
+.progress-monster {
+  position: fixed;
+  scale: 0.12;
+  margin-top: -55px;
+  z-index: 1;
+}
+
 .progress-bar {
   background-color: #9475bf;
-  height: 10px;
+  height: 14px;
   width: 0%;
   position: fixed;
+  z-index: 1;
 }
 
 .custom-stack {

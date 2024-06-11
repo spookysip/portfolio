@@ -22,7 +22,7 @@ interface Props {
 
 export default function Home({ tech }: Props) {
   const [techDisplay, setTechDisplay] = useState(tech) as any;
-  const [scrolled, setScrolled] = useState() as any;
+  const [scrolled, setScrolled] = useState(0) as any;
   const [copy, setCopy] = useState(false) as any;
   const [download, setDownload] = useState(false) as any;
   const [stackTitle, setStackTitle] = useState("") as any;
@@ -121,6 +121,14 @@ export default function Home({ tech }: Props) {
             width: scrolled + "%",
           }}
         ></div>
+        <div
+          className="progress-monster"
+          style={{
+            marginLeft: scrolled - 10.1 + "%",
+          }}
+        >
+          <Monster />
+        </div>
       </div>
       <div className="name-container">
         <div className="name-horizontal-scrolling-items">
