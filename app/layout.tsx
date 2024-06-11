@@ -58,6 +58,42 @@ const pixel = localFont({
   variable: "--font-pixel",
 });
 
+const fat = localFont({
+  src: "../public/fonts/Fat-Font-Slanted.woff2",
+  display: "swap",
+  variable: "--font-fat",
+});
+
+const sango = localFont({
+  src: "../public/fonts/Sango-Static.woff2",
+  display: "swap",
+  variable: "--font-sango",
+});
+
+const canobis = localFont({
+  src: "../public/fonts/Canobis.woff2",
+  display: "swap",
+  variable: "--font-canobis",
+});
+
+const quiny = localFont({
+  src: "../public/fonts/Quiny.woff2",
+  display: "swap",
+  variable: "--font-quniy",
+});
+
+const raider = localFont({
+  src: "../public/fonts/Raider.woff2",
+  display: "swap",
+  variable: "--font-raider",
+});
+
+const bogam = localFont({
+  src: "../public/fonts/Bogam.woff2",
+  display: "swap",
+  variable: "--font-bogam",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -66,7 +102,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${robotoBlack.variable} ${robotoBold.variable} ${robotoMedium.variable} ${robotoRegular.variable} ${montSemiBold.variable} ${montMedium.variable} ${montRegular.variable} ${pixel.variable}`}
+      className={`${robotoBlack.variable} ${robotoBold.variable} ${robotoMedium.variable} ${robotoRegular.variable} ${montSemiBold.variable} ${montMedium.variable} ${montRegular.variable} ${pixel.variable} ${fat.variable} ${sango.variable} ${canobis.variable} ${quiny.variable} ${raider.variable} ${bogam.variable}`}
     >
       <body className={inter.className}>{children}</body>
     </html>

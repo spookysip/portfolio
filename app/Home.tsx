@@ -127,7 +127,7 @@ export default function Home({ tech }: Props) {
           <div className="name-horizontal-scrolling-items__item">
             Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
             Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
+            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp; Matt
             Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
             Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
             Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
@@ -185,11 +185,11 @@ export default function Home({ tech }: Props) {
               <div className="mobile-link-parent">
                 <div className="horizontal-scrolling-items">
                   <div className="horizontal-scrolling-items__item">
-                    Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;
+                    Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️
                   </div>
 
                   <div className="horizontal-scrolling-items__item">
-                    Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;
+                    Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️
                   </div>
                 </div>
               </div>
@@ -291,116 +291,96 @@ export default function Home({ tech }: Props) {
                 <div>
                   <div className="custom-type">
                     {stackTitle === "" ? (
-                      <div className="mobile-link-parent">
+                      <div className="custom-stack-title">
                         <div className="horizontal-scrolling-items">
                           <div className="horizontal-scrolling-items__item">
-                            Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;
+                            Your Stack👁️Your Stack👁️Your Stack👁️Your Stack👁️Your
+                            Stack👁️Your Stack👁️Your Stack👁️Your Stack👁️Your
+                            Stack👁️Your Stack👁️Your Stack👁️Your Stack👁️
                           </div>
 
                           <div className="horizontal-scrolling-items__item">
-                            Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;Custom Stack&nbsp;•&nbsp;Custom
-                            Stack&nbsp;•&nbsp;
+                            Your Stack👁️Your Stack👁️Your Stack👁️Your Stack👁️Your
+                            Stack👁️Your Stack👁️Your Stack👁️Your Stack👁️Your
+                            Stack👁️Your Stack👁️Your Stack👁️Your Stack👁️
                           </div>
                         </div>
                       </div>
                     ) : (
-                      <div className="mobile-link-parent">
+                      <div className="custom-stack-title">
                         <div className="horizontal-scrolling-items">
                           <div className="horizontal-scrolling-items__item">
-                            Custom Stack: {stackTitle}&nbsp;•&nbsp;Custom Stack:{" "}
-                            {stackTitle} &nbsp;•&nbsp;Custom Stack -{" "}
-                            {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;
+                            {stackTitle} Stack👁️{stackTitle} Stack👁️{stackTitle}{" "}
+                            Stack👁️{stackTitle} Stack 👁️{stackTitle} Stack👁️
+                            {stackTitle} Stack 👁️{stackTitle} Stack 👁️
+                            {stackTitle} Stack👁️{stackTitle} Stack 👁️
+                            {stackTitle} Stack 👁️{stackTitle} Stack👁️
+                            {stackTitle} Stack 👁️
                           </div>
 
                           <div className="horizontal-scrolling-items__item">
-                            Custom Stack: {stackTitle}&nbsp;•&nbsp;Custom Stack:{" "}
-                            {stackTitle} &nbsp;•&nbsp;Custom Stack -{" "}
-                            {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;Custom Stack - {stackTitle}
-                            &nbsp;•&nbsp;
+                            Custom Stack: {stackTitle}👁️Custom Stack -
+                            {stackTitle} 👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️Custom Stack - {stackTitle}
+                            👁️
                           </div>
                         </div>
                       </div>
                     )}
                   </div>
 
-                  {techDisplay.filter((item: any) => item.selected).length >
-                    4 && (
-                    <div
-                      className="clear-all"
-                      onClick={() => {
-                        setStackTitle(""),
-                          setTechDisplay((previous: any) =>
-                            previous.map((tech: any) =>
-                              tech.selected
-                                ? {
-                                    ...tech,
-                                    selected: false,
-                                  }
-                                : tech
-                            )
-                          );
-                      }}
-                    >
-                      Clear All
-                    </div>
-                  )}
-
-                  <div className="options">
-                    {consolidatedStack.map(
-                      (item: any) =>
-                        item.selected && (
-                          <div
-                            key={item.id}
-                            className="custom-item"
-                            onClick={() => clickCustomStack(item)}
-                          >
-                            {item.name}
-                          </div>
-                        )
+                  <div className="custom-stack-section">
+                    {techDisplay.filter((item: any) => item.selected).length >
+                      4 && (
+                      <div
+                        className="clear-all"
+                        onClick={() => {
+                          setStackTitle(""),
+                            setTechDisplay((previous: any) =>
+                              previous.map((tech: any) =>
+                                tech.selected
+                                  ? {
+                                      ...tech,
+                                      selected: false,
+                                    }
+                                  : tech
+                              )
+                            );
+                        }}
+                      >
+                        Clear All
+                      </div>
                     )}
+
+                    <div className="custom-options">
+                      {consolidatedStack.map(
+                        (item: any) =>
+                          item.selected && (
+                            <div
+                              key={item.id}
+                              className="custom-item"
+                              onClick={() => clickCustomStack(item)}
+                            >
+                              {item.name}
+                            </div>
+                          )
+                      )}
+                    </div>
                   </div>
                 </div>
               )}
-              {/* 
-              {!customStack && (
-                <div className="heart">
-                  <Heart />
-                </div>
-              )} */}
             </div>
           </div>
 
-          <div className="Custom Stack">
+          <div>
             {!customStack && (
               <div
                 className={
@@ -423,73 +403,74 @@ export default function Home({ tech }: Props) {
               </div>
             )}
 
-            <div className="link-parent">
-              <div className="horizontal-scrolling-items">
-                <div className="horizontal-scrolling-items__item">
-                  Custom
-                  Stack&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;
-                </div>
+            <div className="desktop-links">
+              <div className="link-title">
+                <div className="horizontal-scrolling-items">
+                  <div className="horizontal-scrolling-items__item">
+                    Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️
+                  </div>
 
-                <div className="horizontal-scrolling-items__item">
-                  Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;Links&nbsp;•&nbsp;
+                  <div className="horizontal-scrolling-items__item">
+                    Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️Links🖱️
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div
-              className="link-parent"
-              onClick={() => window.open("https://github.com/spookysip")}
-            >
-              <div>💽 GitHub</div>
-              <span className="link-icon link-color">
-                <Link />
-              </span>
-            </div>
-
-            <div
-              className="link-parent"
-              onClick={() =>
-                window.open("https://linkedin.com/in/mattclaughlin")
-              }
-            >
-              <div>🤝 LinkedIn</div>
-              <span className="link-icon link-color">
-                <Link />
-              </span>
-            </div>
-
-            <div
-              className="link-parent"
-              onClick={() => {
-                navigator.clipboard.writeText("hi@mattlaughl.in");
-                setCopy(true),
-                  setTimeout(() => {
-                    setCopy(false);
-                  }, 3000);
-              }}
-            >
-              <div>📬 Copy Email</div>
-              <span className={!copy ? "link-icon link-color" : "link-icon"}>
-                <Clipboard copy={copy} />
-              </span>
-            </div>
-
-            <div
-              className="link-parent"
-              onClick={() => {
-                setDownload(true),
-                  handleDownload(),
-                  setTimeout(() => {
-                    setDownload(false);
-                  }, 3000);
-              }}
-            >
-              <div>📜 Resume</div>
-              <span
-                className={!download ? "link-icon link-color" : "link-icon"}
+              <div
+                className="link-parent-first"
+                onClick={() => window.open("https://github.com/spookysip")}
               >
-                <Download download={download} />
-              </span>
+                <div>💽 GitHub</div>
+                <span className="link-icon link-color">
+                  <Link />
+                </span>
+              </div>
+
+              <div
+                className="link-parent"
+                onClick={() =>
+                  window.open("https://linkedin.com/in/mattclaughlin")
+                }
+              >
+                <div>🤝 LinkedIn</div>
+                <span className="link-icon link-color">
+                  <Link />
+                </span>
+              </div>
+
+              <div
+                className="link-parent"
+                onClick={() => {
+                  navigator.clipboard.writeText("hi@mattlaughl.in");
+                  setCopy(true),
+                    setTimeout(() => {
+                      setCopy(false);
+                    }, 3000);
+                }}
+              >
+                <div>📬 Copy Email</div>
+                <span className={!copy ? "link-icon link-color" : "link-icon"}>
+                  <Clipboard copy={copy} />
+                </span>
+              </div>
+
+              <div
+                className="link-parent"
+                onClick={() => {
+                  setDownload(true),
+                    handleDownload(),
+                    setTimeout(() => {
+                      setDownload(false);
+                    }, 3000);
+                }}
+              >
+                <div>📜 Resume</div>
+                <span
+                  className={!download ? "link-icon link-color" : "link-icon"}
+                >
+                  <Download download={download} />
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -498,73 +479,65 @@ export default function Home({ tech }: Props) {
           <div className="technologies-title">
             <div className="horizontal-scrolling-items">
               <div className="horizontal-scrolling-items__item">
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉
               </div>
 
               <div className="horizontal-scrolling-items__item">
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
-                Technologies&nbsp;•&nbsp;Technologies&nbsp;•&nbsp;
+                Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉Technologies🐉
               </div>
             </div>
           </div>
 
-          {Object.keys(groupedData).map(
-            (type) =>
-              techDisplay.filter(
-                (item: any) => item.type === type && !item.selected
-              ).length > 0 && (
-                <div key={type} className="skill-section">
-                  <div className="type">{type}</div>
+          <div className="skill-section-parent">
+            {Object.keys(groupedData).map(
+              (type) =>
+                techDisplay.filter(
+                  (item: any) => item.type === type && !item.selected
+                ).length > 0 && (
+                  <div key={type} className="skill-section">
+                    <div className="type">{type}</div>
 
-                  <div className="options">
-                    {groupedData[type].map(
-                      (item: any) =>
-                        !item.selected && (
-                          <div
-                            key={item.id}
-                            className="item"
-                            onClick={() =>
-                              setTechDisplay((previous: any) =>
-                                previous.map((tech: any) =>
-                                  tech.id === item.id
-                                    ? {
-                                        ...tech,
-                                        selected: true,
-                                      }
-                                    : tech
+                    <div className="options">
+                      {groupedData[type].map(
+                        (item: any) =>
+                          !item.selected && (
+                            <div
+                              key={item.id}
+                              className="item"
+                              onClick={() =>
+                                setTechDisplay((previous: any) =>
+                                  previous.map((tech: any) =>
+                                    tech.id === item.id
+                                      ? {
+                                          ...tech,
+                                          selected: true,
+                                        }
+                                      : tech
+                                  )
                                 )
-                              )
-                            }
-                          >
-                            {item.name}
-                          </div>
-                        )
-                    )}
+                              }
+                            >
+                              {item.name}
+                            </div>
+                          )
+                      )}
+                    </div>
                   </div>
-                </div>
-              )
-          )}
+                )
+            )}
+          </div>
         </div>
       </div>
 
       <div className="container container-border-top">
         <div className="horizontal-scrolling-items">
           <div className="horizontal-scrolling-items__item">
-            Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
+            Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮
           </div>
 
           <div className="horizontal-scrolling-items__item">
-            Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
-            Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
+            Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮
+            Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮Experience🔮
           </div>
         </div>
       </div>
@@ -778,19 +751,15 @@ export default function Home({ tech }: Props) {
       >
         <div className="bottom-horizontal-scrolling-items">
           <div className="bottom-horizontal-scrolling-items__item">
-            Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to
-            Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back
-            to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to
-            Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back
-            to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;
+            back to top👹back to top👹Back to Top👹back to top👹back to
+            top👹Back to Top👹back to top👹Back to Top👹back to top👹back to
+            top👹Back to Top👹back to top👹
           </div>
 
           <div className="bottom-horizontal-scrolling-items__item">
-            Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to
-            Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back
-            to Top&nbsp;•&nbsp; Back to Top&nbsp;•&nbsp;Back to
-            Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back
-            to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;
+            back to top👹back to top👹Back to Top👹back to top👹back to
+            top👹Back to Top👹 back to top👹Back to Top👹back to top👹back to
+            top👹Back to Top👹back to top👹
           </div>
         </div>
       </div>

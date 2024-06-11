@@ -42,8 +42,7 @@ html {
 .role {
   font-family: var(--font-mont-semibold);
   font-size: 18px;
-  border-top: 3px solid #ffa8e7;
-  border-bottom: 3px solid #ffa8e7;
+  border-top: 3px solid #995400;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 10px;
@@ -58,6 +57,7 @@ html {
   width: 100%;
   display: none;
   flex-direction: column;
+  border-top: 3px solid #a8de13;
   @media screen and (max-width: $responsive) {
     display: flex;
     color: #ffa8e7;
@@ -117,7 +117,6 @@ html {
   display: flex;
   flex-direction: row;
   position: relative;
-  background-color: red;
   align-items: center;
   height: 100%;
   justify-content: center;
@@ -125,23 +124,24 @@ html {
   // margin-top: -40px;
   min-height: 200px;
   box-sizing: border-box;
+  border-top: 3px solid #ffa8e7;
   // min-height: 340px;
   // padding-top: 30px;
   // padding-bottom: 20px;
   @media screen and (max-width: $responsive) {
-    border-bottom: 3px solid #ffa8e7;
+    // border-bottom: 3px solid #ffa8e7;
+    border-top: none;
     margin-top: 0px;
   }
 }
 
 .game-background {
-  background-color: #d2cd5e;
+  background-color: #a8de13;
 }
 
 .move {
   position: absolute;
   bottom: 50%;
-
   // margin-top: -18px;
   // animation-name: move-avatar;
   // animation-iteration-count: infinite;
@@ -219,6 +219,16 @@ html {
   }
 }
 
+.custom-options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-right: 6px;
+  margin-top: 25px;
+  margin-bottom: 14px;
+  margin-left: -8px;
+}
+
 .options {
   display: flex;
   flex-direction: row;
@@ -286,9 +296,9 @@ html {
 
 .skills {
   width: 65%;
-
+  box-sizing: border-box;
   @media screen and (max-width: $responsive) {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -313,11 +323,45 @@ html {
 }
 
 .technologies-title {
-  font-family: var(--font-mont-semibold);
-  color: white;
-  border-bottom: 3px solid white;
+  font-family: var(--font-canobis);
+  font-size: 31px;
+  color: #00e1ff;
+  border-top: 3px solid #00e1ff;
+  border-bottom: 3px solid #00e1ff;
+  border-left: 3px solid #00e1ff;
+  background-color: rgb(29, 15, 135);
   padding: 10px;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  @media screen and (max-width: $responsive) {
+    border-left: none;
+  }
+}
+
+.custom-stack-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 20px;
+  background-color: #ff8017;
+  border-top: 3px solid #e2e913;
+  border-bottom: 3px solid #e2e913;
+  border-right: 3px solid #e2e913;
+  padding-top: 18px;
+  padding-bottom: 25px;
+  padding-left: 10px;
+  color: #e2e913;
+  font-family: var(--font-bogam);
+  padding-right: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  letter-spacing: 1.3px;
+  @media screen and (max-width: $responsive) {
+    border-right: none;
+  }
 }
 
 .mobile-link-parent {
@@ -327,7 +371,52 @@ html {
   align-items: center;
   overflow: hidden;
   height: 20px;
-  border-bottom: 3px solid #ffa8e7;
+  border-bottom: 3px solid #a8de13;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  color: #a8de13;
+  font-size: 22px;
+  font-family: var(--font-sango);
+  padding-right: 8px;
+  text-decoration: none;
+  background-color: rgb(115, 117, 0);
+  @media screen and (max-width: $responsive) {
+    border-right: none;
+  }
+}
+
+.link-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 20px;
+  border-top: 3px solid #a8de13;
+  border-right: 3px solid #a8de13;
+  border-bottom: 3px solid #a8de13;
+  background-color: rgb(115, 117, 0);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  color: #a8de13;
+  padding-right: 8px;
+  text-decoration: none;
+  font-size: 22px;
+  font-family: var(--font-sango);
+  @media screen and (max-width: $responsive) {
+    border-right: none;
+  }
+}
+
+.link-parent-first {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 20px;
   border-right: 3px solid #ffa8e7;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -366,6 +455,13 @@ html {
   }
 }
 
+.link-parent:hover,
+.link-parent-first:hover {
+  background-color: #ffa8e7;
+  color: white;
+  cursor: pointer;
+}
+
 .link-parent:hover .link-color {
   filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(233deg)
     brightness(558%) contrast(101%);
@@ -379,7 +475,7 @@ html {
 .game-controls {
   display: flex;
   flex-direction: row;
-  color: #d2cd5e;
+  color: #a8de13;
   justify-content: space-between;
   border-right: 3px solid #ffa8e7;
   padding-left: 10px;
@@ -488,7 +584,7 @@ html {
 
 .highlights {
   margin-left: -24px;
-  font-family: var(--font-mont-regular);
+  font-family: var(--font-mont-medium);
   font-size: 16px;
   margin-top: 10px;
 }
@@ -497,7 +593,7 @@ html {
   margin-bottom: 10px;
   line-height: 1.3;
   margin-left: 8px;
-  color: white;
+  color: rgb(241, 241, 241);
 }
 
 .timeframe {
@@ -519,16 +615,18 @@ html {
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
-  font-family: var(--font-mont-semibold);
-  padding-top: 15px;
-  padding-bottom: 15px;
+  font-family: var(--font-fat);
+  letter-spacing: 1px;
+  // padding-top: 2px;
+  font-size: 40px;
+  padding-bottom: 5px;
   border-bottom: 3px solid yellow;
   background-color: black;
   color: yellow;
 }
 .horizontal-scrolling-items {
   display: flex;
-  font-size: 18px;
+  // font-size: 18px;
   width: 1850px;
   animation-name: infiniteScroll;
   animation-duration: 100s;
@@ -543,7 +641,6 @@ html {
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
-  font-family: var(--font-mont-semibold);
   font-size: 50px;
   padding-bottom: 10px;
   padding-top: 9px;
@@ -574,7 +671,8 @@ html {
   border-top: 3px solid black;
   text-align: center;
   padding-left: 16px;
-  font-family: var(--font-mont-semibold);
+  font-family: var(--font-raider);
+  font-size: 23px;
 }
 
 .bottom-container:hover {
@@ -583,7 +681,7 @@ html {
 
 .bottom-horizontal-scrolling-items {
   display: flex;
-  font-size: 16px;
+  // font-size: 16px;
   width: 2180px;
   animation-name: infiniteScroll;
   animation-duration: 40s;
@@ -624,11 +722,22 @@ html {
 }
 
 .custom-stack {
-  background-color: #ffa8e7;
+  background-color: #6a2771;
   height: 100%;
   // min-height: 360px;
   @media screen and (max-width: $responsive) {
-    border-bottom: 3px solid black;
+    border-bottom: 1px solid #6a2771;
+  }
+}
+
+.custom-stack-section {
+  padding-left: 16px;
+  margin-top: 8px;
+}
+
+.desktop-links {
+  @media screen and (max-width: $responsive) {
+    display: none;
   }
 }
 
@@ -636,19 +745,20 @@ html {
   margin-left: 10px;
   white-space: nowrap;
   padding: 8px 10px;
-  color: #257496;
+  margin-bottom: 10px;
+  color: #ffa8e7;
   font-size: 15px;
   // border-radius: 9px;
-  margin-top: 10px;
-  border: 2.5px solid #257496;
-  box-shadow: 2px 2px 0px #257496;
+  // margin-top: 10px;
+  border: 2.5px solid #ffa8e7;
+  box-shadow: 2px 2px 0px #ffa8e7;
   transition: box-shadow 0.15s;
   font-family: var(--font-mont-semibold);
 }
 
 .custom-item:hover {
   cursor: pointer;
-  background-color: #257496;
+  background-color: #ffa8e7;
   box-shadow: 3.5px 3.5px 0px white;
   color: white;
 }
@@ -661,7 +771,11 @@ html {
 }
 
 .skill-section {
-  padding: 15px 15px 23px 15px;
+  padding-bottom: 16px;
+}
+
+.skill-section-parent {
+  padding: 15px 20px 9px 20px;
 }
 
 .heart {
@@ -703,12 +817,12 @@ html {
 }
 
 .experience-summary {
-  font-family: var(--font-mont-regular);
+  font-family: var(--font-mont-medium);
   font-size: 17px;
   margin-top: 5px;
   margin-bottom: 17px;
   line-height: 1.3;
-  color: white;
+  color: rgb(241, 241, 241);
 }
 
 .create-stack {
@@ -740,19 +854,19 @@ html {
   display: inline-block;
   padding: 6px 10px;
   // border-radius: 9px;
-  border: 2.5px solid #7c1f2e;
-  box-shadow: 2px 2px 0px #7c1f2e;
-  color: #7c1f2e;
+  border: 2.5px solid #da2a2a;
+  box-shadow: 2px 2px 0px #da2a2a;
+  color: #da2a2a;
   transition: box-shadow 0.15s;
   font-family: var(--font-roboto-medium);
   font-size: 17px;
-  margin-bottom: 17px;
-  margin-top: 10px;
+  // margin-bottom: 17px;
+  margin-top: 18px;
 }
 
 .clear-all:hover {
   cursor: pointer;
-  background-color: #7c1f2e;
+  background-color: #da2a2a;
   box-shadow: 3.5px 3.5px 0px white;
   color: white;
   transition: box-shadow 0.15s;
