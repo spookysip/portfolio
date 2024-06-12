@@ -8,6 +8,31 @@ import Clipboard from "./icons/Clipboard";
 import React, { useEffect, useState, useRef } from "react";
 import Clock from "./icons/Clock";
 import Monster from "./icons/Monster";
+import MonsterIcon from "./icons/MonsterIcon";
+import ReactPlayer from "react-player";
+
+import Developer1 from "./joyride/Developer1";
+import Developer2 from "./joyride/Developer2";
+import Developer3 from "./joyride/Developer3";
+
+import Admin1 from "./joyride/Admin1";
+import Admin2 from "./joyride/Admin2";
+import Admin3 from "./joyride/Admin3";
+
+import Media1 from "./joyride/Media1";
+import Media2 from "./joyride/Media2";
+import Media3 from "./joyride/Media3";
+
+import Frog from "./emojis/Frog";
+import TV from "./emojis/TV";
+import Floppy from "./emojis/Floppy";
+import Folder from "./emojis/Folder";
+import Dragon from "./emojis/Dragon";
+import Eye from "./emojis/Eye";
+import Trackball from "./emojis/Trackball";
+import Trackball2 from "./emojis/Pager";
+import Crystal from "./emojis/Crystal";
+import Devil from "./emojis/Devil";
 
 interface Tech {
   id: Number;
@@ -22,7 +47,7 @@ interface Props {
 
 export default function Home({ tech }: Props) {
   const [techDisplay, setTechDisplay] = useState(tech) as any;
-  const [scrolled, setScrolled] = useState() as any;
+  const [scrolled, setScrolled] = useState(0) as any;
   const [copy, setCopy] = useState(false) as any;
   const [download, setDownload] = useState(false) as any;
   const [stackTitle, setStackTitle] = useState("") as any;
@@ -121,37 +146,256 @@ export default function Home({ tech }: Props) {
             width: scrolled + "%",
           }}
         ></div>
+        <div
+          className="progress-monster"
+          style={{
+            marginLeft: scrolled + "%",
+          }}
+        >
+          <MonsterIcon />
+        </div>
       </div>
+
       <div className="name-container">
-        <div className="name-horizontal-scrolling-items">
-          <div className="name-horizontal-scrolling-items__item">
-            Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
+        <div className="horizontal-scrolling-items-name">
+          <div className="horizontal-scrolling-items__item">
+            <span className="english-name">
+              <span className="english-name">MATT LAUGHLIN</span>
+            </span>
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            マット ロフリン
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            <span className="english-name">MATT LAUGHLIN</span>
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            マット ロフリン
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            <span className="english-name">MATT LAUGHLIN</span>
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            マット ロフリン
+            <span className="emoji-frog">
+              <Frog />
+            </span>{" "}
+            <span className="english-name">MATT LAUGHLIN</span>
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            マット ロフリン
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            <span className="english-name">MATT LAUGHLIN</span>
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            マット ロフリン
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            <span className="english-name">MATT LAUGHLIN</span>
+            <span className="emoji-frog">
+              <Frog />
+            </span>
+            マット ロフリン
+            <span className="emoji-frog">
+              <Frog />
+            </span>
           </div>
 
           <div className="name-horizontal-scrolling-items__item">
-            Matt Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp; Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;Matt
-            Laughlin&nbsp;•&nbsp;Matt Laughlin&nbsp;•&nbsp;
+            <span className="english-name">MATT LAUGHLIN</span>
+            <Frog />
+            マット ロフリン
+            <Frog />
+            <span className="english-name">MATT LAUGHLIN</span>
+            <Frog />
+            マット ロフリン
+            <Frog />
+            <span className="english-name">MATT LAUGHLIN</span>
+            <Frog />
+            マット ロフリン
+            <Frog />
+            <span className="english-name">MATT LAUGHLIN</span>
+            <Frog />
+            マット ロフリン
+            <Frog />
+            <span className="english-name">MATT LAUGHLIN</span>
+            <Frog />
+            マット ロフリン
+            <Frog />
+            <span className="english-name">MATT LAUGHLIN</span>
+            <Frog />
+            マット ロフリン
+            <Frog />
           </div>
         </div>
       </div>
+
       <div className="role">
-        Full-Stack Developer&nbsp;•&nbsp;Administrative
-        Coordinator&nbsp;•&nbsp;Media Producer
+        <div className="horizontal-scrolling-items-role">
+          <div className="horizontal-scrolling-items__item">
+            <Developer1 />
+            <Folder />
+            <Admin1 />
+            <span>
+              <TV />
+            </span>
+            <Media1 />
+            <Floppy />
+            <Developer2 />
+            <Folder />
+            <Admin2 />
+            <span>
+              <TV />
+            </span>
+            <Media2 />
+            <Floppy />
+            <Developer3 />
+            <Folder />
+            <Admin3 />
+            <span>
+              <TV />
+            </span>
+            <Media3 />
+            <Floppy />
+            <Developer1 />
+            <Folder />
+            <Admin1 />
+            <span>
+              <TV />
+            </span>
+            <Media1 />
+            <Floppy />
+            <Developer2 />
+            <Folder />
+            <Admin2 />
+            <span>
+              <TV />
+            </span>
+            <Media2 />
+            <Floppy />
+            <Developer3 />
+            <Folder />
+            <Admin3 />
+            <span>
+              <TV />
+            </span>
+            <Media3 />
+            <Floppy />
+          </div>
+
+          <div className="horizontal-scrolling-items__item">
+            <Developer1 />
+            🗂️
+            <Admin1 />
+            📺
+            <Media1 />
+            💾
+            <Developer2 />
+            🗂️
+            <Admin2 />
+            📺
+            <Media1 />
+            💾
+            <Developer3 />
+            🗂️
+            <Admin3 />
+            📺
+            <Media1 />
+            💾
+            <Developer1 />
+            🗂️
+            <Admin1 />
+            📺
+            <Media1 />
+            💾
+            <Developer2 />
+            🗂️
+            <Admin2 />
+            📺
+            <Media1 />
+            💾
+            <Developer3 />
+            🗂️
+            <Admin3 />
+            📺
+            <Media1 />
+            💾
+          </div>
+        </div>
       </div>
 
       <div className="top">
         <div className="about">
           <div className="title">
             <div className="mobile-links">
+              <div className="mobile-link-parent">
+                <div className="horizontal-scrolling-items-link">
+                  <div className="horizontal-scrolling-items__item">
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                  </div>
+
+                  <div className="horizontal-scrolling-items__item">
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball />
+                  </div>
+                </div>
+              </div>
+
               <div className="mobile-links-row-1">
                 <div
                   className="mobile-link mobile-link-border-right"
@@ -248,59 +492,162 @@ export default function Home({ tech }: Props) {
               {customStack && (
                 <div>
                   <div className="custom-type">
-                    {stackTitle === ""
-                      ? "Custom Stack"
-                      : "Custom Stack (" + stackTitle + ")"}
+                    {stackTitle === "" ? (
+                      <div className="custom-stack-title">
+                        <div className="horizontal-scrolling-items">
+                          <div className="horizontal-scrolling-items__item">
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                          </div>
+
+                          <div className="horizontal-scrolling-items__item">
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                            Your Stack
+                            <Eye />
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="custom-stack-title">
+                        <div className="horizontal-scrolling-items">
+                          <div className="horizontal-scrolling-items__item">
+                            {stackTitle} Stack
+                            <Eye />
+                            {stackTitle} Stack
+                            <Eye />
+                            {stackTitle} Stack
+                            <Eye />
+                            {stackTitle} Stack <Eye />
+                            {stackTitle} Stack
+                            <Eye />
+                            {stackTitle} Stack <Eye />
+                            {stackTitle} Stack <Eye />
+                            {stackTitle} Stack
+                            <Eye />
+                            {stackTitle} Stack <Eye />
+                            {stackTitle} Stack <Eye />
+                            {stackTitle} Stack
+                            <Eye />
+                            {stackTitle} Stack <Eye />
+                          </div>
+
+                          <div className="horizontal-scrolling-items__item">
+                            Custom Stack: {stackTitle}
+                            <Eye />
+                            Custom Stack -{stackTitle} <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                            Custom Stack - {stackTitle}
+                            <Eye />
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
-                  {techDisplay.filter((item: any) => item.selected).length >
-                    4 && (
-                    <div
-                      className="clear-all"
-                      onClick={() => {
-                        setStackTitle(""),
-                          setTechDisplay((previous: any) =>
-                            previous.map((tech: any) =>
-                              tech.selected
-                                ? {
-                                    ...tech,
-                                    selected: false,
-                                  }
-                                : tech
-                            )
-                          );
-                      }}
-                    >
-                      Clear All
-                    </div>
-                  )}
-
-                  <div className="options">
-                    {consolidatedStack.map(
-                      (item: any) =>
-                        item.selected && (
-                          <div
-                            key={item.id}
-                            className="custom-item"
-                            onClick={() => clickCustomStack(item)}
-                          >
-                            {item.name}
-                          </div>
-                        )
+                  <div className="custom-stack-section">
+                    {techDisplay.filter((item: any) => item.selected).length >
+                      4 && (
+                      <div
+                        className="clear-all"
+                        onClick={() => {
+                          setStackTitle(""),
+                            setTechDisplay((previous: any) =>
+                              previous.map((tech: any) =>
+                                tech.selected
+                                  ? {
+                                      ...tech,
+                                      selected: false,
+                                    }
+                                  : tech
+                              )
+                            );
+                        }}
+                      >
+                        Clear All
+                      </div>
                     )}
+
+                    <div className="custom-options">
+                      {consolidatedStack.map(
+                        (item: any) =>
+                          item.selected && (
+                            <div
+                              key={item.id}
+                              className="custom-item"
+                              onClick={() => clickCustomStack(item)}
+                            >
+                              {item.name}
+                            </div>
+                          )
+                      )}
+                    </div>
                   </div>
                 </div>
               )}
-              {/* 
-              {!customStack && (
-                <div className="heart">
-                  <Heart />
-                </div>
-              )} */}
             </div>
           </div>
 
-          <div className="links">
+          <div>
             {!customStack && (
               <div
                 className={
@@ -323,117 +670,346 @@ export default function Home({ tech }: Props) {
               </div>
             )}
 
-            <div className="link-parent">
-              <div>Links</div>
-            </div>
+            <div className="desktop-links">
+              <div className="link-title">
+                <div className="horizontal-scrolling-items-link">
+                  <div className="horizontal-scrolling-items__item">
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                  </div>
 
-            <div
-              className="link-parent"
-              onClick={() => window.open("https://github.com/spookysip")}
-            >
-              <div>💽 GitHub</div>
-              <span className="link-icon link-color">
-                <Link />
-              </span>
-            </div>
+                  <div className="horizontal-scrolling-items__item">
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                    Links
+                    <Trackball2 />
+                  </div>
+                </div>
+              </div>
 
-            <div
-              className="link-parent"
-              onClick={() =>
-                window.open("https://linkedin.com/in/mattclaughlin")
-              }
-            >
-              <div>🤝 LinkedIn</div>
-              <span className="link-icon link-color">
-                <Link />
-              </span>
-            </div>
-
-            <div
-              className="link-parent"
-              onClick={() => {
-                navigator.clipboard.writeText("hi@mattlaughl.in");
-                setCopy(true),
-                  setTimeout(() => {
-                    setCopy(false);
-                  }, 3000);
-              }}
-            >
-              <div>📬 Copy Email</div>
-              <span className={!copy ? "link-icon link-color" : "link-icon"}>
-                <Clipboard copy={copy} />
-              </span>
-            </div>
-
-            <div
-              className="link-parent"
-              onClick={() => {
-                setDownload(true),
-                  handleDownload(),
-                  setTimeout(() => {
-                    setDownload(false);
-                  }, 3000);
-              }}
-            >
-              <div>📜 Resume</div>
-              <span
-                className={!download ? "link-icon link-color" : "link-icon"}
+              <div
+                className="link-parent-first"
+                onClick={() => window.open("https://github.com/spookysip")}
               >
-                <Download download={download} />
-              </span>
+                <div>💽 GitHub</div>
+                <span className="link-icon link-color">
+                  <Link />
+                </span>
+              </div>
+
+              <div
+                className="link-parent"
+                onClick={() =>
+                  window.open("https://linkedin.com/in/mattclaughlin")
+                }
+              >
+                <div>🤝 LinkedIn</div>
+                <span className="link-icon link-color">
+                  <Link />
+                </span>
+              </div>
+
+              <div
+                className="link-parent"
+                onClick={() => {
+                  navigator.clipboard.writeText("hi@mattlaughl.in");
+                  setCopy(true),
+                    setTimeout(() => {
+                      setCopy(false);
+                    }, 3000);
+                }}
+              >
+                <div>📬 Copy Email</div>
+                <span className={!copy ? "link-icon link-color" : "link-icon"}>
+                  <Clipboard copy={copy} />
+                </span>
+              </div>
+
+              <div
+                className="link-parent"
+                onClick={() => {
+                  setDownload(true),
+                    handleDownload(),
+                    setTimeout(() => {
+                      setDownload(false);
+                    }, 3000);
+                }}
+              >
+                <div>📜 Resume</div>
+                <span
+                  className={!download ? "link-icon link-color" : "link-icon"}
+                >
+                  <Download download={download} />
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="skills">
-          {Object.keys(groupedData).map(
-            (type) =>
-              techDisplay.filter(
-                (item: any) => item.type === type && !item.selected
-              ).length > 0 && (
-                <div key={type} className="skill-section">
-                  <div className="type">{type}</div>
+          <div className="technologies-title">
+            <div className="horizontal-scrolling-items">
+              <div className="horizontal-scrolling-items__item">
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+              </div>
 
-                  <div className="options">
-                    {groupedData[type].map(
-                      (item: any) =>
-                        !item.selected && (
-                          <div
-                            key={item.id}
-                            className="item"
-                            onClick={() =>
-                              setTechDisplay((previous: any) =>
-                                previous.map((tech: any) =>
-                                  tech.id === item.id
-                                    ? {
-                                        ...tech,
-                                        selected: true,
-                                      }
-                                    : tech
+              <div className="horizontal-scrolling-items__item">
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+                Technologies
+                <Dragon />
+              </div>
+            </div>
+          </div>
+
+          <div className="skill-section-parent">
+            {Object.keys(groupedData).map(
+              (type) =>
+                techDisplay.filter(
+                  (item: any) => item.type === type && !item.selected
+                ).length > 0 && (
+                  <div key={type} className="skill-section">
+                    <div className="type">{type}</div>
+
+                    <div className="options">
+                      {groupedData[type].map(
+                        (item: any) =>
+                          !item.selected && (
+                            <div
+                              key={item.id}
+                              className="item"
+                              onClick={() =>
+                                setTechDisplay((previous: any) =>
+                                  previous.map((tech: any) =>
+                                    tech.id === item.id
+                                      ? {
+                                          ...tech,
+                                          selected: true,
+                                        }
+                                      : tech
+                                  )
                                 )
-                              )
-                            }
-                          >
-                            {item.name}
-                          </div>
-                        )
-                    )}
+                              }
+                            >
+                              {item.name}
+                            </div>
+                          )
+                      )}
+                    </div>
                   </div>
-                </div>
-              )
-          )}
+                )
+            )}
+          </div>
         </div>
+      </div>
+
+      <div className="theater-title">
+        <div className="horizontal-scrolling-items">
+          <div className="horizontal-scrolling-items__item">
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+          </div>
+
+          <div className="horizontal-scrolling-items__item">
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+          </div>
+        </div>
+      </div>
+
+      <div className="theater">
+        <ReactPlayer
+          url="https://vimeo.com/112625544"
+          className="react-player"
+          width="100%"
+          height="100%"
+          controls={true}
+        />
       </div>
 
       <div className="container container-border-top">
         <div className="horizontal-scrolling-items">
           <div className="horizontal-scrolling-items__item">
-            Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
           </div>
 
           <div className="horizontal-scrolling-items__item">
-            Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
-            Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;Experience&nbsp;•&nbsp;
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
+            Experience
+            <Crystal />
           </div>
         </div>
       </div>
@@ -456,18 +1032,43 @@ export default function Home({ tech }: Props) {
           </div>
           <div className="highlight-section">
             <div className="experience-summary">
-              🍵 cozyPunk is a "passion product" I created to be a comforting
-              study buddy that makes working feel like a game. It allows users
-              to play relaxing music and soundscapes, keep track of quests to
-              achieve, and run campaign/rest timers.
+              🍵{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "0.3s",
+                }}
+              >
+                cozyPunk
+              </span>{" "}
+              is a{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "0.6s",
+                }}
+              >
+                "passion product"
+              </span>{" "}
+              I created to be a comforting study buddy that makes working feel
+              like a game. It allows users to play relaxing music and
+              soundscapes, keep track of quests to achieve, and run
+              campaign/rest timers.
             </div>
             <ul className="highlights">
               <li className="highlight-item">
-                💻 Developed a feature-rich, full-stack web application from
-                concept to production. Front End: Next JS // React //
-                Typescript. Back End: Node JS // Typescript // MySQL // REST //
-                Planetscale // Prisma. Infrastructure: Vercel // S3.
-                Infrastructure: Vercel // S3.
+                💻 Developed a feature-rich, full-stack web application{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "0.9s",
+                  }}
+                >
+                  from concept to production
+                </span>
+                . Front End: Next JS // React // Typescript. Back End: Node JS
+                // Typescript // MySQL // REST // Planetscale // Prisma.
+                Infrastructure: Vercel // S3. Infrastructure: Vercel // S3.
               </li>
 
               <div
@@ -505,22 +1106,46 @@ export default function Home({ tech }: Props) {
               </div>
 
               <li className="highlight-item">
-                🎨 Designed a custom UI/UX for the entire site. Utilized Adobe
-                XD and Figma to translate designs and svg's into a custom and
-                fully responsive css design system.
+                🎨 Designed a custom UI/UX{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.2s",
+                  }}
+                >
+                  for the entire site
+                </span>
+                . Utilized Adobe XD and Figma to translate designs and svg's
+                into a custom and fully responsive css design system.
               </li>
 
               <li className="highlight-item">
-                📋 Seamlessly integrated a robust MySQL database solution,
-                optimizing data storage and retrieval processes. Implemented
-                effective data schemas and management strategies, ensuring data
+                📋 Seamlessly integrated a{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.5s",
+                  }}
+                >
+                  robust MySQL database solution{" "}
+                </span>
+                , optimizing data storage and retrieval processes. Implemented
+                effective data schemas and management strategies , ensuring data
                 integrity, security, and scalability.
               </li>
 
               <li className="highlight-item">
-                ⛟ Continually designing, coding and shipping new features,
-                auditing and improving infrastructure development and
-                refactoring the current codebase for improved performance.
+                ⛟ Continually{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.8s",
+                  }}
+                >
+                  designing, coding and shipping
+                </span>{" "}
+                new features, auditing and improving infrastructure development
+                and refactoring the current codebase for improved performance.
               </li>
             </ul>
           </div>
@@ -553,19 +1178,43 @@ export default function Home({ tech }: Props) {
           </div>
           <div className="highlight-section">
             <div className="experience-summary">
-              🎥 Filmsupply and 🎹 Musicbed are sister companies dedicated to
-              supporting creatives through licensing premium footage and music.
-              I had the opportunity to create an internal back end server and
+              🎥{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".21s",
+                }}
+              >
+                Filmsupply and 🎹 Musicbed
+              </span>{" "}
+              are sister companies dedicated to supporting creatives through
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "2.4s",
+                }}
+              >
+                &nbsp;licensing premium footage and music
+              </span>
+              . I had the opportunity to create an internal back end server and
               client to manage the footage curation pipeline and create another
               client to communicate its progress to filmmakers.
             </div>
             <ul className="highlights">
               <li className="highlight-item">
                 💾 Spearheaded and implemented the development and continual
-                maintenance of a full-stack application for Filmsupply's content
-                department. Back End: MySQL database // REST API //
-                NodeJS/Express server built behind a Forest Admin application.
-                Front End: React.
+                maintenance of a{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "2.7s",
+                  }}
+                >
+                  full-stack application
+                </span>{" "}
+                for Filmsupply's content department. Back End: MySQL database //
+                REST API // NodeJS/Express server built behind a Forest Admin
+                application. Front End: React.
               </li>
 
               <div
@@ -614,22 +1263,48 @@ export default function Home({ tech }: Props) {
 
               <li className="highlight-item">
                 🏠 Delivered continued architecture imporvements for services
-                within AWS. Back End: NodeJS/Express server deployed to Lambda
-                function through the serverless framework and accessed through
-                API Gateway. Front End: React App deployed through Amplify.
+                within{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.0s",
+                  }}
+                >
+                  AWS
+                </span>
+                . Back End: NodeJS/Express server deployed to Lambda function
+                through the serverless framework and accessed through API
+                Gateway. Front End: React App deployed through Amplify.
               </li>
 
               <li className="highlight-item">
-                📎 Maintained integrity with third party API's, improved
-                existing codebases through refactoring strategies and
+                📎 Maintained integrity with{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.3s",
+                  }}
+                >
+                  third party API's
+                </span>
+                , improved existing codebases through refactoring strategies and
                 contributed to the transition of legacy monolithic architecture
                 to microservices.
               </li>
 
               <li className="highlight-item">
-                ✒️ Contributed to 5+ repositories weekly. Responsible for
-                architecture support, front end stories in React and back end
-                stories in NodeJS/Express within any given sprint.
+                ✒️ Contributed to{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.6s",
+                  }}
+                >
+                  5+ repositories weekly
+                </span>
+                . Responsible for architecture support, front end stories in
+                React and back end stories in NodeJS/Express within any given
+                sprint.
               </li>
             </ul>
           </div>
@@ -647,19 +1322,56 @@ export default function Home({ tech }: Props) {
       >
         <div className="bottom-horizontal-scrolling-items">
           <div className="bottom-horizontal-scrolling-items__item">
-            Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to
-            Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back
-            to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to
-            Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back
-            to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;
+            back to top
+            <Devil />
+            back to top
+            <Devil />
+            Back to Top
+            <Devil />
+            back to top
+            <Devil />
+            back to top
+            <Devil />
+            Back to Top
+            <Devil />
+            back to top
+            <Devil />
+            Back to Top
+            <Devil />
+            back to top
+            <Devil />
+            back to top
+            <Devil />
+            Back to Top
+            <Devil />
+            back to top
+            <Devil />
           </div>
 
           <div className="bottom-horizontal-scrolling-items__item">
-            Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to
-            Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back
-            to Top&nbsp;•&nbsp; Back to Top&nbsp;•&nbsp;Back to
-            Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;Back
-            to Top&nbsp;•&nbsp;Back to Top&nbsp;•&nbsp;
+            back to top
+            <Devil />
+            back to top
+            <Devil />
+            Back to Top
+            <Devil />
+            back to top
+            <Devil />
+            back to top
+            <Devil />
+            Back to Top
+            <Devil /> back to top
+            <Devil />
+            Back to Top
+            <Devil />
+            back to top
+            <Devil />
+            back to top
+            <Devil />
+            Back to Top
+            <Devil />
+            back to top
+            <Devil />
           </div>
         </div>
       </div>
