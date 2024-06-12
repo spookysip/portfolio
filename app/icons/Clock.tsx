@@ -20,7 +20,7 @@ export default function clock() {
           transform="translate(17 25)"
           fill="#00c700"
           stroke="#004900"
-          stroke-width="3"
+          strokeWidth="3"
         />
       </g>
     </svg>
