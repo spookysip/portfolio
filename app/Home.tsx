@@ -9,6 +9,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Clock from "./icons/Clock";
 import Monster from "./icons/Monster";
 import MonsterIcon from "./icons/MonsterIcon";
+import ReactPlayer from "react-player";
 
 import Developer1 from "./joyride/Developer1";
 import Developer2 from "./joyride/Developer2";
@@ -887,6 +888,74 @@ export default function Home({ tech }: Props) {
         </div>
       </div>
 
+      <div className="theater-title">
+        <div className="horizontal-scrolling-items">
+          <div className="horizontal-scrolling-items__item">
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+          </div>
+
+          <div className="horizontal-scrolling-items__item">
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+            Theater
+            <Crystal />
+          </div>
+        </div>
+      </div>
+
+      <div className="theater">
+        <ReactPlayer
+          url="https://vimeo.com/112625544"
+          className="react-player"
+          width="100%"
+          height="100%"
+          controls={true}
+        />
+      </div>
+
       <div className="container container-border-top">
         <div className="horizontal-scrolling-items">
           <div className="horizontal-scrolling-items__item">
@@ -963,8 +1032,24 @@ export default function Home({ tech }: Props) {
           </div>
           <div className="highlight-section">
             <div className="experience-summary">
-              🍵 <span className="resume-color-highlight1">cozyPunk</span> is a{" "}
-              <span className="resume-color-highlight2">"passion product"</span>{" "}
+              🍵{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "0.3s",
+                }}
+              >
+                cozyPunk
+              </span>{" "}
+              is a{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "0.6s",
+                }}
+              >
+                "passion product"
+              </span>{" "}
               I created to be a comforting study buddy that makes working feel
               like a game. It allows users to play relaxing music and
               soundscapes, keep track of quests to achieve, and run
@@ -973,7 +1058,12 @@ export default function Home({ tech }: Props) {
             <ul className="highlights">
               <li className="highlight-item">
                 💻 Developed a feature-rich, full-stack web application{" "}
-                <span className="resume-color-highlight3">
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "0.9s",
+                  }}
+                >
                   from concept to production
                 </span>
                 . Front End: Next JS // React // Typescript. Back End: Node JS
@@ -1017,7 +1107,12 @@ export default function Home({ tech }: Props) {
 
               <li className="highlight-item">
                 🎨 Designed a custom UI/UX{" "}
-                <span className="resume-color-highlight2">
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.2s",
+                  }}
+                >
                   for the entire site
                 </span>
                 . Utilized Adobe XD and Figma to translate designs and svg's
@@ -1026,7 +1121,12 @@ export default function Home({ tech }: Props) {
 
               <li className="highlight-item">
                 📋 Seamlessly integrated a{" "}
-                <span className="resume-color-highlight2">
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.5s",
+                  }}
+                >
                   robust MySQL database solution{" "}
                 </span>
                 , optimizing data storage and retrieval processes. Implemented
@@ -1035,9 +1135,17 @@ export default function Home({ tech }: Props) {
               </li>
 
               <li className="highlight-item">
-                ⛟ Continually designing, coding and shipping new features,
-                auditing and improving infrastructure development and
-                refactoring the current codebase for improved performance.
+                ⛟ Continually{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.8s",
+                  }}
+                >
+                  designing, coding and shipping
+                </span>{" "}
+                new features, auditing and improving infrastructure development
+                and refactoring the current codebase for improved performance.
               </li>
             </ul>
           </div>
@@ -1070,19 +1178,43 @@ export default function Home({ tech }: Props) {
           </div>
           <div className="highlight-section">
             <div className="experience-summary">
-              🎥 Filmsupply and 🎹 Musicbed are sister companies dedicated to
-              supporting creatives through licensing premium footage and music.
-              I had the opportunity to create an internal back end server and
+              🎥{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".21s",
+                }}
+              >
+                Filmsupply and 🎹 Musicbed
+              </span>{" "}
+              are sister companies dedicated to supporting creatives through
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "2.4s",
+                }}
+              >
+                &nbsp;licensing premium footage and music
+              </span>
+              . I had the opportunity to create an internal back end server and
               client to manage the footage curation pipeline and create another
               client to communicate its progress to filmmakers.
             </div>
             <ul className="highlights">
               <li className="highlight-item">
                 💾 Spearheaded and implemented the development and continual
-                maintenance of a full-stack application for Filmsupply's content
-                department. Back End: MySQL database // REST API //
-                NodeJS/Express server built behind a Forest Admin application.
-                Front End: React.
+                maintenance of a{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "2.7s",
+                  }}
+                >
+                  full-stack application
+                </span>{" "}
+                for Filmsupply's content department. Back End: MySQL database //
+                REST API // NodeJS/Express server built behind a Forest Admin
+                application. Front End: React.
               </li>
 
               <div
@@ -1131,22 +1263,48 @@ export default function Home({ tech }: Props) {
 
               <li className="highlight-item">
                 🏠 Delivered continued architecture imporvements for services
-                within AWS. Back End: NodeJS/Express server deployed to Lambda
-                function through the serverless framework and accessed through
-                API Gateway. Front End: React App deployed through Amplify.
+                within{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.0s",
+                  }}
+                >
+                  AWS
+                </span>
+                . Back End: NodeJS/Express server deployed to Lambda function
+                through the serverless framework and accessed through API
+                Gateway. Front End: React App deployed through Amplify.
               </li>
 
               <li className="highlight-item">
-                📎 Maintained integrity with third party API's, improved
-                existing codebases through refactoring strategies and
+                📎 Maintained integrity with{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.3s",
+                  }}
+                >
+                  third party API's
+                </span>
+                , improved existing codebases through refactoring strategies and
                 contributed to the transition of legacy monolithic architecture
                 to microservices.
               </li>
 
               <li className="highlight-item">
-                ✒️ Contributed to 5+ repositories weekly. Responsible for
-                architecture support, front end stories in React and back end
-                stories in NodeJS/Express within any given sprint.
+                ✒️ Contributed to{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.6s",
+                  }}
+                >
+                  5+ repositories weekly
+                </span>
+                . Responsible for architecture support, front end stories in
+                React and back end stories in NodeJS/Express within any given
+                sprint.
               </li>
             </ul>
           </div>

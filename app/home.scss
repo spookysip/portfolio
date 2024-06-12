@@ -962,21 +962,9 @@ html {
   color: rgb(241, 241, 241);
 }
 
-.resume-color-highlight1 {
+.resume-color-highlight {
   color: rgb(241, 241, 241);
   animation: changeResumeColor 5s infinite;
-}
-
-.resume-color-highlight2 {
-  color: rgb(241, 241, 241);
-  animation: changeResumeColor 5s infinite;
-  animation-delay: 0.5s;
-}
-
-.resume-color-highlight3 {
-  color: rgb(241, 241, 241);
-  animation: changeResumeColor 5s infinite;
-  animation-delay: 1s;
 }
 
 @keyframes changeResumeColor {
@@ -1055,4 +1043,29 @@ html {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.theater {
+  height: 350px;
+  background-color: black;
+}
+
+.react-player {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.theater-title {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: var(--font-fat);
+  letter-spacing: 1px;
+  // padding-top: 2px;
+  font-size: 40px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ce871a;
+  border-top: 3px solid #ce871a;
+  background-color: #d90717;
+  color: #ce871a;
 }
