@@ -63,7 +63,16 @@ export default function Home({ tech }: Props) {
     })();
   }, []);
 
-  document.addEventListener("scroll", handleScroll);
+  const avatarRef = useRef(null);
+  const isDragging = useRef(false);
+  const prevMouseX = useRef(0);
+
+  useEffect(() => {
+    if (!isDragging.current) {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
 
   function handleScroll() {
     let winScroll =
@@ -73,6 +82,41 @@ export default function Home({ tech }: Props) {
         document.documentElement.clientHeight;
     setScrolled((winScroll / height) * 100);
   }
+
+  const handleMouseDown = (e: any) => {
+    isDragging.current = true;
+    prevMouseX.current = e.clientX;
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
+
+  const handleMouseMove = (e: any) => {
+    // console.log(scrolled);
+
+    if (isDragging.current) {
+      console.log(e.clientX, document.documentElement.clientWidth);
+      prevMouseX.current = e.clientX;
+      const widthPercentage =
+        (e.clientX / document.documentElement.clientWidth) * 100 + 2;
+
+      if (
+        e.clientX < document.documentElement.clientWidth - 13 &&
+        widthPercentage > 0
+      ) {
+        setScrolled(widthPercentage);
+      }
+
+      window.scrollTo({
+        top: document.documentElement.clientHeight * (widthPercentage / 100),
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", handleMouseUp);
+  };
 
   const groupedData = techDisplay.reduce((acc: any, obj: any) => {
     const type = obj.type;
@@ -148,6 +192,8 @@ export default function Home({ tech }: Props) {
         ></div>
         <div
           className="progress-monster"
+          ref={avatarRef}
+          onMouseDown={handleMouseDown}
           style={{
             marginLeft: scrolled + "%",
           }}
