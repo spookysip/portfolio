@@ -528,7 +528,7 @@ html {
 }
 
 .experience-inline {
-  padding: 13px 30px;
+  padding: 16px 30px 0px 30px;
 }
 
 .website {
@@ -537,7 +537,7 @@ html {
   align-items: center;
   padding: 5px 10px;
   // border-radius: 9px;
-  margin-top: 15px;
+  // margin-top: 15px;
   border: 2.5px solid #00c700;
   color: #00c700;
   box-shadow: 2px 2px 0px #00c700;
@@ -570,7 +570,33 @@ html {
 }
 
 .experience-item {
-  margin-bottom: 7px;
+  padding-left: 20px;
+  margin-top: -16px;
+  padding-top: 30px;
+}
+
+.experience-border-1 {
+  border-left: 5px solid #6a2771;
+}
+
+.experience-border-2 {
+  border-left: 5px solid #ed702d;
+}
+
+.experience-border-3 {
+  border-left: 5px solid #ffff00;
+}
+
+.experience-border-4 {
+  border-left: 5px solid #00c700;
+}
+
+.experience-border-5 {
+  border-left: 5px solid #5959ff;
+}
+
+.experience-border-6 {
+  border-left: 5px solid #ffa8e7;
 }
 
 .bullet-point {
@@ -589,10 +615,18 @@ html {
   font-family: var(--font-mont-medium);
   font-size: 16px;
   margin-top: 10px;
+  margin-bottom: -6px;
+  padding-bottom: 30px;
 }
 
 .highlight-item {
   margin-bottom: 10px;
+  line-height: 1.3;
+  margin-left: 8px;
+  color: rgb(241, 241, 241);
+}
+
+.highlight-item-bottom {
   line-height: 1.3;
   margin-left: 8px;
   color: rgb(241, 241, 241);
@@ -765,6 +799,7 @@ html {
 
 .bottom-container {
   width: 100%;
+  position: sticky;
   box-sizing: border-box;
   overflow-x: hidden;
   background-color: rgb(218, 42, 42);
@@ -824,9 +859,9 @@ html {
   z-index: 1;
 }
 
-.progress-monster:hover {
-  cursor: pointer;
-}
+// .progress-monster:hover {
+//   cursor: pointer;
+// }
 
 .progress-bar {
   background-color: #9475bf;

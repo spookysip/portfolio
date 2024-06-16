@@ -193,7 +193,7 @@ export default function Home({ tech }: Props) {
         <div
           className="progress-monster"
           ref={avatarRef}
-          onMouseDown={handleMouseDown}
+          // onMouseDown={handleMouseDown}
           style={{
             marginLeft: scrolled + "%",
           }}
@@ -1061,7 +1061,7 @@ export default function Home({ tech }: Props) {
       </div>
 
       <div className="experience-inline">
-        <div className="experience-item">
+        <div className="experience-item experience-border-1">
           <div
             className="website animate"
             onClick={() => window.open("https://cozypunk.io")}
@@ -1071,36 +1071,526 @@ export default function Home({ tech }: Props) {
               <ExperienceLink />
             </span>
           </div>
-          <div className="experience-title">Full-Stack Developer</div>
+
+          <div className="experience-summary">
+            🍵{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.3s",
+              }}
+            >
+              cozyPunk
+            </span>{" "}
+            is a{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.6s",
+              }}
+            >
+              "passion product"
+            </span>{" "}
+            I created to be a comforting study buddy that makes working feel
+            like a game. It allows users to play relaxing music and soundscapes,
+            keep track of quests to achieve, and run campaign/rest timers.
+          </div>
+
+          <div className="experience-title">
+            Full-Stack Developer & UI/UX Designer
+          </div>
           <div className="timeframe-section">
             <Clock />
             <div className="timeframe">Jan. 2023 - Present</div>
           </div>
           <div className="highlight-section">
+            <ul className="highlights">
+              <li className="highlight-item">
+                💻 Developed a feature-rich, full-stack web application{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "0.9s",
+                  }}
+                >
+                  from concept to production
+                </span>
+              </li>
+
+              <div
+                className="create-stack"
+                onClick={() => {
+                  setStackTitle("cozyPunk"),
+                    setTechDisplay((previous: any) =>
+                      previous.map((tech: any) =>
+                        tech.id === 1 ||
+                        tech.id === 2 ||
+                        tech.id === 3 ||
+                        tech.id === 5 ||
+                        tech.id === 7 ||
+                        tech.id === 9 ||
+                        tech.id === 10 ||
+                        tech.id === 11 ||
+                        tech.id === 25 ||
+                        tech.id === 31 ||
+                        tech.id === 4 ||
+                        tech.id === 8 ||
+                        tech.id === 32 ||
+                        tech.id === 33 ||
+                        tech.id === 35
+                          ? {
+                              ...tech,
+                              selected: true,
+                            }
+                          : tech
+                      )
+                    ),
+                    stackElement.current.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Create Stack
+              </div>
+
+              <li className="highlight-item">
+                🎨 Designed a custom UI/UX{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.2s",
+                  }}
+                >
+                  for the entire site
+                </span>
+                . Utilized Adobe XD and Figma to translate designs and svg's
+                into a custom and fully responsive css design system.
+              </li>
+
+              <li className="highlight-item">
+                📋 Seamlessly integrated a{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.5s",
+                  }}
+                >
+                  robust MySQL database solution{" "}
+                </span>
+                , optimizing data storage and retrieval processes. Implemented
+                effective data schemas and management strategies , ensuring data
+                integrity, security, and scalability.
+              </li>
+
+              <li className="highlight-item">
+                ⛟ Continually{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.8s",
+                  }}
+                >
+                  designing, coding and shipping
+                </span>{" "}
+                new features, auditing and improving infrastructure development
+                and refactoring the current codebase for improved performance.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="experience-item experience-border-2">
+          <div
+            className="website animate"
+            onClick={() => window.open("https://cozypunk.io")}
+          >
+            <span>The Fall of Mann</span>
+          </div>
+
+          <div className="experience-summary">
+            🍵{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.3s",
+              }}
+            >
+              cozyPunk
+            </span>{" "}
+            is a{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.6s",
+              }}
+            >
+              "passion product"
+            </span>{" "}
+            I created to be a comforting study buddy that makes working feel
+            like a game. It allows users to play relaxing music and soundscapes,
+            keep track of quests to achieve, and run campaign/rest timers.
+          </div>
+        </div>
+
+        <div className="experience-item experience-border-3">
+          <div
+            className="website animate"
+            onClick={() => window.open("https://filmsupply.com")}
+          >
+            <span className="website-text">Filmsupply</span>
+            <span className="experience-link">
+              <ExperienceLink />
+            </span>
+          </div>
+          <div
+            className="website space animate"
+            onClick={() => window.open("https://musicbed.com")}
+          >
+            <span className="website-text">Musicbed</span>
+            <span className="experience-link">
+              <ExperienceLink />
+            </span>
+          </div>
+
+          <div className="experience-summary">
+            🎥{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: ".21s",
+              }}
+            >
+              Filmsupply and 🎹 Musicbed
+            </span>{" "}
+            are sister companies dedicated to supporting creatives through
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "2.4s",
+              }}
+            >
+              &nbsp;licensing premium footage and music
+            </span>
+            . I had the opportunity to create an internal back end server and
+            client to manage the footage curation pipeline and create another
+            client to communicate its progress to filmmakers.
+          </div>
+
+          <div className="experience-title">Product Manager</div>
+
+          <div className="timeframe-section">
+            <Clock />
+            <div className="timeframe">Jul. 2020 - Nov. 2021</div>
+          </div>
+          <div className="highlight-section">
+            <ul className="highlights">
+              <li className="highlight-item">
+                💾 Spearheaded and implemented the development and continual
+                maintenance of a{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "2.7s",
+                  }}
+                >
+                  full-stack application
+                </span>{" "}
+                for Filmsupply's content department. Back End: MySQL database //
+                REST API // NodeJS/Express server built behind a Forest Admin
+                application. Front End: React.
+              </li>
+
+              <li className="highlight-item">
+                🏠 Delivered continued architecture imporvements for services
+                within{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.0s",
+                  }}
+                >
+                  AWS
+                </span>
+                . Back End: NodeJS/Express server deployed to Lambda function
+                through the serverless framework and accessed through API
+                Gateway. Front End: React App deployed through Amplify.
+              </li>
+
+              <li className="highlight-item">
+                📎 Maintained integrity with{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.3s",
+                  }}
+                >
+                  third party API's
+                </span>
+                , improved existing codebases through refactoring strategies and
+                contributed to the transition of legacy monolithic architecture
+                to microservices.
+              </li>
+
+              <li className="highlight-item">
+                ✒️ Contributed to{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.6s",
+                  }}
+                >
+                  5+ repositories weekly
+                </span>
+                . Responsible for architecture support, front end stories in
+                React and back end stories in NodeJS/Express within any given
+                sprint.
+              </li>
+            </ul>
+          </div>
+
+          <div className="experience-title">Full-Stack Developer</div>
+
+          <div className="timeframe-section">
+            <Clock />
+            <div className="timeframe">Jan. 2020 - Jun. 2021</div>
+          </div>
+          <div className="highlight-section">
             <div className="experience-summary">
-              🍵{" "}
+              🎥{" "}
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "0.3s",
+                  animationDelay: ".21s",
                 }}
               >
-                cozyPunk
+                Filmsupply and 🎹 Musicbed
               </span>{" "}
-              is a{" "}
+              are sister companies dedicated to supporting creatives through
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "0.6s",
+                  animationDelay: "2.4s",
                 }}
               >
-                "passion product"
-              </span>{" "}
-              I created to be a comforting study buddy that makes working feel
-              like a game. It allows users to play relaxing music and
-              soundscapes, keep track of quests to achieve, and run
-              campaign/rest timers.
+                &nbsp;licensing premium footage and music
+              </span>
+              . I had the opportunity to create an internal back end server and
+              client to manage the footage curation pipeline and create another
+              client to communicate its progress to filmmakers.
             </div>
+            <ul className="highlights">
+              <li className="highlight-item">
+                💾 Spearheaded and implemented the development and continual
+                maintenance of a{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "2.7s",
+                  }}
+                >
+                  full-stack application
+                </span>{" "}
+                for Filmsupply's content department.
+              </li>
+
+              <div
+                className="create-stack"
+                onClick={() => {
+                  setStackTitle("Filmsupply & Musicbed"),
+                    setTechDisplay((previous: any) =>
+                      previous.map((tech: any) =>
+                        tech.id === 2 ||
+                        tech.id === 3 ||
+                        tech.id === 4 ||
+                        tech.id === 5 ||
+                        tech.id === 6 ||
+                        tech.id === 7 ||
+                        tech.id === 8 ||
+                        tech.id === 9 ||
+                        tech.id === 15 ||
+                        tech.id === 16 ||
+                        tech.id === 17 ||
+                        tech.id === 19 ||
+                        tech.id === 20 ||
+                        tech.id === 21 ||
+                        tech.id === 22 ||
+                        tech.id === 23 ||
+                        tech.id === 24 ||
+                        tech.id === 25 ||
+                        tech.id === 26 ||
+                        tech.id === 27 ||
+                        tech.id === 28 ||
+                        tech.id === 29 ||
+                        tech.id === 30 ||
+                        tech.id === 34 ||
+                        tech.id === 36
+                          ? {
+                              ...tech,
+                              selected: true,
+                            }
+                          : tech
+                      )
+                    ),
+                    stackElement.current.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Create Stack
+              </div>
+
+              <li className="highlight-item">
+                🏠 Delivered continued architecture imporvements for services
+                within{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.0s",
+                  }}
+                >
+                  AWS
+                </span>
+                . Back End: NodeJS/Express server deployed to Lambda function
+                through the serverless framework and accessed through API
+                Gateway. Front End: React App deployed through Amplify.
+              </li>
+
+              <li className="highlight-item">
+                📎 Maintained integrity with{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.3s",
+                  }}
+                >
+                  third party API's
+                </span>
+                , improved existing codebases through refactoring strategies and
+                contributed to the transition of legacy monolithic architecture
+                to microservices.
+              </li>
+
+              <li className="highlight-item">
+                ✒️ Contributed to{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "3.6s",
+                  }}
+                >
+                  5+ repositories weekly
+                </span>
+                . Responsible for architecture support, front end stories in
+                React and back end stories in NodeJS/Express within any given
+                sprint.
+              </li>
+            </ul>
+          </div>
+
+          <div className="experience-title">Administrative Coordinator</div>
+
+          <div className="timeframe-section">
+            <Clock />
+            <div className="timeframe">Nov. 2018 - Dec. 2019</div>
+          </div>
+          <div className="highlight-section">
+            <ul className="highlights">
+              <li className="highlight-item">
+                Helped develop and maintain department goals and implemented
+                organizational systems to measure progress and milestone
+                achievements.
+              </li>
+
+              <li className="highlight-item">
+                Built and utilized various workflows and technologies to
+                streamline productivity across multiple departmental pipelines.
+              </li>
+
+              <li className="highlight-item">
+                Coordinated with other departments to determine the most
+                efficient strategies to collaborate and share data and
+                knowledge.
+              </li>
+
+              <li className="highlight-item">
+                Maintained departmental databases and organized reports to send
+                to leadership for daily performance metics and operational
+                implementation.
+              </li>
+            </ul>
+          </div>
+
+          <div className="experience-title">Account Manager</div>
+
+          <div className="timeframe-section">
+            <Clock />
+            <div className="timeframe">Nov. 2016 - Nov. 2018</div>
+          </div>
+          <div className="highlight-section">
+            <ul className="highlights">
+              <li className="highlight-item">
+                Reached out to new perspective filmmakers, signing over 140+ to
+                contribute footage to Filmsupply.
+              </li>
+
+              <li className="highlight-item">
+                Managed ongoing relationships and maintained daily
+                correspondence with the filmmakers Isigned, answering any
+                questions they presented and coordinated with them to determine
+                new collaboration opportunities.
+              </li>
+
+              <li className="highlight-item">
+                Utilized various technologies to lead the development of sales
+                pipelines to scale the most efficient onboarding process for new
+                filmmakers.
+              </li>
+
+              <li className="highlight-item">
+                Traveled and represented the company at industry events where
+                Ipromoted the company at trade shows and scouted new
+                opportunities with other companies.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="experience-item experience-border-4">
+          <div
+            className="website animate"
+            onClick={() => window.open("https://cozypunk.io")}
+          >
+            <span className="website-text">Daystar</span>
+          </div>
+
+          <div className="experience-summary">
+            🍵{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.3s",
+              }}
+            >
+              cozyPunk
+            </span>{" "}
+            is a{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.6s",
+              }}
+            >
+              "passion product"
+            </span>{" "}
+            I created to be a comforting study buddy that makes working feel
+            like a game. It allows users to play relaxing music and soundscapes,
+            keep track of quests to achieve, and run campaign/rest timers.
+          </div>
+
+          <div className="experience-title">
+            Full-Stack Developer & UI/UX Designer
+          </div>
+          <div className="timeframe-section">
+            <Clock />
+            <div className="timeframe">Jan. 2023 - Present</div>
+          </div>
+          <div className="highlight-section">
             <ul className="highlights">
               <li className="highlight-item">
                 💻 Developed a feature-rich, full-stack web application{" "}
@@ -1197,103 +1687,81 @@ export default function Home({ tech }: Props) {
           </div>
         </div>
 
-        <div>
+        <div className="experience-item experience-border-5">
           <div
             className="website animate"
-            onClick={() => window.open("https://filmsupply.com")}
+            onClick={() => window.open("https://cozypunk.io")}
           >
-            <span className="website-text">Filmsupply</span>
-            <span className="experience-link">
-              <ExperienceLink />
-            </span>
+            <span className="website-text">Elevate Life</span>
           </div>
-          <div
-            className="website space animate"
-            onClick={() => window.open("https://musicbed.com")}
-          >
-            <span className="website-text">Musicbed</span>
-            <span className="experience-link">
-              <ExperienceLink />
-            </span>
-          </div>
-          <div className="experience-title">Full-Stack Developer</div>
 
+          <div className="experience-summary">
+            🍵{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.3s",
+              }}
+            >
+              cozyPunk
+            </span>{" "}
+            is a{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.6s",
+              }}
+            >
+              "passion product"
+            </span>{" "}
+            I created to be a comforting study buddy that makes working feel
+            like a game. It allows users to play relaxing music and soundscapes,
+            keep track of quests to achieve, and run campaign/rest timers.
+          </div>
+
+          <div className="experience-title">Broadcast Director</div>
           <div className="timeframe-section">
             <Clock />
-            <div className="timeframe">Jan. 2020 - Nov. 2021</div>
+            <div className="timeframe">Jan. 2023 - Present</div>
           </div>
           <div className="highlight-section">
-            <div className="experience-summary">
-              🎥{" "}
-              <span
-                className="resume-color-highlight"
-                style={{
-                  animationDelay: ".21s",
-                }}
-              >
-                Filmsupply and 🎹 Musicbed
-              </span>{" "}
-              are sister companies dedicated to supporting creatives through
-              <span
-                className="resume-color-highlight"
-                style={{
-                  animationDelay: "2.4s",
-                }}
-              >
-                &nbsp;licensing premium footage and music
-              </span>
-              . I had the opportunity to create an internal back end server and
-              client to manage the footage curation pipeline and create another
-              client to communicate its progress to filmmakers.
-            </div>
             <ul className="highlights">
               <li className="highlight-item">
-                💾 Spearheaded and implemented the development and continual
-                maintenance of a{" "}
+                💻 Developed a feature-rich, full-stack web application{" "}
                 <span
                   className="resume-color-highlight"
                   style={{
-                    animationDelay: "2.7s",
+                    animationDelay: "0.9s",
                   }}
                 >
-                  full-stack application
-                </span>{" "}
-                for Filmsupply's content department. Back End: MySQL database //
-                REST API // NodeJS/Express server built behind a Forest Admin
-                application. Front End: React.
+                  from concept to production
+                </span>
+                . Front End: Next JS // React // Typescript. Back End: Node JS
+                // Typescript // MySQL // REST // Planetscale // Prisma.
+                Infrastructure: Vercel // S3. Infrastructure: Vercel // S3.
               </li>
 
               <div
                 className="create-stack"
                 onClick={() => {
-                  setStackTitle("Filmsupply & Musicbed"),
+                  setStackTitle("cozyPunk"),
                     setTechDisplay((previous: any) =>
                       previous.map((tech: any) =>
+                        tech.id === 1 ||
                         tech.id === 2 ||
                         tech.id === 3 ||
-                        tech.id === 4 ||
                         tech.id === 5 ||
-                        tech.id === 6 ||
                         tech.id === 7 ||
-                        tech.id === 8 ||
                         tech.id === 9 ||
-                        tech.id === 15 ||
-                        tech.id === 16 ||
-                        tech.id === 17 ||
-                        tech.id === 19 ||
-                        tech.id === 20 ||
-                        tech.id === 21 ||
-                        tech.id === 22 ||
-                        tech.id === 23 ||
-                        tech.id === 24 ||
+                        tech.id === 10 ||
+                        tech.id === 11 ||
                         tech.id === 25 ||
-                        tech.id === 26 ||
-                        tech.id === 27 ||
-                        tech.id === 28 ||
-                        tech.id === 29 ||
-                        tech.id === 30 ||
-                        tech.id === 34 ||
-                        tech.id === 36
+                        tech.id === 31 ||
+                        tech.id === 4 ||
+                        tech.id === 8 ||
+                        tech.id === 32 ||
+                        tech.id === 33 ||
+                        tech.id === 35
                           ? {
                               ...tech,
                               selected: true,
@@ -1308,49 +1776,182 @@ export default function Home({ tech }: Props) {
               </div>
 
               <li className="highlight-item">
-                🏠 Delivered continued architecture imporvements for services
-                within{" "}
+                🎨 Designed a custom UI/UX{" "}
                 <span
                   className="resume-color-highlight"
                   style={{
-                    animationDelay: "3.0s",
+                    animationDelay: "1.2s",
                   }}
                 >
-                  AWS
+                  for the entire site
                 </span>
-                . Back End: NodeJS/Express server deployed to Lambda function
-                through the serverless framework and accessed through API
-                Gateway. Front End: React App deployed through Amplify.
+                . Utilized Adobe XD and Figma to translate designs and svg's
+                into a custom and fully responsive css design system.
               </li>
 
               <li className="highlight-item">
-                📎 Maintained integrity with{" "}
+                📋 Seamlessly integrated a{" "}
                 <span
                   className="resume-color-highlight"
                   style={{
-                    animationDelay: "3.3s",
+                    animationDelay: "1.5s",
                   }}
                 >
-                  third party API's
+                  robust MySQL database solution{" "}
                 </span>
-                , improved existing codebases through refactoring strategies and
-                contributed to the transition of legacy monolithic architecture
-                to microservices.
+                , optimizing data storage and retrieval processes. Implemented
+                effective data schemas and management strategies , ensuring data
+                integrity, security, and scalability.
+              </li>
+
+              <li className="highlight-item-bottom">
+                ⛟ Continually{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.8s",
+                  }}
+                >
+                  designing, coding and shipping
+                </span>{" "}
+                new features, auditing and improving infrastructure development
+                and refactoring the current codebase for improved performance.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="experience-item experience-border-6">
+          <div
+            className="website animate"
+            onClick={() => window.open("https://cozypunk.io")}
+          >
+            <span>WorldVentures</span>
+          </div>
+
+          <div className="experience-summary">
+            🍵{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.3s",
+              }}
+            >
+              cozyPunk
+            </span>{" "}
+            is a{" "}
+            <span
+              className="resume-color-highlight"
+              style={{
+                animationDelay: "0.6s",
+              }}
+            >
+              "passion product"
+            </span>{" "}
+            I created to be a comforting study buddy that makes working feel
+            like a game. It allows users to play relaxing music and soundscapes,
+            keep track of quests to achieve, and run campaign/rest timers.
+          </div>
+
+          <div className="experience-title">
+            Full-Stack Developer & UI/UX Designer
+          </div>
+          <div className="timeframe-section">
+            <Clock />
+            <div className="timeframe">Jan. 2023 - Present</div>
+          </div>
+          <div className="highlight-section">
+            <ul className="highlights">
+              <li className="highlight-item">
+                💻 Developed a feature-rich, full-stack web application{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "0.9s",
+                  }}
+                >
+                  from concept to production
+                </span>
+                . Front End: Next JS // React // Typescript. Back End: Node JS
+                // Typescript // MySQL // REST // Planetscale // Prisma.
+                Infrastructure: Vercel // S3. Infrastructure: Vercel // S3.
+              </li>
+
+              <div
+                className="create-stack"
+                onClick={() => {
+                  setStackTitle("cozyPunk"),
+                    setTechDisplay((previous: any) =>
+                      previous.map((tech: any) =>
+                        tech.id === 1 ||
+                        tech.id === 2 ||
+                        tech.id === 3 ||
+                        tech.id === 5 ||
+                        tech.id === 7 ||
+                        tech.id === 9 ||
+                        tech.id === 10 ||
+                        tech.id === 11 ||
+                        tech.id === 25 ||
+                        tech.id === 31 ||
+                        tech.id === 4 ||
+                        tech.id === 8 ||
+                        tech.id === 32 ||
+                        tech.id === 33 ||
+                        tech.id === 35
+                          ? {
+                              ...tech,
+                              selected: true,
+                            }
+                          : tech
+                      )
+                    ),
+                    stackElement.current.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Create Stack
+              </div>
+
+              <li className="highlight-item">
+                🎨 Designed a custom UI/UX{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.2s",
+                  }}
+                >
+                  for the entire site
+                </span>
+                . Utilized Adobe XD and Figma to translate designs and svg's
+                into a custom and fully responsive css design system.
               </li>
 
               <li className="highlight-item">
-                ✒️ Contributed to{" "}
+                📋 Seamlessly integrated a{" "}
                 <span
                   className="resume-color-highlight"
                   style={{
-                    animationDelay: "3.6s",
+                    animationDelay: "1.5s",
                   }}
                 >
-                  5+ repositories weekly
+                  robust MySQL database solution{" "}
                 </span>
-                . Responsible for architecture support, front end stories in
-                React and back end stories in NodeJS/Express within any given
-                sprint.
+                , optimizing data storage and retrieval processes. Implemented
+                effective data schemas and management strategies , ensuring data
+                integrity, security, and scalability.
+              </li>
+
+              <li className="highlight-item-bottom">
+                ⛟ Continually{" "}
+                <span
+                  className="resume-color-highlight"
+                  style={{
+                    animationDelay: "1.8s",
+                  }}
+                >
+                  designing, coding and shipping
+                </span>{" "}
+                new features, auditing and improving infrastructure development
+                and refactoring the current codebase for improved performance.
               </li>
             </ul>
           </div>
