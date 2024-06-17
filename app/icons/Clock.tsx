@@ -1,4 +1,9 @@
-export default function clock() {
+interface Props {
+  fill: string;
+  stroke: string;
+}
+
+export default function clock({ fill, stroke }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +23,8 @@ export default function clock() {
           data-name="Icon fa-solid-clock"
           d="M18,0A18,18,0,1,1,0,18,18,18,0,0,1,18,0ZM16.662,8.338v9.307a1.683,1.683,0,0,0,.8,1.369l6.412,4.5c.5.352,1.086.885,1.638.617a.98.98,0,0,0,.7-1.06c.034-.612-.607-1.045-1.126-1.372l-6.469-4.4V8.338c-.022-.916-.021-1.6-.938-1.6s-1,.689-1.019,1.6Z"
           transform="translate(17 25)"
-          fill="#00c700"
-          stroke="#004900"
+          fill={fill}
+          stroke={stroke}
           strokeWidth="3"
         />
       </g>
