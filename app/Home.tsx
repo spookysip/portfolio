@@ -5,7 +5,7 @@ import Link from "./icons/Link";
 import ExperienceLink from "./icons/ExperienceLink";
 import Download from "./icons/Download";
 import Clipboard from "./icons/Clipboard";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, createRef } from "react";
 import Clock from "./icons/Clock";
 import Monster from "./icons/Monster";
 import MonsterIcon from "./icons/MonsterIcon";
@@ -60,12 +60,34 @@ export default function Home({ tech }: Props) {
   // ) as any;
   const [videoId, setVideoId] = useState(1);
   const stackElement = useRef() as any;
+  const theaterElement = useRef() as any;
   const [videos, setVideos] = useState([
-    { id: 1, playing: false, url: "https://vimeo.com/112625544" },
-    { id: 2, playing: false, url: "https://vimeo.com/238017469" },
-    { id: 3, playing: false, url: "https://vimeo.com/245921296" },
-    { id: 4, playing: false, url: "https://vimeo.com/958586999" },
+    {
+      id: 1,
+      url: "https://vimeo.com/112625544",
+      title: "VAST EXPANSION",
+      role: "Writer~Director~Editor",
+    },
+    {
+      id: 2,
+      url: "https://vimeo.com/238017469",
+      title: "VOICEMAIL",
+      role: "Writer~Director~Editor",
+    },
+    {
+      id: 3,
+      url: "https://vimeo.com/245921296",
+      title: "RESCATE",
+      role: "Additional Editor",
+    },
+    {
+      id: 4,
+      url: "https://drive.google.com/file/d/1Tdl47a9dvRxTMOLtSSt71opD7z58vCFL/preview",
+      title: "THE FALL OF MANN (CONCEPT TEASER)",
+      role: "Editor",
+    },
   ]) as any;
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -161,32 +183,62 @@ export default function Home({ tech }: Props) {
     );
   }
 
-  const playerRefs = useRef([]); // Ref for storing player references
-  if (playerRefs.current.length !== videos.length) {
-    playerRefs.current = Array(videos.length)
-      .fill(null)
-      .map((_, i) => playerRefs.current[i] || React.createRef());
-  }
+  const playerRefs = useRef(videos.map(() => createRef<ReactPlayer>()));
 
   const handlePrev = (id: any) => {
-    if (playerRefs.current[id]) {
-      const currentRef = playerRefs.current[id];
-      if (currentRef && typeof currentRef.seekTo === 'function' && typeof currentRef.pause === 'function') {
-        currentRef.seekTo(0); // Reset current video
-        currentRef.pause();   // Pause current video
+    const currentIndex = videos.findIndex((video: any) => video.id === videoId);
+    const newId = videoId > 1 ? videoId - 1 : 4;
+
+    const currentPosition =
+      playerRefs.current[currentIndex].current.getCurrentTime();
+
+    if (currentPosition > 0) {
+      const updatedUrls = [...videoUrls];
+      updatedUrls[currentIndex] = "";
+      setVideoUrls(updatedUrls);
+
+      if (playerRefs.current[currentIndex].current) {
+        playerRefs.current[currentIndex].current.seekTo(0);
       }
+
+      setTimeout(() => {
+        updatedUrls[currentIndex] = videos[currentIndex].url;
+        setVideoUrls(updatedUrls);
+      }, 10);
     }
 
-    const newId = videoId > 1 ? videoId - 1 : 4;
     setVideoId(newId);
+    setPlaying(false);
   };
 
-  const handleNext = (id: any) => {
-    playerRefs.current[id].current.seekTo(0);
-    playerRefs.current[id].current.pause();
+  const [videoUrls, setVideoUrls] = useState(
+    videos.map((video: any) => video.url)
+  );
 
+  const handleNext = (id: any) => {
+    const currentIndex = videos.findIndex((video: any) => video.id === videoId);
     const newId = videoId < 4 ? videoId + 1 : 1;
+
+    const currentPosition =
+      playerRefs.current[currentIndex].current.getCurrentTime();
+
+    if (currentPosition > 0) {
+      const updatedUrls = [...videoUrls];
+      updatedUrls[currentIndex] = "";
+      setVideoUrls(updatedUrls);
+
+      if (playerRefs.current[currentIndex].current) {
+        playerRefs.current[currentIndex].current.seekTo(0);
+      }
+
+      setTimeout(() => {
+        updatedUrls[currentIndex] = videos[currentIndex].url;
+        setVideoUrls(updatedUrls);
+      }, 1);
+    }
+
     setVideoId(newId);
+    setPlaying(false);
   };
 
   // function videoSort(id: any) {
@@ -979,6 +1031,8 @@ export default function Home({ tech }: Props) {
         </div>
       </div>
 
+      <div ref={theaterElement} />
+
       <div className="theater-title">
         <div className="horizontal-scrolling-items">
           <div className="horizontal-scrolling-items__item">
@@ -1038,41 +1092,58 @@ export default function Home({ tech }: Props) {
       </div>
 
       <div className="theater-parent">
-        <div
-          onClick={() => {
-            handlePrev(videoId);
-          }}
-        >
-          Prev
-        </div>
-        <div
-          onClick={() => {
-            handleNext(videoId);
-          }}
-        >
-          Next
+        <div className="theater-seek">
+          <div
+            className="theater-seek-prev"
+            onClick={() => {
+              handlePrev(videoId);
+            }}
+          >
+            <div>{"<"}</div>
+            <div>PREV</div>
+          </div>
+          <div
+            className="theater-seek-next"
+            onClick={() => {
+              handleNext(videoId);
+            }}
+          >
+            <div>NEXT</div>
+            <div>{">"}</div>
+          </div>
         </div>
         <div className="theater">
-          {videos.map((video: any) => (
-            <div
-              key={video.id}
-              style={{ display: videoId === video.id ? "block" : "none" }}
-            >
-              <div>{video.playing.toString()}</div>
-              <ReactPlayer
-                // ref={playerRef}
-                url={video.url}
-                className="react-player"
-                controls={true}
-                loop={true}
-                // onPlay={setPlaying(true)}
-                // onPause={setPlaying(false)}
-                playing={video.playing}
-              />
-            </div>
-          ))}
+          <div>
+            {videos.map((video: any, index: any) => (
+              <div>
+                <div
+                  className="player-wrapper"
+                  key={video.id}
+                  style={{ display: videoId === video.id ? "block" : "none" }}
+                >
+                  <ReactPlayer
+                    ref={playerRefs.current[index]}
+                    url={videoUrls[index]}
+                    className="react-player"
+                    controls={true}
+                    loop={true}
+                    playing={videoId === video.id && playing}
+                    onPlay={() => setPlaying(true)}
+                    onPause={() => setPlaying(false)}
+                  />
+                  <div className="description-parent">
+                    <div className="video-title">{video.title}</div>
+                    <div className="video-role">
+                      Role:{" "}
+                      <span className="video-role-highlight">{video.role}</span>
+                    </div>
+                    <div className="video-description">Description</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div>Hi</div>
       </div>
 
       <div className="container container-border-top">
@@ -1341,37 +1412,13 @@ export default function Home({ tech }: Props) {
               <div
                 className="create-stack-2"
                 onClick={() => {
-                  setStackTitle("cozyPunk"),
-                    setTechDisplay((previous: any) =>
-                      previous.map((tech: any) =>
-                        tech.id === 1 ||
-                        tech.id === 2 ||
-                        tech.id === 3 ||
-                        tech.id === 5 ||
-                        tech.id === 7 ||
-                        tech.id === 9 ||
-                        tech.id === 10 ||
-                        tech.id === 11 ||
-                        tech.id === 25 ||
-                        tech.id === 31 ||
-                        tech.id === 4 ||
-                        tech.id === 8 ||
-                        tech.id === 32 ||
-                        tech.id === 33 ||
-                        tech.id === 35
-                          ? {
-                              ...tech,
-                              selected: true,
-                            }
-                          : tech
-                      )
-                    ),
-                    stackElement.current.scrollIntoView({
-                      behavior: "smooth",
-                    });
+                  setVideoId(4);
+                  theaterElement.current.scrollIntoView({
+                    behavior: "smooth",
+                  });
                 }}
               >
-                Watch Teaser ☝️
+                Watch Teaser 👆
               </div>
             </div>
           </div>

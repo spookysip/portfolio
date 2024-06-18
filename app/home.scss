@@ -32,7 +32,7 @@ html {
 // }
 
 .name {
-  font-family: var(--font-roboto-bold);
+  font-family: var(--font-mont-bold);
   font-size: 30px;
   padding-bottom: 10px;
   padding-top: 9px;
@@ -55,7 +55,7 @@ html {
 }
 
 .mobile-links {
-  font-family: var(--font-roboto-medium);
+  font-family: var(--font-mont-semibold);
   font-size: 16px;
   border-bottom: 3px solid #ffa8e7;
   width: 100%;
@@ -1355,7 +1355,7 @@ html {
   box-shadow: 2px 2px 0px #000000;
   color: #000000;
   transition: box-shadow 0.15s;
-  font-family: var(--font-roboto-medium);
+  font-family: var(--font-mont-semibold);
   font-size: 17px;
   // margin-bottom: 17px;
   margin-top: 18px;
@@ -1377,18 +1377,98 @@ html {
 }
 
 .theater {
-  height: 350px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theater-seek {
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+  font-family: var(--font-dirtyline);
+}
+
+.theater-seek-prev {
+  width: 100%;
+  border-right: 3px solid #e3a445;
+  border-bottom: 3px solid #e3a445;
+  color: #e3a445;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 4px;
+}
+
+.theater-seek-next {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #e3a445;
+  color: #e3a445;
+  padding-top: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.theater-seek-next:hover,
+.theater-seek-prev:hover {
+  cursor: pointer;
+  background-color: #e3a445;
+  color: white;
 }
 
 .theater-parent {
   background-color: black;
-  padding-top: 20px;
   color: white;
 }
 
+.player-wrapper {
+  height: "auto";
+  width: "auto";
+}
+
 .react-player {
-  height: 100%;
-  box-sizing: border-box;
+  width: 100%;
+  // Percentage ratio for 16:9
+  position: relative; // Set to relative
+}
+
+.react-player > div {
+  position: absolute; // Scaling will occur since parent is relative now
+}
+
+.description-parent {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.video-title {
+  font-family: var(--font-dirtyline);
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  color: #e3a445;
+}
+
+.video-role {
+  font-family: var(--font-mont-semibold);
+  font-size: 17px;
+  margin-top: 6px;
+}
+
+.video-role-highlight {
+  animation: changeResumeColor 5s infinite;
+}
+
+.video-description {
+  font-family: var(--font-mont-semibold);
+  font-size: 17px;
+  margin-top: 6px;
 }
 
 .theater-title {
