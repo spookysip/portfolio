@@ -106,6 +106,12 @@ const joyride = localFont({
   variable: "--font-joyride",
 });
 
+const dirtyline = localFont({
+  src: "../public/fonts/Dirtyline.woff2",
+  display: "swap",
+  variable: "--font-dirtyline",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -114,7 +120,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${robotoBlack.variable} ${robotoBold.variable} ${robotoMedium.variable} ${robotoRegular.variable} ${montSemiBold.variable} ${montMedium.variable} ${montRegular.variable} ${pixel.variable} ${fat.variable} ${sango.variable} ${canobis.variable} ${quiny.variable} ${raider.variable} ${bogam.variable} ${dela.variable} ${joyride.variable}`}
+      className={`${robotoBlack.variable} ${robotoBold.variable} ${robotoMedium.variable} ${robotoRegular.variable} ${montSemiBold.variable} ${montMedium.variable} ${montRegular.variable} ${pixel.variable} ${fat.variable} ${sango.variable} ${canobis.variable} ${quiny.variable} ${raider.variable} ${bogam.variable} ${dela.variable} ${joyride.variable} ${dirtyline.variable}`}
     >
       <body className={inter.className}>{children}</body>
     </html>
