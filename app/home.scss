@@ -851,11 +851,18 @@ html {
   margin-right: 7px;
 }
 
-.emoji-mouse {
+.emoji-mouse-mobile {
   transform: translate(0px, 5.9px);
   margin-top: -14px;
   margin-left: 7.5px;
   margin-right: 10px;
+}
+
+.emoji-mouse-desktop {
+  transform: translate(0px, 12px);
+  margin-top: -16px;
+  margin-left: 9px;
+  margin-right: 7px;
 }
 
 .emoji-crystal {
@@ -1062,6 +1069,7 @@ html {
 }
 
 .desktop-links {
+  display: block;
   @media screen and (max-width: $responsive) {
     display: none;
   }
@@ -1484,4 +1492,42 @@ html {
   border-top: 3px solid #e3a445;
   background-color: #d90717;
   color: #e3a445;
+}
+
+.show-bottom-banner {
+  animation: showBottomBanner 2s;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  overflow-x: hidden;
+  background-color: rgb(218, 42, 42);
+  padding-top: 10px;
+  padding-bottom: 8px;
+  color: black;
+  border-top: 3px solid black;
+  text-align: center;
+  padding-left: 16px;
+  font-family: var(--font-raider);
+  font-size: 23px;
+  transition: bottom 0.8s ease;
+}
+
+.hide-bottom-banner {
+  width: 100%;
+  bottom: -100px;
+  left: 0;
+  margin-top: 300px;
+  position: fixed;
+  overflow-x: hidden;
+  background-color: rgb(218, 42, 42);
+  padding-top: 10px;
+  padding-bottom: 8px;
+  color: black;
+  border-top: 3px solid black;
+  text-align: center;
+  padding-left: 16px;
+  font-family: var(--font-raider);
+  font-size: 23px;
+  transition: bottom 1.5s ease;
 }

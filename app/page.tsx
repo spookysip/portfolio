@@ -67,12 +67,33 @@ const tech = [
   { id: 75822646, name: "KMS", type: "Infrastructure", selected: false },
   { id: 26885185, name: "Vercel", type: "Infrastructure", selected: false },
 
-  { id: 73111623, name: "Stripe", type: "NPM", selected: false },
-  { id: 39403119, name: "Nodemailer", type: "NPM", selected: false },
-  { id: 20947143, name: "Customer IO", type: "NPM", selected: false },
-  { id: 73662979, name: "Mailchimp", type: "NPM", selected: false },
-  { id: 61910401, name: "Howler", type: "NPM", selected: false },
-  { id: 68799176, name: "Forest Admin", type: "NPM", selected: false },
+  { id: 73111623, name: "Stripe", type: "NPM/External APIs", selected: false },
+  {
+    id: 39403119,
+    name: "Nodemailer",
+    type: "NPM/External APIs",
+    selected: false,
+  },
+  {
+    id: 20947143,
+    name: "Customer IO",
+    type: "NPM/External APIs",
+    selected: false,
+  },
+  {
+    id: 73662979,
+    name: "Mailchimp",
+    type: "NPM/External APIs",
+    selected: false,
+  },
+  { id: 61910401, name: "Howler", type: "NPM/External APIs", selected: false },
+  {
+    id: 68799176,
+    name: "Forest Admin",
+    type: "NPM/External APIs",
+    selected: false,
+  },
+  { id: 68799196, name: "Discord", type: "NPM/External APIs", selected: false },
 ];
 
 export default async function Home() {

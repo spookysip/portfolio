@@ -29,8 +29,8 @@ import Floppy from "./emojis/Floppy";
 import Folder from "./emojis/Folder";
 import Dragon from "./emojis/Dragon";
 import Eye from "./emojis/Eye";
-import Trackball from "./emojis/Trackball";
-import Trackball2 from "./emojis/Pager";
+import TrackballMobile from "./emojis/TrackballMobile";
+import TrackballDesktop from "./emojis/TrackballDesktop";
 import Crystal from "./emojis/Crystal";
 import Devil from "./emojis/Devil";
 import Popcorn from "./emojis/Popcorn";
@@ -485,56 +485,56 @@ export default function Home({ tech }: Props) {
                 <div className="horizontal-scrolling-items-link">
                   <div className="horizontal-scrolling-items__item">
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                   </div>
 
                   <div className="horizontal-scrolling-items__item">
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                     Links
-                    <Trackball />
+                    <TrackballMobile />
                   </div>
                 </div>
               </div>
@@ -818,56 +818,56 @@ export default function Home({ tech }: Props) {
                 <div className="horizontal-scrolling-items-link">
                   <div className="horizontal-scrolling-items__item">
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                   </div>
 
                   <div className="horizontal-scrolling-items__item">
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                   </div>
                 </div>
               </div>
@@ -1115,10 +1115,9 @@ export default function Home({ tech }: Props) {
         <div className="theater">
           <div>
             {videos.map((video: any, index: any) => (
-              <div>
+              <div key={video.id}>
                 <div
                   className="player-wrapper"
-                  key={video.id}
                   style={{ display: videoId === video.id ? "block" : "none" }}
                 >
                   <ReactPlayer
@@ -2098,7 +2097,13 @@ export default function Home({ tech }: Props) {
       </div>
 
       <div
-        className="bottom-container"
+        className={
+          scrolled > 0
+            ? "show-bottom-banner"
+            : scrolled === 0
+            ? "hide-bottom-banner"
+            : undefined
+        }
         onClick={() =>
           window.scrollTo({
             top: 0,
