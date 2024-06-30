@@ -65,6 +65,7 @@ html {
   @media screen and (max-width: $responsive) {
     display: flex;
     color: #ffa8e7;
+    border-bottom: none;
   }
 }
 
@@ -339,9 +340,18 @@ html {
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
   @media screen and (max-width: $responsive) {
     border-left: none;
   }
+}
+
+.sticky-banner {
+  position: fixed;
+  // margin-top: 13px;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .custom-stack-title {
@@ -1013,7 +1023,7 @@ html {
   position: fixed;
   scale: 0.12;
   transform: translate(-1673px, -585px);
-  z-index: 1;
+  z-index: 3;
 }
 
 // .progress-monster:hover {
@@ -1025,7 +1035,7 @@ html {
   height: 13px;
   width: 0%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   border-radius: 0 60px 60px 0;
 }
 

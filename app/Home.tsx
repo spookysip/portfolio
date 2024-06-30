@@ -278,6 +278,31 @@ export default function Home({ tech }: Props) {
     return () => clearInterval(interval);
   }, []);
 
+  const [isSticky, setIsSticky] = useState(false);
+  const placeholderRef = useRef() as any;
+  const bannerRef = useRef() as any;
+  // const progressBarHeight = 20;
+  const bannerTop = 545;
+
+  useEffect(() => {
+    const handleBannerScroll = () => {
+      const scrollTop = window.scrollY;
+
+      const adjustedScrollTop = scrollTop;
+
+      if (adjustedScrollTop > bannerTop) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleBannerScroll);
+    return () => {
+      window.removeEventListener("scroll", handleBannerScroll);
+    };
+  }, []);
+
   return (
     <div className="all">
       <div className="progress-container">
@@ -480,126 +505,6 @@ export default function Home({ tech }: Props) {
       <div className="top">
         <div className="about">
           <div className="title">
-            <div className="mobile-links">
-              <div className="mobile-link-parent">
-                <div className="horizontal-scrolling-items-link">
-                  <div className="horizontal-scrolling-items__item">
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                  </div>
-
-                  <div className="horizontal-scrolling-items__item">
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                    Links
-                    <TrackballMobile />
-                  </div>
-                </div>
-              </div>
-
-              <div className="mobile-links-row-1">
-                <div
-                  className="mobile-link mobile-link-border-right"
-                  onClick={() => window.open("https://github.com/spookysip")}
-                >
-                  💽 GitHub
-                  <div className="link-icon link-color">
-                    <Link />
-                  </div>
-                </div>
-                <div
-                  className="mobile-link"
-                  onClick={() =>
-                    window.open("https://linkedin.com/in/mattclaughlin")
-                  }
-                >
-                  🤝 LinkedIn
-                  <span className="link-icon link-color">
-                    <Link />
-                  </span>
-                </div>
-              </div>
-
-              <div className="mobile-links-row-2">
-                <div
-                  className="mobile-link mobile-link-border-right"
-                  onClick={() => {
-                    navigator.clipboard.writeText("hi@mattlaughl.in");
-                    setCopy(true),
-                      setTimeout(() => {
-                        setCopy(false);
-                      }, 3000);
-                  }}
-                >
-                  📬 Copy Email
-                  <span
-                    className={!copy ? "link-icon link-color" : "link-icon"}
-                  >
-                    <Clipboard copy={copy} />
-                  </span>
-                </div>
-                <div
-                  className="mobile-link"
-                  onClick={() => {
-                    setDownload(true),
-                      handleDownload(),
-                      setTimeout(() => {
-                        setDownload(false);
-                      }, 3000);
-                  }}
-                >
-                  📜 Resume
-                  <span
-                    className={!download ? "link-icon link-color" : "link-icon"}
-                  >
-                    <Download download={download} />
-                  </span>
-                </div>
-              </div>
-            </div>
-
             <div ref={stackElement} />
 
             <div
@@ -931,8 +836,138 @@ export default function Home({ tech }: Props) {
           </div>
         </div>
 
+        <div className="mobile-links">
+          <div className="mobile-link-parent">
+            <div className="horizontal-scrolling-items-link">
+              <div className="horizontal-scrolling-items__item">
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+              </div>
+
+              <div className="horizontal-scrolling-items__item">
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+              </div>
+            </div>
+          </div>
+
+          <div className="mobile-links-row-1">
+            <div
+              className="mobile-link mobile-link-border-right"
+              onClick={() => window.open("https://github.com/spookysip")}
+            >
+              💽 GitHub
+              <div className="link-icon link-color">
+                <Link />
+              </div>
+            </div>
+            <div
+              className="mobile-link"
+              onClick={() =>
+                window.open("https://linkedin.com/in/mattclaughlin")
+              }
+            >
+              🤝 LinkedIn
+              <span className="link-icon link-color">
+                <Link />
+              </span>
+            </div>
+          </div>
+
+          <div className="mobile-links-row-2">
+            <div
+              className="mobile-link mobile-link-border-right"
+              onClick={() => {
+                navigator.clipboard.writeText("hi@mattlaughl.in");
+                setCopy(true),
+                  setTimeout(() => {
+                    setCopy(false);
+                  }, 3000);
+              }}
+            >
+              📬 Copy Email
+              <span className={!copy ? "link-icon link-color" : "link-icon"}>
+                <Clipboard copy={copy} />
+              </span>
+            </div>
+            <div
+              className="mobile-link"
+              onClick={() => {
+                setDownload(true),
+                  handleDownload(),
+                  setTimeout(() => {
+                    setDownload(false);
+                  }, 3000);
+              }}
+            >
+              📜 Resume
+              <span
+                className={!download ? "link-icon link-color" : "link-icon"}
+              >
+                <Download download={download} />
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div className="skills">
-          <div className="technologies-title">
+          <div
+            ref={placeholderRef}
+            style={{
+              height: isSticky ? bannerRef.current.clientHeight + 5 : 0,
+            }}
+          ></div>
+
+          <div
+            ref={bannerRef}
+            className={`technologies-title ${
+              isSticky ? "sticky-banner" : undefined
+            }`}
+          >
             <div className="horizontal-scrolling-items">
               <div className="horizontal-scrolling-items__item">
                 Technologies
