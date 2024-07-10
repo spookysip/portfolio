@@ -29,11 +29,48 @@ import Floppy from "./emojis/Floppy";
 import Folder from "./emojis/Folder";
 import Dragon from "./emojis/Dragon";
 import Eye from "./emojis/Eye";
-import Trackball from "./emojis/Trackball";
-import Trackball2 from "./emojis/Pager";
+import TrackballMobile from "./emojis/TrackballMobile";
+import TrackballDesktop from "./emojis/TrackballDesktop";
 import Crystal from "./emojis/Crystal";
 import Devil from "./emojis/Devil";
 import Popcorn from "./emojis/Popcorn";
+
+import { Howl } from "howler";
+
+const startGameSound = new Howl({
+  src: ["/sounds/start-game.wav"],
+  volume: 0.3,
+});
+
+const stopGameSound = new Howl({
+  src: ["/sounds/stop-game.wav"],
+  volume: 0.3,
+});
+
+const hit1Sound = new Howl({
+  src: ["/sounds/hit-1.wav"],
+  volume: 0.3,
+});
+
+const hit2Sound = new Howl({
+  src: ["/sounds/hit-2.wav"],
+  volume: 0.3,
+});
+
+const hit3Sound = new Howl({
+  src: ["/sounds/hit-3.wav"],
+  volume: 0.3,
+});
+
+const hit4Sound = new Howl({
+  src: ["/sounds/hit-4.wav"],
+  volume: 0.3,
+});
+
+const hit5Sound = new Howl({
+  src: ["/sounds/hit-5.wav"],
+  volume: 0.3,
+});
 
 interface Tech {
   id: Number;
@@ -48,6 +85,7 @@ interface Props {
 
 export default function Home({ tech }: Props) {
   const [techDisplay, setTechDisplay] = useState(tech) as any;
+  const [prevTechDisplay, setPrevTechDisplay] = useState() as any;
   const [scrolled, setScrolled] = useState(0) as any;
   const [copy, setCopy] = useState(false) as any;
   const [download, setDownload] = useState(false) as any;
@@ -278,6 +316,344 @@ export default function Home({ tech }: Props) {
     return () => clearInterval(interval);
   }, []);
 
+  const [isSticky, setIsSticky] = useState(false);
+  const placeholderRef = useRef() as any;
+  const bannerRef = useRef() as any;
+  const [bannerTop, setBannerTop] = useState(0);
+
+  useEffect(() => {
+    const handleBannerScroll = () => {
+      console.log({ bannerTop: bannerTop });
+      console.log({ scrollY: window.scrollY });
+
+      if (window.scrollY > bannerTop) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleBannerScroll);
+    return () => {
+      window.removeEventListener("scroll", handleBannerScroll);
+    };
+  }, [bannerTop]);
+
+  async function updateBannerTop() {
+    const bannerRect = experienceBannerRef.current.getBoundingClientRect();
+    if (experienceBannerRef.current && bannerRect.top > 0) {
+      console.log({ wtf: isSticky });
+      const bannerRect = experienceBannerRef.current.getBoundingClientRect();
+      console.log("Update Top:", bannerRect.top + window.scrollY);
+      setBannerTop(bannerRect.top + window.scrollY);
+    }
+  }
+
+  async function updatePlaceholderBannerTop() {
+    const bannerRect = placeholderRef.current.getBoundingClientRect();
+    if (placeholderRef.current) {
+      console.log({ wtf: isSticky });
+      console.log("Update Placeholder Top:", bannerRect.top + window.scrollY);
+      setBannerTop(bannerRect.top + window.scrollY);
+    }
+  }
+
+  useEffect(() => {
+    const observer = new ResizeObserver((entries) => {
+      const currentBannerTop = experienceBannerRef.current
+        ? experienceBannerRef.current.getBoundingClientRect().top +
+          window.scrollY
+        : 0;
+      if (window.scrollY > currentBannerTop) {
+        updateBannerTop();
+      }
+    });
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      const currentBannerTop = experienceBannerRef.current
+        ? experienceBannerRef.current.getBoundingClientRect().top +
+          window.scrollY
+        : 0;
+      if (window.scrollY > currentBannerTop) {
+        updateBannerTop();
+      }
+    });
+
+    if (experienceBannerRef.current) {
+      mutationObserver.observe(experienceBannerRef.current, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+      });
+    }
+    if (experienceBannerRef.current) {
+      observer.observe(experienceBannerRef.current);
+    }
+
+    return () => {
+      if (experienceBannerRef.current) {
+        observer.unobserve(experienceBannerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new ResizeObserver(() => {
+      const currentBannerTop = placeholderRef.current
+        ? placeholderRef.current.getBoundingClientRect().top + window.scrollY
+        : 0;
+      if (window.scrollY < currentBannerTop) {
+        updatePlaceholderBannerTop();
+      }
+    });
+
+    const mutationObserver = new MutationObserver(() => {
+      const currentBannerTop = placeholderRef.current
+        ? placeholderRef.current.getBoundingClientRect().top + window.scrollY
+        : 0;
+      if (window.scrollY < currentBannerTop) {
+        updatePlaceholderBannerTop();
+      }
+    });
+
+    if (placeholderRef.current) {
+      mutationObserver.observe(placeholderRef.current, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+      });
+    }
+    if (placeholderRef.current) {
+      observer.observe(placeholderRef.current);
+    }
+
+    return () => {
+      if (bannerRef.current) {
+        observer.unobserve(bannerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log(isSticky);
+    if (!isSticky && techDisplay !== prevTechDisplay) {
+      updateBannerTop();
+    }
+
+    if (isSticky && techDisplay !== prevTechDisplay) {
+      updatePlaceholderBannerTop();
+    }
+
+    if (techDisplay !== prevTechDisplay) {
+      setPrevTechDisplay(techDisplay);
+    }
+  }, [techDisplay, prevTechDisplay, isSticky]);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 800px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (e: any) => {
+      setIsMobile(e.matches);
+      if (e.matches) {
+        setIsSticky(false);
+      }
+    };
+
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
+
+  const [parentWidth, setParentWidth] = useState(0);
+
+  useEffect(() => {
+    const updateParentWidth = () => {
+      const parentDiv = document.getElementById("parentDiv"); // Replace 'parentDiv' with the actual id or class of your parent div
+      if (parentDiv) {
+        const width = parentDiv.clientWidth;
+        setParentWidth(width);
+      }
+    };
+
+    updateParentWidth();
+
+    // Event listener for window resize
+    window.addEventListener("resize", updateParentWidth);
+
+    // Clean up
+    return () => {
+      window.removeEventListener("resize", updateParentWidth);
+    };
+  }, []);
+
+  const nameBannerRef = useRef() as any;
+  const [nameAnimationDuration, setNameAnimationDuration] = useState(0);
+
+  const roleBannerRef = useRef() as any;
+  const [roleAnimationDuration, setRoleAnimationDuration] = useState(0);
+
+  const linkBannerRef1 = useRef() as any;
+  const linkBannerRef2 = useRef() as any;
+  const [linkAnimationDuration1, setLinkAnimationDuration1] = useState(0);
+  const [linkAnimationDuration2, setLinkAnimationDuration2] = useState(0);
+
+  const techBannerRef = useRef() as any;
+  const [techAnimationDuration, setTechAnimationDuration] = useState(0);
+
+  const theaterBannerRef = useRef() as any;
+  const [theaterAnimationDuration, setTheaterAnimationDuration] = useState(0);
+
+  const experienceBannerRef = useRef() as any;
+  const [experienceAnimationDuration, setExperienceAnimationDuration] =
+    useState(0);
+
+  const backTopBannerRef = useRef() as any;
+  const [backTopAnimationDuration, setBackTopAnimationDuration] = useState(0);
+
+  useEffect(() => {
+    const nameContent = nameBannerRef.current;
+    const roleContent = roleBannerRef.current;
+    const linkContent1 = linkBannerRef1.current;
+    const linkContent2 = linkBannerRef2.current;
+    const techContent = techBannerRef.current;
+    const theaterContent = theaterBannerRef.current;
+    const experienceContent = experienceBannerRef.current;
+    const backTopContent = backTopBannerRef.current;
+
+    if (nameContent) {
+      const contentWidth = nameContent.scrollWidth;
+      const duration = contentWidth / 70;
+      setNameAnimationDuration(duration);
+    }
+
+    if (roleContent) {
+      const contentWidth = roleContent.scrollWidth;
+      const duration = contentWidth / 120;
+      setRoleAnimationDuration(duration);
+    }
+
+    if (linkContent1) {
+      const contentWidth = linkContent1.scrollWidth;
+      const duration = contentWidth / 35;
+      setLinkAnimationDuration1(duration);
+    }
+
+    if (linkContent2) {
+      const contentWidth = linkContent2.scrollWidth;
+      const duration = contentWidth / 35;
+      setLinkAnimationDuration2(duration);
+    }
+
+    if (techContent) {
+      const contentWidth = techContent.scrollWidth;
+      const duration = contentWidth / 20;
+      setTechAnimationDuration(duration);
+    }
+
+    if (theaterContent) {
+      const contentWidth = theaterContent.scrollWidth;
+      const duration = contentWidth / 25;
+      setTheaterAnimationDuration(duration);
+    }
+
+    if (experienceContent) {
+      const contentWidth = experienceContent.scrollWidth;
+      const duration = contentWidth / 60;
+      setExperienceAnimationDuration(duration);
+    }
+
+    if (backTopContent) {
+      const contentWidth = backTopContent.scrollWidth;
+      const duration = contentWidth / 45;
+      setBackTopAnimationDuration(duration);
+    }
+  }, []);
+
+  const [cornerClass, setCornerClass] = useState("game-position-center");
+  const [gamePower, setGamePower] = useState(false);
+  const gameIntervalRef = useRef() as any;
+
+  useEffect(() => {
+    if (gamePower) {
+      // Function to get a random integer between min and max (inclusive)
+      const getRandomInt = (min: any, max: any) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      };
+
+      // Array of corner classes
+      const cornerClasses = [
+        "game-position-center",
+        "game-position-top",
+        "game-position-bottom",
+        "game-position-left",
+        "game-position-right",
+        "game-position-bottom-right",
+        "game-position-top-right",
+        "game-position-bottom-left",
+        "game-position-top-left",
+      ];
+
+      // Function to randomly choose a corner class
+      const randomizeCorner = () => {
+        const randomIndex = getRandomInt(0, cornerClasses.length - 1);
+        setCornerClass(cornerClasses[randomIndex]);
+      };
+
+      // Randomize initially and then every 3 seconds
+      randomizeCorner();
+      gameIntervalRef.current = setInterval(randomizeCorner, 850);
+
+      // Clean up interval on component unmount
+      return () => clearInterval(gameIntervalRef.current);
+    }
+
+    if (!gamePower) {
+      setCornerClass("game-position-center");
+      clearInterval(gameIntervalRef.current);
+    }
+  }, [gamePower]);
+
+  async function hitMonster() {
+    if (gamePower) {
+      playHitSound();
+      setScore((prev: any) => prev + 1);
+      setMonsterHit(true);
+      setTimeout(() => {
+        setCopy(false);
+        setMonsterHit(false);
+      }, 30);
+    }
+  }
+
+  async function playHitSound() {
+    const hit = Math.floor(Math.random() * 5) + 1;
+
+    if (hit === 1) {
+      hit1Sound.play();
+    }
+
+    if (hit === 2) {
+      hit2Sound.play();
+    }
+
+    if (hit === 3) {
+      hit3Sound.play();
+    }
+
+    if (hit === 4) {
+      hit4Sound.play();
+    }
+
+    if (hit === 5) {
+      hit5Sound.play();
+    }
+  }
+
   return (
     <div className="all">
       <div className="progress-container">
@@ -301,7 +677,11 @@ export default function Home({ tech }: Props) {
 
       <div className="name-container">
         <div className="horizontal-scrolling-items-name">
-          <div className="horizontal-scrolling-items__item">
+          <div
+            className="horizontal-scrolling-items__item"
+            ref={nameBannerRef}
+            style={{ animationDuration: `${nameAnimationDuration}s` }}
+          >
             <span className="english-name">
               <span className="english-name">MATT LAUGHLIN</span>
             </span>
@@ -385,7 +765,11 @@ export default function Home({ tech }: Props) {
 
       <div className="role">
         <div className="horizontal-scrolling-items-role">
-          <div className="horizontal-scrolling-items__item">
+          <div
+            ref={roleBannerRef}
+            style={{ animationDuration: `${roleAnimationDuration}s` }}
+            className="horizontal-scrolling-items__item"
+          >
             <Developer1 />
             <Folder />
             <Admin1 />
@@ -480,153 +864,26 @@ export default function Home({ tech }: Props) {
       <div className="top">
         <div className="about">
           <div className="title">
-            <div className="mobile-links">
-              <div className="mobile-link-parent">
-                <div className="horizontal-scrolling-items-link">
-                  <div className="horizontal-scrolling-items__item">
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                  </div>
-
-                  <div className="horizontal-scrolling-items__item">
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                    Links
-                    <Trackball />
-                  </div>
-                </div>
-              </div>
-
-              <div className="mobile-links-row-1">
-                <div
-                  className="mobile-link mobile-link-border-right"
-                  onClick={() => window.open("https://github.com/spookysip")}
-                >
-                  💽 GitHub
-                  <div className="link-icon link-color">
-                    <Link />
-                  </div>
-                </div>
-                <div
-                  className="mobile-link"
-                  onClick={() =>
-                    window.open("https://linkedin.com/in/mattclaughlin")
-                  }
-                >
-                  🤝 LinkedIn
-                  <span className="link-icon link-color">
-                    <Link />
-                  </span>
-                </div>
-              </div>
-
-              <div className="mobile-links-row-2">
-                <div
-                  className="mobile-link mobile-link-border-right"
-                  onClick={() => {
-                    navigator.clipboard.writeText("hi@mattlaughl.in");
-                    setCopy(true),
-                      setTimeout(() => {
-                        setCopy(false);
-                      }, 3000);
-                  }}
-                >
-                  📬 Copy Email
-                  <span
-                    className={!copy ? "link-icon link-color" : "link-icon"}
-                  >
-                    <Clipboard copy={copy} />
-                  </span>
-                </div>
-                <div
-                  className="mobile-link"
-                  onClick={() => {
-                    setDownload(true),
-                      handleDownload(),
-                      setTimeout(() => {
-                        setDownload(false);
-                      }, 3000);
-                  }}
-                >
-                  📜 Resume
-                  <span
-                    className={!download ? "link-icon link-color" : "link-icon"}
-                  >
-                    <Download download={download} />
-                  </span>
-                </div>
-              </div>
-            </div>
-
             <div ref={stackElement} />
 
             <div
               className={
                 !customStack && monsterHit
-                  ? "section game-background"
+                  ? `game-section game-background ${cornerClass}`
                   : !customStack && !monsterHit
-                  ? "section"
+                  ? `game-section ${cornerClass}`
                   : "custom-stack"
               }
             >
               {!customStack && (
                 <div
-                  className="move"
+                  className={gamePower ? "move" : "frozen"}
                   // style={{
                   //   animationDuration: `${animationSpeed}s`,
                   //   marginTop: `${margin.marginTop}%`,
                   //   marginLeft: `${margin.marginLeft}%`,
                   // }}
-                  onClick={() => {
-                    setScore((prev: any) => prev + 1);
-                    setMonsterHit(true);
-                    setTimeout(() => {
-                      setCopy(false);
-                      setMonsterHit(false);
-                    }, 30);
-                  }}
+                  onClick={() => hitMonster()}
                 >
                   <Monster />
                 </div>
@@ -798,7 +1055,17 @@ export default function Home({ tech }: Props) {
                 }
               >
                 <div className="socre">Score: {score}</div>
-                <div>Start</div>
+                <div
+                  className="game-start-stop"
+                  onClick={() => {
+                    gamePower && setScore(0);
+                    setGamePower((prev) => !prev);
+                    !gamePower && startGameSound.play();
+                    gamePower && stopGameSound.play();
+                  }}
+                >
+                  {!gamePower ? "Start" : "Stop"}
+                </div>
 
                 {/* <div className="speed-parent">
                   <div className="speed">Speed</div>
@@ -816,58 +1083,62 @@ export default function Home({ tech }: Props) {
             <div className="desktop-links">
               <div className="link-title">
                 <div className="horizontal-scrolling-items-link">
-                  <div className="horizontal-scrolling-items__item">
+                  <div
+                    ref={linkBannerRef2}
+                    style={{ animationDuration: `${linkAnimationDuration2}s` }}
+                    className="horizontal-scrolling-items__item"
+                  >
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                   </div>
 
                   <div className="horizontal-scrolling-items__item">
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                     Links
-                    <Trackball2 />
+                    <TrackballDesktop />
                   </div>
                 </div>
               </div>
@@ -931,10 +1202,143 @@ export default function Home({ tech }: Props) {
           </div>
         </div>
 
-        <div className="skills">
-          <div className="technologies-title">
-            <div className="horizontal-scrolling-items">
+        <div className="mobile-links">
+          <div className="mobile-link-parent">
+            <div className="horizontal-scrolling-items-link">
+              <div
+                ref={linkBannerRef1}
+                style={{ animationDuration: `${linkAnimationDuration1}s` }}
+                className="horizontal-scrolling-items__item"
+              >
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+              </div>
+
               <div className="horizontal-scrolling-items__item">
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+                Links
+                <TrackballMobile />
+              </div>
+            </div>
+          </div>
+
+          <div className="mobile-links-row-1">
+            <div
+              className="mobile-link mobile-link-border-right"
+              onClick={() => window.open("https://github.com/spookysip")}
+            >
+              💽 GitHub
+              <div className="link-icon link-color">
+                <Link />
+              </div>
+            </div>
+            <div
+              className="mobile-link"
+              onClick={() =>
+                window.open("https://linkedin.com/in/mattclaughlin")
+              }
+            >
+              🤝 LinkedIn
+              <span className="link-icon link-color">
+                <Link />
+              </span>
+            </div>
+          </div>
+
+          <div className="mobile-links-row-2">
+            <div
+              className="mobile-link mobile-link-border-right"
+              onClick={() => {
+                navigator.clipboard.writeText("hi@mattlaughl.in");
+                setCopy(true),
+                  setTimeout(() => {
+                    setCopy(false);
+                  }, 3000);
+              }}
+            >
+              📬 Copy Email
+              <span className={!copy ? "link-icon link-color" : "link-icon"}>
+                <Clipboard copy={copy} />
+              </span>
+            </div>
+            <div
+              className="mobile-link"
+              onClick={() => {
+                setDownload(true),
+                  handleDownload(),
+                  setTimeout(() => {
+                    setDownload(false);
+                  }, 3000);
+              }}
+            >
+              📜 Resume
+              <span
+                className={!download ? "link-icon link-color" : "link-icon"}
+              >
+                <Download download={download} />
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="technologies-parent">
+          <div
+            ref={bannerRef}
+            // className={`technologies-title ${
+            //   isSticky ? "sticky-banner" : undefined
+            // }`}
+            // style={{ width: isMobile ? "100%" : parentWidth + "px" }}
+            className="technologies-title"
+          >
+            <div className="horizontal-scrolling-items">
+              <div
+                ref={techBannerRef}
+                style={{ animationDuration: `${techAnimationDuration}s` }}
+                className="horizontal-scrolling-items__item"
+              >
                 Technologies
                 <Dragon />
                 Technologies
@@ -1006,7 +1410,7 @@ export default function Home({ tech }: Props) {
                             <div
                               key={item.id}
                               className="item"
-                              onClick={() =>
+                              onClick={() => {
                                 setTechDisplay((previous: any) =>
                                   previous.map((tech: any) =>
                                     tech.id === item.id
@@ -1016,8 +1420,10 @@ export default function Home({ tech }: Props) {
                                         }
                                       : tech
                                   )
-                                )
-                              }
+                                );
+                                setScore(0);
+                                setGamePower(false);
+                              }}
                             >
                               {item.name}
                             </div>
@@ -1035,7 +1441,11 @@ export default function Home({ tech }: Props) {
 
       <div className="theater-title">
         <div className="horizontal-scrolling-items">
-          <div className="horizontal-scrolling-items__item">
+          <div
+            ref={theaterBannerRef}
+            style={{ animationDuration: `${theaterAnimationDuration}s` }}
+            className="horizontal-scrolling-items__item"
+          >
             THEATER
             <Popcorn />
             THEATER
@@ -1115,10 +1525,9 @@ export default function Home({ tech }: Props) {
         <div className="theater">
           <div>
             {videos.map((video: any, index: any) => (
-              <div>
+              <div key={video.id}>
                 <div
                   className="player-wrapper"
-                  key={video.id}
                   style={{ display: videoId === video.id ? "block" : "none" }}
                 >
                   <ReactPlayer
@@ -1146,9 +1555,26 @@ export default function Home({ tech }: Props) {
         </div>
       </div>
 
-      <div className="container container-border-top">
+      <div className="skills" id="parentDiv">
+        <div
+          ref={placeholderRef}
+          style={{
+            height: isSticky ? experienceBannerRef.current.clientHeight + 5 : 0,
+          }}
+        />
+      </div>
+
+      <div
+        className={`container container-border-top ${
+          isSticky ? "sticky-banner" : undefined
+        }`}
+      >
         <div className="horizontal-scrolling-items">
-          <div className="horizontal-scrolling-items__item">
+          <div
+            ref={experienceBannerRef}
+            style={{ animationDuration: `${experienceAnimationDuration}s` }}
+            className="horizontal-scrolling-items__item"
+          >
             Experience
             <Crystal />
             Experience
@@ -1206,6 +1632,17 @@ export default function Home({ tech }: Props) {
 
       <div className="experience-parent">
         <div className="experience-inline">
+          <div
+            className="resume-dot"
+            style={{
+              backgroundColor: "#9475bf",
+              outline: "3px solid #ffc83d",
+              outlineStyle: "dashed",
+              marginTop: "-32px",
+              marginLeft: "-7px",
+            }}
+          />
+
           <div className="experience-item experience-border-1">
             <div
               className="website website-1 animate-1"
@@ -1239,16 +1676,25 @@ export default function Home({ tech }: Props) {
               I created to be a comforting study buddy that makes working feel
               like a game. It allows users to play relaxing music and
               soundscapes, keep track of quests to achieve, and run
-              campaign/rest timers.
+              campaign/rest timers
             </div>
 
             <div className="experience-title-1">
               Full-Stack Developer & UI/UX Designer
             </div>
+
             <div className="timeframe-section-1">
               <Clock fill={"#9475bf"} stroke={"#483285"} />
               <div className="timeframe-1">Jan. 2023 - Present</div>
             </div>
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#9475bf",
+                outline: "2px solid #ffc83d",
+                outlineStyle: "dashed",
+              }}
+            />
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
@@ -1269,21 +1715,24 @@ export default function Home({ tech }: Props) {
                     setStackTitle("cozyPunk"),
                       setTechDisplay((previous: any) =>
                         previous.map((tech: any) =>
-                          tech.id === 1 ||
-                          tech.id === 2 ||
-                          tech.id === 3 ||
-                          tech.id === 5 ||
-                          tech.id === 7 ||
-                          tech.id === 9 ||
-                          tech.id === 10 ||
-                          tech.id === 11 ||
-                          tech.id === 25 ||
-                          tech.id === 31 ||
-                          tech.id === 4 ||
-                          tech.id === 8 ||
-                          tech.id === 32 ||
-                          tech.id === 33 ||
-                          tech.id === 35
+                          tech.id === 77762329 ||
+                          tech.id === 68025628 ||
+                          tech.id === 70890557 ||
+                          tech.id === 93206806 ||
+                          tech.id === 60088648 ||
+                          tech.id === 84071992 ||
+                          tech.id === 65667794 ||
+                          tech.id === 37311184 ||
+                          tech.id === 64879801 ||
+                          tech.id === 61503304 ||
+                          tech.id === 89554979 ||
+                          tech.id === 6593939244 ||
+                          tech.id === 36976903 ||
+                          tech.id === 26885185 ||
+                          tech.id === 73111623 ||
+                          tech.id === 39403119 ||
+                          tech.id === 73662979 ||
+                          tech.id === 68799196
                             ? {
                                 ...tech,
                                 selected: true,
@@ -1346,13 +1795,22 @@ export default function Home({ tech }: Props) {
             </div>
           </div>
 
+          <div
+            className="resume-dot"
+            style={{
+              backgroundColor: "#ee702c",
+              outline: "3px solid #9475bf",
+              outlineStyle: "dashed",
+            }}
+          />
+
           <div className="experience-item experience-border-2">
             <div className="website-no-link website-2 animate">
               <span>The Fall of Mann</span>
             </div>
 
             <div className="experience-summary">
-              The Fall of Mann is a{" "}
+              📗 The Fall of Mann is a{" "}
               <span
                 className="resume-color-highlight"
                 style={{
@@ -1398,7 +1856,9 @@ export default function Home({ tech }: Props) {
               >
                 true origins
               </span>{" "}
-              to clear their name.
+              to clear their name
+              <br />
+              <br /> Manuscript available upon request
             </div>
 
             <div className="experience-title-2">Writer</div>
@@ -1406,6 +1866,15 @@ export default function Home({ tech }: Props) {
               <Clock fill={"#ed702d"} stroke={"#4B230E"} />
               <div className="timeframe-2">Dec. 2021 - Present</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#ee702c",
+                outline: "2px solid #9475bf",
+                outlineStyle: "dashed",
+              }}
+            />
 
             <div className="highlight-section">
               {" "}
@@ -1422,6 +1891,15 @@ export default function Home({ tech }: Props) {
               </div>
             </div>
           </div>
+
+          <div
+            className="resume-dot"
+            style={{
+              backgroundColor: "#ffff04",
+              outline: "3px solid #ee702c",
+              outlineStyle: "dashed",
+            }}
+          />
 
           <div className="experience-item experience-border-3">
             <div
@@ -1464,7 +1942,7 @@ export default function Home({ tech }: Props) {
               </span>
               . I had the opportunity to create an internal back end server and
               client to manage the footage curation pipeline and create another
-              client to communicate its progress to filmmakers.
+              client to communicate its progress to filmmakers
             </div>
 
             <div className="experience-title-3">Product Manager</div>
@@ -1473,68 +1951,115 @@ export default function Home({ tech }: Props) {
               <Clock fill={"#ffff00"} stroke={"#363600"} />
               <div className="timeframe-3">Jul. 2020 - Nov. 2021</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#ffff04",
+                outline: "2px solid #ee702c",
+                outlineStyle: "dashed",
+                marginLeft: "190px",
+              }}
+            />
+
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
-                  💾 Spearheaded and implemented the development and continual
-                  maintenance of a{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "2.7s",
-                    }}
-                  >
-                    full-stack application
-                  </span>{" "}
-                  for Filmsupply's content department. Back End: MySQL database
-                  // REST API // NodeJS/Express server built behind a Forest
-                  Admin application. Front End: React.
-                </li>
-
-                <li className="highlight-item">
-                  🏠 Delivered continued architecture imporvements for services
-                  within{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "3.0s",
-                    }}
-                  >
-                    AWS
-                  </span>
-                  . Back End: NodeJS/Express server deployed to Lambda function
-                  through the serverless framework and accessed through API
-                  Gateway. Front End: React App deployed through Amplify.
-                </li>
-
-                <li className="highlight-item">
-                  📎 Maintained integrity with{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "3.3s",
-                    }}
-                  >
-                    third party API's
-                  </span>
-                  , improved existing codebases through refactoring strategies
-                  and contributed to the transition of legacy monolithic
-                  architecture to microservices.
-                </li>
-
-                <li className="highlight-item">
-                  ✒️ Contributed to{" "}
+                  🤝 Coordinated with cross-functional teams in the development
+                  and launch of{" "}
                   <span
                     className="resume-color-highlight"
                     style={{
                       animationDelay: "3.6s",
                     }}
                   >
-                    5+ repositories weekly
+                    internal admin solutions
                   </span>
-                  . Responsible for architecture support, front end stories in
-                  React and back end stories in NodeJS/Express within any given
-                  sprint.
+                  , resulting in{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    increased efficiency
+                  </span>
+                </li>
+
+                <li className="highlight-item">
+                  💬 Conducted internal team discussions to{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    identify key employee needs
+                  </span>
+                  , driving the creation of{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    product roadmaps
+                  </span>{" "}
+                  and
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    {" "}
+                    feature prioritization
+                  </span>
+                </li>
+
+                <li className="highlight-item">
+                  ➡️ Managed the product lifecycle{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    from ideation to launch
+                  </span>
+                  , ensuring timely delivery and{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    alignment with business goals
+                  </span>{" "}
+                  and employee expectations
+                </li>
+
+                <li className="highlight-item">
+                  📜 Developed and{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    maintained product documentation
+                  </span>
+                  , including user guides, release notes, and training
+                  materials, ensuring
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    seamless user adoption
+                  </span>{" "}
+                  and support
                 </li>
               </ul>
             </div>
@@ -1545,6 +2070,17 @@ export default function Home({ tech }: Props) {
               <Clock fill={"#ffff00"} stroke={"#363600"} />
               <div className="timeframe-3">Jan. 2020 - Jun. 2021</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#ffff04",
+                outline: "2px solid #ee702c",
+                outlineStyle: "dashed",
+                marginLeft: "190px",
+              }}
+            />
+
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
@@ -1558,7 +2094,7 @@ export default function Home({ tech }: Props) {
                   >
                     full-stack application
                   </span>{" "}
-                  for Filmsupply's content department.
+                  for Filmsupply's content department
                 </li>
 
                 <div
@@ -1567,31 +2103,34 @@ export default function Home({ tech }: Props) {
                     setStackTitle("Filmsupply & Musicbed"),
                       setTechDisplay((previous: any) =>
                         previous.map((tech: any) =>
-                          tech.id === 2 ||
-                          tech.id === 3 ||
-                          tech.id === 4 ||
-                          tech.id === 5 ||
-                          tech.id === 6 ||
-                          tech.id === 7 ||
-                          tech.id === 8 ||
-                          tech.id === 9 ||
-                          tech.id === 15 ||
-                          tech.id === 16 ||
-                          tech.id === 17 ||
-                          tech.id === 19 ||
-                          tech.id === 20 ||
-                          tech.id === 21 ||
-                          tech.id === 22 ||
-                          tech.id === 23 ||
-                          tech.id === 24 ||
-                          tech.id === 25 ||
-                          tech.id === 26 ||
-                          tech.id === 27 ||
-                          tech.id === 28 ||
-                          tech.id === 29 ||
-                          tech.id === 30 ||
-                          tech.id === 34 ||
-                          tech.id === 36
+                          tech.id === 77762329 ||
+                          tech.id === 68025628 ||
+                          tech.id === 70890557 ||
+                          tech.id === 60088648 ||
+                          tech.id === 84071992 ||
+                          tech.id === 65667794 ||
+                          tech.id === 37311184 ||
+                          tech.id === 64879801 ||
+                          tech.id === 73030401 ||
+                          tech.id === 73362079 ||
+                          tech.id === 57009578 ||
+                          tech.id === 65939392 ||
+                          tech.id === 19033388 ||
+                          tech.id === 48623093 ||
+                          tech.id === 63043656 ||
+                          tech.id === 21903310 ||
+                          tech.id === 62746874 ||
+                          tech.id === 78257886 ||
+                          tech.id === 55882386 ||
+                          tech.id === 56422034 ||
+                          tech.id === 36976903 ||
+                          tech.id === 92860268 ||
+                          tech.id === 79545424 ||
+                          tech.id === 38728182 ||
+                          tech.id === 89930050 ||
+                          tech.id === 75822646 ||
+                          tech.id === 20947143 ||
+                          tech.id === 68799176
                             ? {
                                 ...tech,
                                 selected: true,
@@ -1608,8 +2147,16 @@ export default function Home({ tech }: Props) {
                 </div>
 
                 <li className="highlight-item">
-                  🏠 Delivered continued architecture imporvements for services
-                  within{" "}
+                  🏠 Delivered continued{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    architecture imporvements
+                  </span>{" "}
+                  for services within{" "}
                   <span
                     className="resume-color-highlight"
                     style={{
@@ -1620,7 +2167,7 @@ export default function Home({ tech }: Props) {
                   </span>
                   . Back End: NodeJS/Express server deployed to Lambda function
                   through the serverless framework and accessed through API
-                  Gateway. Front End: React App deployed through Amplify.
+                  Gateway. Front End: React App deployed through Amplify
                 </li>
 
                 <li className="highlight-item">
@@ -1635,7 +2182,7 @@ export default function Home({ tech }: Props) {
                   </span>
                   , improved existing codebases through refactoring strategies
                   and contributed to the transition of legacy monolithic
-                  architecture to microservices.
+                  architecture to microservices
                 </li>
 
                 <li className="highlight-item">
@@ -1650,7 +2197,7 @@ export default function Home({ tech }: Props) {
                   </span>
                   . Responsible for architecture support, front end stories in
                   React and back end stories in NodeJS/Express within any given
-                  sprint.
+                  sprint
                 </li>
               </ul>
             </div>
@@ -1661,30 +2208,88 @@ export default function Home({ tech }: Props) {
               <Clock fill={"#ffff00"} stroke={"#363600"} />
               <div className="timeframe-3">Nov. 2018 - Dec. 2019</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#ffff04",
+                outline: "2px solid #ee702c",
+                outlineStyle: "dashed",
+                marginLeft: "190px",
+              }}
+            />
+
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
-                  Helped develop and maintain department goals and implemented
-                  organizational systems to measure progress and milestone
-                  achievements.
+                  📊 Assisted in developing and{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    maintaining department goals
+                  </span>{" "}
+                  and implemented{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    organizational systems
+                  </span>{" "}
+                  to measure progress and milestone achievements
                 </li>
 
                 <li className="highlight-item">
-                  Built and utilized various workflows and technologies to
-                  streamline productivity across multiple departmental
-                  pipelines.
+                  💻 Built and utilized various workflows and technologies to
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    streamline productivity
+                  </span>{" "}
+                  across multiple departmental pipelines
                 </li>
 
                 <li className="highlight-item">
-                  Coordinated with other departments to determine the most
-                  efficient strategies to collaborate and share data and
-                  knowledge.
+                  🖇️ Coordinated with other departments to determine the most
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    efficient strategies
+                  </span>{" "}
+                  to collaborate and share data and knowledge
                 </li>
 
                 <li className="highlight-item">
-                  Maintained departmental databases and organized reports to
-                  send to leadership for daily performance metics and
-                  operational implementation.
+                  💾 Maintained{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    departmental databases
+                  </span>{" "}
+                  and{" "}
+                  <span
+                    className="resume-color-highlight"
+                    style={{
+                      animationDelay: "3.6s",
+                    }}
+                  >
+                    organized reports
+                  </span>{" "}
+                  to send to leadership for daily performance metics and
+                  operational implementation
                 </li>
               </ul>
             </div>
@@ -1695,30 +2300,41 @@ export default function Home({ tech }: Props) {
               <Clock fill={"#ffff00"} stroke={"#363600"} />
               <div className="timeframe-3">Jul. 2018 - Oct. 2018</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#ffff04",
+                outline: "2px solid #ee702c",
+                outlineStyle: "dashed",
+                marginLeft: "186px",
+              }}
+            />
+
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
-                  Reached out to new perspective filmmakers, signing over 140+
-                  to contribute footage to Filmsupply.
+                  📱 Managed the social media calendar for multi-channel
+                  marketing campaigns and coordinated with various stake holders
+                  to obtain the necessary assets in a timely manner
                 </li>
 
                 <li className="highlight-item">
-                  Managed ongoing relationships and maintained daily
-                  correspondence with the filmmakers Isigned, answering any
-                  questions they presented and coordinated with them to
-                  determine new collaboration opportunities.
+                  📅 Scheduled and posted on various social media accounts
+                  resulting in increased engagement for the duration of various
+                  campaigns
                 </li>
 
                 <li className="highlight-item">
-                  Utilized various technologies to lead the development of sales
-                  pipelines to scale the most efficient onboarding process for
-                  new filmmakers.
+                  ✏️ Crafted compelling copy for various marketing materials,
+                  including website content, email campaigns, and social media
+                  posts, enhancing brand voice and driving customer engagement
                 </li>
 
                 <li className="highlight-item">
-                  Traveled and represented the company at industry events where
-                  Ipromoted the company at trade shows and scouted new
-                  opportunities with other companies.
+                  📈 Monitored and analyzed campaign performance metrics,
+                  providing actionable insights and recommendations to optimize
+                  marketing strategies
                 </li>
               </ul>
             </div>
@@ -1729,34 +2345,54 @@ export default function Home({ tech }: Props) {
               <Clock fill={"#ffff00"} stroke={"#363600"} />
               <div className="timeframe-3">Nov. 2016 - Jun. 2018</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#ffff04",
+                outline: "2px solid #ee702c",
+                outlineStyle: "dashed",
+                marginLeft: "190px",
+              }}
+            />
+
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
-                  Reached out to new perspective filmmakers, signing over 140+
-                  to contribute footage to Filmsupply.
+                  📞 Reached out to new perspective filmmakers, signing over
+                  140+ to contribute footage to Filmsupply
                 </li>
 
                 <li className="highlight-item">
-                  Managed ongoing relationships and maintained daily
-                  correspondence with the filmmakers Isigned, answering any
+                  🧑‍🤝‍🧑 Managed ongoing relationships and maintained daily
+                  correspondence with the filmmakers I signed, answering any
                   questions they presented and coordinated with them to
-                  determine new collaboration opportunities.
+                  determine new collaboration opportunities
                 </li>
 
                 <li className="highlight-item">
-                  Utilized various technologies to lead the development of sales
-                  pipelines to scale the most efficient onboarding process for
-                  new filmmakers.
+                  💿 Utilized various technologies to lead the development of
+                  sales pipelines to scale the most efficient onboarding process
+                  for new filmmakers
                 </li>
 
                 <li className="highlight-item">
-                  Traveled and represented the company at industry events where
-                  Ipromoted the company at trade shows and scouted new
-                  opportunities with other companies.
+                  ✈️ Traveled nationally and represented the company at industry
+                  events where Ipromoted the company at trade shows and scouted
+                  new opportunities with other companies
                 </li>
               </ul>
             </div>
           </div>
+
+          <div
+            className="resume-dot"
+            style={{
+              backgroundColor: "#02c700",
+              outline: "3px solid #ffff04",
+              outlineStyle: "dashed",
+            }}
+          />
 
           <div className="experience-item experience-border-4">
             <div className="website-no-link website-5">
@@ -1764,100 +2400,75 @@ export default function Home({ tech }: Props) {
             </div>
 
             <div className="experience-summary">
-              🍵{" "}
-              <span
-                className="resume-color-highlight"
-                style={{
-                  animationDelay: "0.3s",
-                }}
-              >
-                cozyPunk
-              </span>{" "}
-              is a{" "}
-              <span
-                className="resume-color-highlight"
-                style={{
-                  animationDelay: "0.6s",
-                }}
-              >
-                "passion product"
-              </span>{" "}
-              I created to be a comforting study buddy that makes working feel
-              like a game. It allows users to play relaxing music and
-              soundscapes, keep track of quests to achieve, and run
-              campaign/rest timers.
+              📡 Daystar is an international broadcasting station and television
+              studio. I was a member of the small "Predator" video team
+              (Producer/Shooter/Editor) that created short and creative segments
+              that broadcasted on air worldwide.
+            </div>
+
+            <div className="experience-summary">
+              🏳️‍🌈 Important: While my previous and distant role within this
+              company is relevant to my experience and worth including, it is
+              personally important to me to note that I believe wholeheartedly
+              in the unwavering support of inclusivity through all walks of life
+              and embracing of all marginalized communities and do not support
+              any systemic influence that prohibits or hinders that.
             </div>
 
             <div className="experience-title-4">
-              Full-Stack Developer & UI/UX Designer
+              Procuer, Cinematographer & Editor
             </div>
             <div className="timeframe-section-4">
               <Clock fill={"#00c700"} stroke={"#003500"} />
-              <div className="timeframe-4">Jan. 2023 - Present</div>
+              <div className="timeframe-4">Jan. 2023 - Nov. 2016</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#02c700",
+                outline: "2px solid #ffff04",
+                outlineStyle: "dashed",
+                marginLeft: "188px",
+              }}
+            />
+
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
-                  💻 Developed a feature-rich, full-stack web application{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "0.9s",
-                    }}
-                  >
-                    from concept to production
-                  </span>
-                  . Front End: Next JS // React // Typescript. Back End: Node JS
-                  // Typescript // MySQL // REST // Planetscale // Prisma.
-                  Infrastructure: Vercel // S3. Infrastructure: Vercel // S3.
+                  ✍️ Developed and wrote engaging scripts that provided clear
+                  direction on set and resonated with audiences
                 </li>
 
                 <li className="highlight-item">
-                  🎨 Designed a custom UI/UX{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.2s",
-                    }}
-                  >
-                    for the entire site
-                  </span>
-                  . Utilized Adobe XD and Figma to translate designs and svg's
-                  into a custom and fully responsive css design system.
+                  🎬 Coordinated and managed logistics for shoots, including
+                  securing locations, talent, crew, and equipment, resulting in
+                  seamless production processes
                 </li>
 
                 <li className="highlight-item">
-                  📋 Seamlessly integrated a{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.5s",
-                    }}
-                  >
-                    robust MySQL database solution{" "}
-                  </span>
-                  , optimizing data storage and retrieval processes. Implemented
-                  effective data schemas and management strategies , ensuring
-                  data integrity, security, and scalability.
+                  📽️ Performed duties as cinematographer, setting up, tearing
+                  down and maintaining camera and lighting equipment both on
+                  site and in remote locations as necessary
                 </li>
 
                 <li className="highlight-item">
-                  ⛟ Continually{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.8s",
-                    }}
-                  >
-                    designing, coding and shipping
-                  </span>{" "}
-                  new features, auditing and improving infrastructure
-                  development and refactoring the current codebase for improved
-                  performance.
+                  🎞️ Oversaw and performed post production on various
+                  productions including editing, color correction and sound
+                  mixing through completion
                 </li>
               </ul>
             </div>
           </div>
+
+          <div
+            className="resume-dot"
+            style={{
+              backgroundColor: "#5959ff",
+              outline: "3px solid #02c700",
+              outlineStyle: "dashed",
+            }}
+          />
 
           <div className="experience-item experience-border-5">
             <div className="website-no-link website-6 animate">
@@ -1865,28 +2476,19 @@ export default function Home({ tech }: Props) {
             </div>
 
             <div className="experience-summary">
-              🍵{" "}
-              <span
-                className="resume-color-highlight"
-                style={{
-                  animationDelay: "0.3s",
-                }}
-              >
-                cozyPunk
-              </span>{" "}
-              is a{" "}
-              <span
-                className="resume-color-highlight"
-                style={{
-                  animationDelay: "0.6s",
-                }}
-              >
-                "passion product"
-              </span>{" "}
-              I created to be a comforting study buddy that makes working feel
-              like a game. It allows users to play relaxing music and
-              soundscapes, keep track of quests to achieve, and run
-              campaign/rest timers.
+              🎤 Elevate Life is a church and event venue. I oversaw the
+              production of every event along with the delivery of their locally
+              broadcasted television show and shot and edited various video
+              elements that were broadcasted during events.
+            </div>
+
+            <div className="experience-summary">
+              🏳️‍🌈 Important: While my previous and distant role within this
+              company is relevant to my experience and worth including, it is
+              personally important to me to note that I believe wholeheartedly
+              in the unwavering support of inclusivity through all walks of life
+              and embracing of all marginalized communities and do not support
+              any systemic influence that prohibits or hinders that.
             </div>
 
             <div className="experience-title-5">Broadcast Director</div>
@@ -1894,69 +2496,53 @@ export default function Home({ tech }: Props) {
               <Clock fill={"#5959ff"} stroke={"#21215B"} />
               <div className="timeframe-5">Jan. 2023 - Present</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#5959ff",
+                outline: "2px solid #02c700",
+                outlineStyle: "dashed",
+                marginLeft: "178px",
+              }}
+            />
+
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
-                  💻 Developed a feature-rich, full-stack web application{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "0.9s",
-                    }}
-                  >
-                    from concept to production
-                  </span>
-                  . Front End: Next JS // React // Typescript. Back End: Node JS
-                  // Typescript // MySQL // REST // Planetscale // Prisma.
-                  Infrastructure: Vercel // S3. Infrastructure: Vercel // S3.
+                  🎸 Acted as lead producer and oversaw the production of events
+                  with 1500+ in attendance, coordinating with broadcast, audio
+                  crew, stage crew, performers and admin staff to make sure
+                  events ran efficiently
                 </li>
 
                 <li className="highlight-item">
-                  🎨 Designed a custom UI/UX{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.2s",
-                    }}
-                  >
-                    for the entire site
-                  </span>
-                  . Utilized Adobe XD and Figma to translate designs and svg's
-                  into a custom and fully responsive css design system.
+                  📣 Lead the training, scheduling and performance of 30+
+                  volunteers across 13 roles across 4+ separate events weekly
                 </li>
 
                 <li className="highlight-item">
-                  📋 Seamlessly integrated a{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.5s",
-                    }}
-                  >
-                    robust MySQL database solution{" "}
-                  </span>
-                  , optimizing data storage and retrieval processes. Implemented
-                  effective data schemas and management strategies , ensuring
-                  data integrity, security, and scalability.
+                  📎 Coordinated with department heads to determine key
+                  opportunities for growth across all live event teams
                 </li>
 
                 <li className="highlight-item-bottom">
-                  ⛟ Continually{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.8s",
-                    }}
-                  >
-                    designing, coding and shipping
-                  </span>{" "}
-                  new features, auditing and improving infrastructure
-                  development and refactoring the current codebase for improved
-                  performance.
+                  📹 Shot and edited various video productions in addition to
+                  creating custom motion graphics that were broadcasted across
+                  all events
                 </li>
               </ul>
             </div>
           </div>
+
+          <div
+            className="resume-dot"
+            style={{
+              backgroundColor: "#ffa8e7",
+              outline: "3px solid #5959ff",
+              outlineStyle: "dashed",
+            }}
+          />
 
           <div className="experience-item-bottom experience-border-6">
             <div className="website-no-link website-7 animate">
@@ -1964,132 +2550,52 @@ export default function Home({ tech }: Props) {
             </div>
 
             <div className="experience-summary">
-              🍵{" "}
-              <span
-                className="resume-color-highlight"
-                style={{
-                  animationDelay: "0.3s",
-                }}
-              >
-                cozyPunk
-              </span>{" "}
-              is a{" "}
-              <span
-                className="resume-color-highlight"
-                style={{
-                  animationDelay: "0.6s",
-                }}
-              >
-                "passion product"
-              </span>{" "}
-              I created to be a comforting study buddy that makes working feel
-              like a game. It allows users to play relaxing music and
-              soundscapes, keep track of quests to achieve, and run
-              campaign/rest timers.
+              🚀 WorldVentures is an international travel company that offers
+              exclusive travel packages, discounted vacations, and unique travel
+              experiences to its members. I had the opportunity to work on their
+              video production team covering various live events and
+              international trips.
             </div>
 
             <div className="experience-title-6">
-              Full-Stack Developer & UI/UX Designer
+              Video Producer, Editor & Motion Graphics Artist
             </div>
             <div className="timeframe-section-6">
               <Clock fill={"#ffa8e7"} stroke={"#3F2939"} />
               <div className="timeframe-6">Jan. 2023 - Present</div>
             </div>
+
+            <div
+              className="resume-small-dot"
+              style={{
+                backgroundColor: "#ffa8e7",
+                outline: "2px solid #5959ff",
+                outlineStyle: "dashed",
+                marginLeft: "178px",
+              }}
+            />
+
             <div className="highlight-section">
               <ul className="highlights">
                 <li className="highlight-item">
-                  💻 Developed a feature-rich, full-stack web application{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "0.9s",
-                    }}
-                  >
-                    from concept to production
-                  </span>
-                  . Front End: Next JS // React // Typescript. Back End: Node JS
-                  // Typescript // MySQL // REST // Planetscale // Prisma.
-                  Infrastructure: Vercel // S3. Infrastructure: Vercel // S3.
-                </li>
-
-                <div
-                  className="create-stack"
-                  onClick={() => {
-                    setStackTitle("cozyPunk"),
-                      setTechDisplay((previous: any) =>
-                        previous.map((tech: any) =>
-                          tech.id === 1 ||
-                          tech.id === 2 ||
-                          tech.id === 3 ||
-                          tech.id === 5 ||
-                          tech.id === 7 ||
-                          tech.id === 9 ||
-                          tech.id === 10 ||
-                          tech.id === 11 ||
-                          tech.id === 25 ||
-                          tech.id === 31 ||
-                          tech.id === 4 ||
-                          tech.id === 8 ||
-                          tech.id === 32 ||
-                          tech.id === 33 ||
-                          tech.id === 35
-                            ? {
-                                ...tech,
-                                selected: true,
-                              }
-                            : tech
-                        )
-                      ),
-                      stackElement.current.scrollIntoView({
-                        behavior: "smooth",
-                      });
-                  }}
-                >
-                  Create Stack
-                </div>
-
-                <li className="highlight-item">
-                  🎨 Designed a custom UI/UX{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.2s",
-                    }}
-                  >
-                    for the entire site
-                  </span>
-                  . Utilized Adobe XD and Figma to translate designs and svg's
-                  into a custom and fully responsive css design system.
+                  🎉 Shot and edited marketing and sponsorship material on
+                  member trips in Cancún, Monaco and the Daytona 500
                 </li>
 
                 <li className="highlight-item">
-                  📋 Seamlessly integrated a{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.5s",
-                    }}
-                  >
-                    robust MySQL database solution{" "}
-                  </span>
-                  , optimizing data storage and retrieval processes. Implemented
-                  effective data schemas and management strategies , ensuring
-                  data integrity, security, and scalability.
+                  📺 Shot and developed assets for international training events
+                  in Dallas, Las Vegas and Nashville
+                </li>
+
+                <li className="highlight-item">
+                  ✨ Shot, edited and created motion graphics for training
+                  material in 15+ languages that were distributed
+                  internationally
                 </li>
 
                 <li className="highlight-item-bottom">
-                  ⛟ Continually{" "}
-                  <span
-                    className="resume-color-highlight"
-                    style={{
-                      animationDelay: "1.8s",
-                    }}
-                  >
-                    designing, coding and shipping
-                  </span>{" "}
-                  new features, auditing and improving infrastructure
-                  development and refactoring the current codebase for improved
-                  performance.
+                  🎙️ Helped develop and maintain an internal studio at the
+                  corporate office that was utilized for numerous productions
                 </li>
               </ul>
             </div>
@@ -2098,7 +2604,13 @@ export default function Home({ tech }: Props) {
       </div>
 
       <div
-        className="bottom-container"
+        className={
+          scrolled > 0
+            ? "show-bottom-banner"
+            : scrolled === 0
+            ? "hide-bottom-banner"
+            : undefined
+        }
         onClick={() =>
           window.scrollTo({
             top: 0,
@@ -2106,8 +2618,12 @@ export default function Home({ tech }: Props) {
           })
         }
       >
-        <div className="bottom-horizontal-scrolling-items">
-          <div className="bottom-horizontal-scrolling-items__item">
+        <div className="horizontal-scrolling-items">
+          <div
+            ref={backTopBannerRef}
+            style={{ animationDuration: `${backTopAnimationDuration}s` }}
+            className="horizontal-scrolling-items__item"
+          >
             back to top
             <Devil />
             back to top
