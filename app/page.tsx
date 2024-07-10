@@ -29,6 +29,12 @@ const tech = [
   { id: 57009578, name: "Mongoose", type: "Database", selected: false },
 
   // Infrastructure
+  {
+    id: 6593939244,
+    name: "Digital Ocean",
+    type: "Infrastructure",
+    selected: false,
+  },
   { id: 65939392, name: "Amplify", type: "Infrastructure", selected: false },
   { id: 19033388, name: "Lambda", type: "Infrastructure", selected: false },
   { id: 48623093, name: "RDS", type: "Infrastructure", selected: false },
