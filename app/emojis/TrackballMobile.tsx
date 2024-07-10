@@ -1,7 +1,7 @@
-export default function Trackball() {
+export default function TrackballMobile() {
   return (
     <svg
-      className="emoji-mouse"
+      className="emoji-mouse-mobile"
       width="30"
       height="30"
       viewBox="0 0 30 30"
