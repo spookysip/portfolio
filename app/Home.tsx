@@ -42,27 +42,33 @@ export default function Home({ tech }: Props) {
   const [videos, setVideos] = useState([
     {
       id: 1,
-      url: "https://vimeo.com/112625544",
-      title: "VAST EXPANSION",
-      role: "Writer~Director~Editor",
+      url: "https://youtu.be/b59rxDB_JRg",
+      title: "THE FALL OF MANN (CONCEPT TEASER)",
+      role: "Writer~Editor",
+      year: 2021,
     },
     {
       id: 2,
       url: "https://vimeo.com/238017469",
       title: "VOICEMAIL",
       role: "Writer~Director~Editor",
+      descriptionTitle: "Voicemail",
+      year: 2018,
     },
     {
       id: 3,
       url: "https://vimeo.com/245921296",
       title: "RESCATE",
       role: "Additional Editor",
+      year: 2017,
     },
     {
       id: 4,
-      url: "https://drive.google.com/file/d/1Tdl47a9dvRxTMOLtSSt71opD7z58vCFL/preview",
-      title: "THE FALL OF MANN (CONCEPT TEASER)",
-      role: "Editor",
+      url: "https://vimeo.com/112625544",
+      title: "VAST EXPANSION",
+      role: "Writer~Director~Editor",
+      descriptionTitle: "Vast Expansion",
+      year: 2013,
     },
   ]) as any;
   const [playing, setPlaying] = useState(false);

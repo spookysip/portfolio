@@ -29,7 +29,7 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
           <span
             className="resume-color-highlight"
             style={{
-              animationDelay: "1.8s",
+              animationDelay: ".3s",
             }}
           >
             graphic novel
@@ -39,7 +39,7 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
           <span
             className="resume-color-highlight"
             style={{
-              animationDelay: "1.8s",
+              animationDelay: ".6s",
             }}
           >
             Murray
@@ -48,7 +48,7 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
           <span
             className="resume-color-highlight"
             style={{
-              animationDelay: "1.8s",
+              animationDelay: ".9s",
             }}
           >
             first murder
@@ -57,7 +57,7 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
           <span
             className="resume-color-highlight"
             style={{
-              animationDelay: "1.8s",
+              animationDelay: "1.2s",
             }}
           >
             Mann
@@ -66,14 +66,15 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
           <span
             className="resume-color-highlight"
             style={{
-              animationDelay: "1.8s",
+              animationDelay: "1.5s",
             }}
           >
             true origins
           </span>{" "}
           to clear their name
           <br />
-          <br /> Manuscript available upon request
+          <br />{" "}
+          <span className="italics">*Manuscript available upon request</span>
         </div>
 
         <div className="experience-title-2">Writer</div>
@@ -96,7 +97,7 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
           <div
             className="create-stack-2"
             onClick={() => {
-              setVideoId(4);
+              setVideoId(1);
               theaterElement.current.scrollIntoView({
                 behavior: "smooth",
               });

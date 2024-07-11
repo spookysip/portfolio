@@ -45,12 +45,19 @@ export default function FM({
           </span>
         </div>
 
+        <div className="experience-location-parent">
+          📍
+          <span className="experience-location" style={{ color: "#FFFF00" }}>
+            Fort Worth, Texas
+          </span>
+        </div>
+
         <div className="experience-summary">
           🎥{" "}
           <span
             className="resume-color-highlight"
             style={{
-              animationDelay: ".21s",
+              animationDelay: ".3s",
             }}
           >
             Filmsupply and 🎹 Musicbed
@@ -59,7 +66,7 @@ export default function FM({
           <span
             className="resume-color-highlight"
             style={{
-              animationDelay: "2.4s",
+              animationDelay: ".6s",
             }}
           >
             &nbsp;licensing premium footage and music
@@ -73,7 +80,7 @@ export default function FM({
 
         <div className="timeframe-section-3">
           <Clock fill={"#ffff00"} stroke={"#363600"} />
-          <div className="timeframe-3">Jul. 2020 - Nov. 2021</div>
+          <div className="timeframe-3">Jul. 2021 - Nov. 2021</div>
         </div>
 
         <div
@@ -94,7 +101,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: ".9s",
                 }}
               >
                 internal admin solutions
@@ -103,7 +110,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.2s",
                 }}
               >
                 increased efficiency
@@ -111,20 +118,20 @@ export default function FM({
             </li>
 
             <li className="highlight-item">
-              💬 Conducted internal team discussions to{" "}
+              💬 Conducted internal team discussions to identify{" "}
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.5s",
                 }}
               >
-                identify key employee needs
+                key employee needs
               </span>
               , driving the creation of{" "}
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.8s",
                 }}
               >
                 product roadmaps
@@ -133,7 +140,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: ".3s",
                 }}
               >
                 {" "}
@@ -146,7 +153,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: ".6s",
                 }}
               >
                 from ideation to launch
@@ -155,7 +162,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: ".9s",
                 }}
               >
                 alignment with business goals
@@ -164,23 +171,24 @@ export default function FM({
             </li>
 
             <li className="highlight-item">
-              📜 Developed and{" "}
+              📜 Developed and maintained{" "}
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.2s",
                 }}
               >
-                maintained product documentation
+                product documentation
               </span>
               , including user guides, release notes, and training materials,
               ensuring
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.5s",
                 }}
               >
+                {" "}
                 seamless user adoption
               </span>{" "}
               and support
@@ -213,7 +221,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "2.7s",
+                  animationDelay: "1.8s",
                 }}
               >
                 full-stack application
@@ -275,7 +283,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: ".3s",
                 }}
               >
                 architecture imporvements
@@ -284,7 +292,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.0s",
+                  animationDelay: ".6s",
                 }}
               >
                 AWS
@@ -299,7 +307,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.3s",
+                  animationDelay: ".9s",
                 }}
               >
                 third party API's
@@ -314,7 +322,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.2s",
                 }}
               >
                 5+ repositories weekly
@@ -349,7 +357,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.5s",
                 }}
               >
                 maintaining department goals
@@ -358,7 +366,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.8s",
                 }}
               >
                 organizational systems
@@ -371,9 +379,10 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: ".3s",
                 }}
               >
+                {" "}
                 streamline productivity
               </span>{" "}
               across multiple departmental pipelines
@@ -384,9 +393,10 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: ".6s",
                 }}
               >
+                {" "}
                 efficient strategies
               </span>{" "}
               to collaborate and share data and knowledge
@@ -397,7 +407,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: ".9s",
                 }}
               >
                 departmental databases
@@ -406,7 +416,7 @@ export default function FM({
               <span
                 className="resume-color-highlight"
                 style={{
-                  animationDelay: "3.6s",
+                  animationDelay: "1.2s",
                 }}
               >
                 organized reports
@@ -437,26 +447,67 @@ export default function FM({
         <div className="highlight-section">
           <ul className="highlights">
             <li className="highlight-item">
-              📱 Managed the social media calendar for multi-channel marketing
-              campaigns and coordinated with various stake holders to obtain the
-              necessary assets in a timely manner
+              📱 Managed the social media calendar for{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.5s",
+                }}
+              >
+                multi-channel marketing campaigns
+              </span>{" "}
+              and coordinated with various stake holders to obtain the necessary
+              assets in a timely manner
             </li>
 
             <li className="highlight-item">
               📅 Scheduled and posted on various social media accounts resulting
-              in increased engagement for the duration of various campaigns
+              in{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.8s",
+                }}
+              >
+                increased engagement
+              </span>{" "}
+              for the duration of various campaigns
             </li>
 
             <li className="highlight-item">
               ✏️ Crafted compelling copy for various marketing materials,
               including website content, email campaigns, and social media
-              posts, enhancing brand voice and driving customer engagement
+              posts, enhancing brand voice and{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".3s",
+                }}
+              >
+                driving customer engagement
+              </span>
             </li>
 
             <li className="highlight-item">
               📈 Monitored and analyzed campaign performance metrics, providing
-              actionable insights and recommendations to optimize marketing
-              strategies
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".6s",
+                }}
+              >
+                {" "}
+                actionable insights
+              </span>{" "}
+              and recommendations to optimize{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".9s",
+                }}
+              >
+                marketing strategies
+              </span>
             </li>
           </ul>
         </div>
@@ -481,27 +532,161 @@ export default function FM({
         <div className="highlight-section">
           <ul className="highlights">
             <li className="highlight-item">
-              📞 Reached out to new perspective filmmakers, signing over 140+ to
-              contribute footage to Filmsupply
+              📞 Reached out to new perspective filmmakers,{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.2s",
+                }}
+              >
+                signing over 140+ professional filmmakers
+              </span>{" "}
+              to contribute footage to Filmsupply
             </li>
 
             <li className="highlight-item">
-              🧑‍🤝‍🧑 Managed ongoing relationships and maintained daily
-              correspondence with the filmmakers I signed, answering any
-              questions they presented and coordinated with them to determine
-              new collaboration opportunities
+              🧑‍🤝‍🧑 Managed ongoing relationships and{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.5s",
+                }}
+              >
+                maintained daily correspondence
+              </span>{" "}
+              with the filmmakers I signed, answering any questions they
+              presented and coordinated with them to determine 🧑‍🤝‍🧑 Managed
+              ongoing relationships and{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.8s",
+                }}
+              >
+                new collaboration opportunities
+              </span>
             </li>
 
             <li className="highlight-item">
-              💿 Utilized various technologies to lead the development of sales
-              pipelines to scale the most efficient onboarding process for new
-              filmmakers
+              💿 Utilized various technologies to lead the{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".3s",
+                }}
+              >
+                development of sales pipelines
+              </span>{" "}
+              to scale the most efficient onboarding process for new filmmakers
             </li>
 
             <li className="highlight-item">
               ✈️ Traveled nationally and represented the company at industry
-              events where Ipromoted the company at trade shows and scouted new
-              opportunities with other companies
+              events where I{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".6s",
+                }}
+              >
+                promoted the company
+              </span>{" "}
+              at trade shows and scouted{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".9s",
+                }}
+              >
+                new opportunities
+              </span>{" "}
+              with other companies
+            </li>
+          </ul>
+        </div>
+
+        <div className="experience-title-3">Video Editor, Colorist</div>
+
+        <div className="timeframe-section-3">
+          <Clock fill={"#ffff00"} stroke={"#363600"} />
+          <div className="timeframe-3">Jan. 2016 - Oct. 2016</div>
+        </div>
+
+        <div
+          className="resume-small-dot"
+          style={{
+            backgroundColor: "#ffff04",
+            outline: "2px solid #ee702c",
+            outlineStyle: "dashed",
+            marginLeft: "190px",
+          }}
+        />
+
+        <div className="highlight-section">
+          <ul className="highlights">
+            <li className="highlight-item">
+              Was responsible for maintaining{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.2s",
+                }}
+              >
+                high quality and continuity
+              </span>{" "}
+              across all the edited footage that was sent in by filmmakers and
+              uploaded to Filmsupply
+            </li>
+
+            <li className="highlight-item">
+              Sourced footage from filmmakers and{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.5s",
+                }}
+              >
+                edited various promotional material
+              </span>{" "}
+              that was distributed across multiple marketing channels
+            </li>
+
+            <li className="highlight-item">
+              Organized and engaged in various endeavors to{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.8s",
+                }}
+              >
+                {" "}
+                strengthen organization
+              </span>{" "}
+              for physical media across the office and file storage across
+              software systems
+            </li>
+
+            <li className="highlight-item">
+              Identified key areas to{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: "1.8s",
+                }}
+              >
+                {" "}
+                increase effeciency
+              </span>{" "}
+              across various staff members and{" "}
+              <span
+                className="resume-color-highlight"
+                style={{
+                  animationDelay: ".3s",
+                }}
+              >
+                optimize the post production workflow
+              </span>{" "}
+              both in the office and remotely
             </li>
           </ul>
         </div>
