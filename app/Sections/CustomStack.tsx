@@ -77,7 +77,9 @@ export default function CustomStack({
           <div className="custom-type">
             <div
               className={
-                customStack ? "custom-stack-title" : "hidden-custom-stack"
+                customStack
+                  ? "custom-stack-title show"
+                  : "custom-stack-title hidden"
               }
             >
               <div className="horizontal-scrolling-items">

@@ -429,6 +429,7 @@ html {
 .title {
   // border-right: 3px solid #ffa8e7;
   height: 100%;
+  width: 100%;
   @media screen and (max-width: $responsive) {
     border-right: none;
   }
@@ -479,14 +480,12 @@ html {
   align-items: center;
   overflow: hidden;
   height: 20px;
-  position: relative;
-  opacity: 1;
   background-color: #b41552;
   border-top: 3px solid #e2e913;
   border-bottom: 3px solid #e2e913;
   border-right: 3px solid #e2e913;
-  padding-top: 17px;
-  padding-bottom: 24px;
+  padding-top: 23px;
+  padding-bottom: 32px;
   padding-left: 10px;
   color: #e2e913;
   font-family: var(--font-bogam);
@@ -494,14 +493,27 @@ html {
   text-decoration: none;
   font-size: 36px;
   letter-spacing: 1.3px;
+  width: 100%;
+  position: relative;
   @media screen and (max-width: $responsive) {
     border-right: none;
   }
 }
 
-.hidden-custom-stack {
+.show {
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.hidden {
   position: absolute;
   opacity: 0;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
 }
 
 .link-root {
@@ -525,6 +537,7 @@ html {
   font-family: var(--font-sango);
   padding-right: 8px;
   text-decoration: none;
+  overflow: hidden;
   background-color: rgb(115, 117, 0);
   @media screen and (max-width: $responsive) {
     border-right: none;
@@ -671,11 +684,15 @@ html {
 .experience-parent {
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .experience-inline {
   padding: 39px 30px 0px 30px;
-  max-width: 900px;
+  max-width: 800px;
 }
 
 .website-1 {
@@ -757,7 +774,7 @@ html {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  padding: 10px 16px 10px 17px;
+  padding: 10px 16px 10px 20px;
   // border-radius: 9px;
   // margin-top: 15px;
   font-family: var(--font-mont-semibold);
@@ -811,6 +828,7 @@ html {
   padding-left: 20px;
   margin-top: -16px;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .experience-item-bottom {
@@ -1425,6 +1443,30 @@ html {
   }
 }
 
+@keyframes changeResumeColor2 {
+  0% {
+    color: #5959ff;
+  }
+  16.67% {
+    color: #da2a2a;
+  }
+  33.33% {
+    color: #6a2771;
+  }
+  50% {
+    color: #ed702d;
+  }
+  66.67% {
+    color: #ffff00;
+  }
+  83.33% {
+    color: #00c700;
+  }
+  100% {
+    color: #5959ff;
+  }
+}
+
 .create-stack-1 {
   white-space: nowrap;
   display: inline-block;
@@ -1531,7 +1573,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   box-sizing: border-box;
 }
 
@@ -1561,7 +1603,7 @@ html {
   width: 100%;
   display: flex;
   border-right: 3px solid #e3a445;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 3px solid #e3a445;
   color: #e3a445;
@@ -1584,17 +1626,66 @@ html {
   box-sizing: border-box;
 }
 
-.react-player {
+.player-parent {
+  width: 100%;
+}
+
+.player-wrapper-1 {
   position: relative;
-  // top: 0;
-  // left: 0;
-  // height: 100%;
-  width: 100px;
+  opacity: 1;
+  padding-top: 56.4%;
+}
+
+.player-wrapper-2 {
+  position: relative;
+  opacity: 1;
+  padding-top: 56.4%;
+}
+
+.player-wrapper-3 {
+  position: relative;
+  opacity: 1;
+  padding-top: 42.5%;
+}
+
+.player-wrapper-4 {
+  position: relative;
+  opacity: 1;
+  padding-top: 56.4%;
+}
+
+.hide-player-wrapper {
+  position: relative;
+  opacity: 0;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -0.7px;
+  width: 100%;
+  height: 100%;
+}
+
+.video-load {
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaded {
+  opacity: 1;
 }
 
 .description-parent {
-  padding-top: 20px;
-  padding-bottom: 25px;
+  padding-top: 25px;
+  padding-bottom: 23px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .video-title {
@@ -1614,10 +1705,15 @@ html {
   animation: changeResumeColor 5s infinite;
 }
 
+.video-description-highlight {
+  animation: changeResumeColor2 5s infinite;
+}
+
 .video-description {
-  font-family: var(--font-mont-semibold);
-  font-size: 17px;
-  margin-top: 6px;
+  font-family: var(--font-mont-medium);
+  font-size: 16px;
+  margin-top: 10px;
+  line-height: 1.4;
 }
 
 .theater-title {
@@ -1707,4 +1803,84 @@ html {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.drink-1 {
+  animation-name: drink1;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes drink1 {
+  0% {
+    opacity: 1;
+  }
+  24.9% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
+.drink-2 {
+  animation-name: drink2;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes drink2 {
+  0% {
+    opacity: 1;
+  }
+  49.9% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
+.drink-3 {
+  animation-name: drink3;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes drink3 {
+  0% {
+    opacity: 1;
+  }
+  74.9% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
+.italics {
+  font-style: italic;
+}
+
+.experience-location-parent {
+  margin-bottom: 17px;
+}
+
+.experience-location {
+  font-style: italic;
+  font-family: var(--font-mont-medium);
+  font-size: 17px;
 }
