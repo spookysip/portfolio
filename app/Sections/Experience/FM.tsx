@@ -12,6 +12,19 @@ export default function FM({
   setTechDisplay,
   stackElement,
 }: Props) {
+  const scrollToElement = () => {
+    if (stackElement.current) {
+      const offset = 120; // Extra room on top
+      const elementPosition = stackElement.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div>
       <div
@@ -270,9 +283,7 @@ export default function FM({
                         : tech
                     )
                   ),
-                  stackElement.current.scrollIntoView({
-                    behavior: "smooth",
-                  });
+                  scrollToElement();
               }}
             >
               Create Stack ⬆️
