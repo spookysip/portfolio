@@ -46,6 +46,8 @@ html {
   // border-top: 3px solid #3b3281;
   // border-bottom: 4px solid #3b3281;
   padding-top: 14px;
+  position: relative;
+  margin-top: 120px;
   color: #181721;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -59,18 +61,34 @@ html {
   font-size: 16px;
   border-bottom: 3px solid #ffa8e7;
   width: 100%;
-  position: absolute;
-  opacity: 0;
-  z-index: -5;
+  opacity: 1;
+  z-index: 7;
   flex-direction: column;
   border-top: 3px solid #a8de13;
+  box-sizing: border-box;
+  margin-top: -3px;
   @media screen and (max-width: $responsive) {
     display: flex;
     opacity: 1;
-    position: relative;
     color: #ffa8e7;
     border-bottom: none;
     z-index: 2;
+  }
+}
+
+.mobile-links {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  z-index: -5;
+  @media screen and (max-width: $responsive) {
+    position: relative;
+    z-index: 0;
+    opacity: 1;
+    color: #ffa8e7;
+    border-top: 3px solid #a8de13;
+    font-family: var(--font-mont-semibold);
+    font-size: 16px;
   }
 }
 
@@ -361,28 +379,49 @@ html {
 .top {
   display: flex;
   flex-direction: row;
+  width: 35%;
+  display: inline-flex;
   @media screen and (max-width: $responsive) {
     flex-direction: column;
+    width: 100%;
   }
 }
 
 .about {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 100%;
+  height: 100%;
   justify-content: space-between;
   border-right: 3px solid #ffa8e7;
+  @media screen and (max-width: $responsive) {
+    width: 100%;
+    border-right: none;
+  }
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  @media screen and (max-width: $responsive) {
+    flex-direction: column;
+  }
+}
+
+.technologies-root {
+  position: relative;
+  z-index: 0;
+  width: 65%;
+  position: inline;
   @media screen and (max-width: $responsive) {
     width: 100%;
   }
 }
 
 .skills {
-  width: 65%;
+  width: 100%;
   box-sizing: border-box;
-  @media screen and (max-width: $responsive) {
-    width: 100%;
-  }
 }
 
 .container-border-top {
@@ -392,6 +431,7 @@ html {
 .title {
   // border-right: 3px solid #ffa8e7;
   height: 100%;
+  width: 100%;
   @media screen and (max-width: $responsive) {
     border-right: none;
   }
@@ -407,6 +447,7 @@ html {
 
 .technologies-parent {
   overflow: hidden;
+  width: 100%;
 }
 
 .technologies-title {
@@ -419,7 +460,6 @@ html {
   background-color: rgb(29, 15, 135);
   padding: 10px;
   overflow: hidden;
-  width: 100%;
   box-sizing: border-box;
   position: relative;
   @media screen and (max-width: $responsive) {
@@ -430,15 +470,10 @@ html {
 .sticky-banner {
   position: fixed;
   top: 0;
-  z-index: 1;
+  left: 0;
+  z-index: 4;
   right: 0;
-  @media screen and (max-width: $responsive) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-  }
+  margin-top: 120px;
 }
 
 .custom-stack-title {
@@ -448,12 +483,12 @@ html {
   align-items: center;
   overflow: hidden;
   height: 20px;
-  background-color: #ff8017;
+  background-color: #b41552;
   border-top: 3px solid #e2e913;
   border-bottom: 3px solid #e2e913;
   border-right: 3px solid #e2e913;
-  padding-top: 17px;
-  padding-bottom: 24px;
+  padding-top: 27px;
+  padding-bottom: 33px;
   padding-left: 10px;
   color: #e2e913;
   font-family: var(--font-bogam);
@@ -461,9 +496,32 @@ html {
   text-decoration: none;
   font-size: 36px;
   letter-spacing: 1.3px;
+  width: 100%;
+  position: relative;
   @media screen and (max-width: $responsive) {
     border-right: none;
   }
+}
+
+.show {
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.hidden {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+}
+
+.link-root {
+  display: block;
+  width: 100%;
 }
 
 .mobile-link-parent {
@@ -471,7 +529,7 @@ html {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
   height: 20px;
   border-bottom: 3px solid #a8de13;
   padding-top: 15px;
@@ -482,6 +540,7 @@ html {
   font-family: var(--font-sango);
   padding-right: 8px;
   text-decoration: none;
+  overflow: hidden;
   background-color: rgb(115, 117, 0);
   @media screen and (max-width: $responsive) {
     border-right: none;
@@ -626,13 +685,17 @@ html {
 }
 
 .experience-parent {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
 .experience-inline {
-  padding: 35px 30px 0px 30px;
-  max-width: 900px;
+  padding: 39px 30px 0px 30px;
+  max-width: 800px;
 }
 
 .website-1 {
@@ -714,7 +777,7 @@ html {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  padding: 10px 16px 10px 17px;
+  padding: 10px 16px 10px 20px;
   // border-radius: 9px;
   // margin-top: 15px;
   font-family: var(--font-mont-semibold);
@@ -767,8 +830,8 @@ html {
 .experience-item {
   padding-left: 20px;
   margin-top: -16px;
-  padding-bottom: 17px;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .experience-item-bottom {
@@ -887,13 +950,11 @@ html {
 }
 .container {
   width: 100%;
-  box-sizing: border-box;
   overflow-x: hidden;
   font-family: var(--font-fat);
   letter-spacing: 1px;
-  // padding-top: 2px;
   font-size: 40px;
-  padding-bottom: 5px;
+  padding-bottom: 7.5px;
   border-bottom: 3px solid yellow;
   background-color: black;
   color: yellow;
@@ -1030,14 +1091,19 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   font-size: 60px;
-  padding-bottom: 15px;
+  padding-bottom: 17px;
   font-family: var(--font-dela);
   // color: #a375e3;
   color: #00d26a;
-  padding-top: 5px;
+  padding-top: 12px;
   padding-left: 10px;
   background-color: #1b521e;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  border-bottom: 5px solid #fcd53f;
 }
+
 .name-horizontal-scrolling-items {
   display: flex;
   // width: 2488px;
@@ -1108,6 +1174,7 @@ html {
 
 .progress-monster {
   position: fixed;
+  top: 0;
   scale: 0.12;
   transform: translate(-1673px, -585px);
   z-index: 3;
@@ -1122,7 +1189,8 @@ html {
   height: 13px;
   width: 0%;
   position: fixed;
-  z-index: 2;
+  top: 0;
+  z-index: 3;
   border-radius: 0 60px 60px 0;
 }
 
@@ -1168,6 +1236,7 @@ html {
 .desktop-links {
   position: relative;
   z-index: 0;
+  width: 100%;
   @media screen and (max-width: $responsive) {
     position: absolute;
     opacity: 0;
@@ -1384,6 +1453,30 @@ html {
   }
 }
 
+@keyframes changeResumeColor2 {
+  0% {
+    color: #5959ff;
+  }
+  16.67% {
+    color: #da2a2a;
+  }
+  33.33% {
+    color: #6a2771;
+  }
+  50% {
+    color: #ed702d;
+  }
+  66.67% {
+    color: #ffff00;
+  }
+  83.33% {
+    color: #00c700;
+  }
+  100% {
+    color: #5959ff;
+  }
+}
+
 .create-stack-1 {
   white-space: nowrap;
   display: inline-block;
@@ -1488,14 +1581,17 @@ html {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .theater-seek {
   display: flex;
   flex-direction: row;
   height: 35px;
+  width: 100%;
   font-family: var(--font-dirtyline);
 }
 
@@ -1503,6 +1599,7 @@ html {
   width: 100%;
   border-right: 3px solid #e3a445;
   border-bottom: 3px solid #e3a445;
+  border-left: 3px solid #e3a445;
   color: #e3a445;
   display: flex;
   justify-content: space-between;
@@ -1515,7 +1612,8 @@ html {
 .theater-seek-next {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  border-right: 3px solid #e3a445;
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 3px solid #e3a445;
   color: #e3a445;
@@ -1534,26 +1632,70 @@ html {
 .theater-parent {
   background-color: black;
   color: white;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.player-wrapper {
-  height: "auto";
-  width: "auto";
+.player-parent {
+  width: 100%;
+}
+
+.player-wrapper-1 {
+  position: relative;
+  opacity: 1;
+  padding-top: 56.4%;
+}
+
+.player-wrapper-2 {
+  position: relative;
+  opacity: 1;
+  padding-top: 56.4%;
+}
+
+.player-wrapper-3 {
+  position: relative;
+  opacity: 1;
+  padding-top: 42.5%;
+}
+
+.player-wrapper-4 {
+  position: relative;
+  opacity: 1;
+  padding-top: 56.4%;
+}
+
+.hide-player-wrapper {
+  position: relative;
+  opacity: 0;
 }
 
 .react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -0.7px;
   width: 100%;
-  // Percentage ratio for 16:9
-  position: relative; // Set to relative
+  height: 100%;
 }
 
-.react-player > div {
-  position: absolute; // Scaling will occur since parent is relative now
+.video-load {
+  width: 100%;
+  height: 40vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaded {
+  opacity: 1;
 }
 
 .description-parent {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 25px;
+  padding-bottom: 23px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .video-title {
@@ -1573,10 +1715,15 @@ html {
   animation: changeResumeColor 5s infinite;
 }
 
+.video-description-highlight {
+  animation: changeResumeColor2 5s infinite;
+}
+
 .video-description {
-  font-family: var(--font-mont-semibold);
-  font-size: 17px;
-  margin-top: 6px;
+  font-family: var(--font-mont-medium);
+  font-size: 16px;
+  margin-top: 10px;
+  line-height: 1.4;
 }
 
 .theater-title {
@@ -1666,4 +1813,84 @@ html {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.drink-1 {
+  animation-name: drink1;
+  animation-duration: 0.75s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes drink1 {
+  0% {
+    opacity: 1;
+  }
+  24.9% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
+.drink-2 {
+  animation-name: drink2;
+  animation-duration: 0.75s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes drink2 {
+  0% {
+    opacity: 1;
+  }
+  49.9% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
+.drink-3 {
+  animation-name: drink3;
+  animation-duration: 0.75s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes drink3 {
+  0% {
+    opacity: 1;
+  }
+  74.9% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
+.italics {
+  font-style: italic;
+}
+
+.experience-location-parent {
+  margin-bottom: 17px;
+}
+
+.experience-location {
+  font-style: italic;
+  font-family: var(--font-mont-medium);
+  font-size: 17px;
 }
