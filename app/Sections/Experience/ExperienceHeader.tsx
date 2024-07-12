@@ -19,7 +19,9 @@ export default function ExperienceHeader({
         <div
           ref={placeholderRef}
           style={{
-            height: isSticky ? experienceBannerRef.current.clientHeight + 5 : 0,
+            height: isSticky
+              ? experienceBannerRef.current.clientHeight + 12
+              : 0,
           }}
         />
       </div>

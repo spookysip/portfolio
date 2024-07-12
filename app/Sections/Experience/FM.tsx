@@ -625,7 +625,7 @@ export default function FM({
         <div className="highlight-section">
           <ul className="highlights">
             <li className="highlight-item">
-              Was responsible for maintaining{" "}
+              🖱️ Was responsible for maintaining{" "}
               <span
                 className="resume-color-highlight"
                 style={{
@@ -639,7 +639,7 @@ export default function FM({
             </li>
 
             <li className="highlight-item">
-              Sourced footage from filmmakers and{" "}
+              🎞️ Sourced footage from filmmakers and{" "}
               <span
                 className="resume-color-highlight"
                 style={{
@@ -652,7 +652,7 @@ export default function FM({
             </li>
 
             <li className="highlight-item">
-              Organized and engaged in various endeavors to{" "}
+              💽 Organized and engaged in various endeavors to{" "}
               <span
                 className="resume-color-highlight"
                 style={{
@@ -667,7 +667,7 @@ export default function FM({
             </li>
 
             <li className="highlight-item">
-              Identified key areas to{" "}
+              📎 Identified key areas to{" "}
               <span
                 className="resume-color-highlight"
                 style={{
