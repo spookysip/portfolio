@@ -523,7 +523,7 @@ export default function Home({ tech }: Props) {
 
     if (customStack) {
       const contentWidth = customStack.scrollWidth;
-      const duration = contentWidth / 55;
+      const duration = contentWidth / 28;
       setCustomStackAnimationDuration(duration);
     }
 
@@ -710,8 +710,9 @@ export default function Home({ tech }: Props) {
         </div>
       </div>
 
+      <div ref={theaterElement} />
+
       <Theater
-        theaterElement={theaterElement}
         theaterBannerRef={theaterBannerRef}
         theaterAnimationDuration={theaterAnimationDuration}
         handlePrev={handlePrev}

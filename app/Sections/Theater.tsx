@@ -8,7 +8,6 @@ import Popcorn from "../emojis/Popcorn";
 import Soda from "../icons/Soda";
 
 interface Props {
-  theaterElement: any;
   theaterBannerRef: any;
   theaterAnimationDuration: any;
   handlePrev: any;
@@ -22,7 +21,6 @@ interface Props {
 }
 
 export default function Theater({
-  theaterElement,
   theaterBannerRef,
   theaterAnimationDuration,
   handlePrev,
@@ -37,8 +35,6 @@ export default function Theater({
   const [load, setLoad] = useState(false) as any;
   return (
     <div>
-      <div ref={theaterElement} />
-
       <div className="theater-title">
         <div className="horizontal-scrolling-items">
           <div
@@ -175,7 +171,9 @@ export default function Theater({
             (video: any) =>
               videoId === video.id && (
                 <div className="description-parent" key={video.id}>
-                  <div className="video-title">{video.title} - {video.year}</div>
+                  <div className="video-title">
+                    {video.title} - {video.year}
+                  </div>
                   <div className="video-role">
                     Role:{" "}
                     <span className="video-role-highlight">{video.role}</span>

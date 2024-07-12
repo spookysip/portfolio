@@ -6,6 +6,20 @@ interface Props {
 }
 
 export default function TFOM({ setVideoId, theaterElement }: Props) {
+  const scrollToElement = () => {
+    if (theaterElement.current) {
+      const offset = 120; // Extra room on top
+      const elementPosition =
+        theaterElement.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div>
       <div
@@ -98,9 +112,7 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
             className="create-stack-2"
             onClick={() => {
               setVideoId(1);
-              theaterElement.current.scrollIntoView({
-                behavior: "smooth",
-              });
+              scrollToElement();
             }}
           >
             Watch Teaser 👆
