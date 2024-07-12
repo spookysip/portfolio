@@ -8,6 +8,7 @@ import ReactPlayer from "react-player";
 
 import ScrollBar from "./Sections/ScrollBar";
 import Header from "./Sections/Header";
+import Roles from "./Sections/Roles";
 import CustomStack from "./Sections/CustomStack";
 import LinkRoot from "./Sections/Links/LinkRoot";
 import Technologies from "./Sections/Technologies";
@@ -307,6 +308,8 @@ export default function Home({ tech }: Props) {
 
   useEffect(() => {
     const handleBannerScroll = () => {
+      console.log(window.scrollY);
+      console.log(bannerTop);
       if (window.scrollY > bannerTop) {
         setIsSticky(true);
       } else {
@@ -324,14 +327,14 @@ export default function Home({ tech }: Props) {
     const bannerRect = experienceBannerRef.current.getBoundingClientRect();
     if (experienceBannerRef.current && bannerRect.top > 0) {
       const bannerRect = experienceBannerRef.current.getBoundingClientRect();
-      setBannerTop(bannerRect.top + window.scrollY);
+      setBannerTop(bannerRect.top + window.scrollY - 120);
     }
   }
 
   async function updatePlaceholderBannerTop() {
     const bannerRect = placeholderRef.current.getBoundingClientRect();
     if (placeholderRef.current) {
-      setBannerTop(bannerRect.top + window.scrollY);
+      setBannerTop(bannerRect.top + window.scrollY - 120);
     }
   }
 
@@ -647,8 +650,11 @@ export default function Home({ tech }: Props) {
 
       <Header
         nameBannerRef={nameBannerRef}
-        roleBannerRef={roleBannerRef}
         nameAnimationDuration={nameAnimationDuration}
+      />
+
+      <Roles
+        roleBannerRef={roleBannerRef}
         roleAnimationDuration={roleAnimationDuration}
       />
 
