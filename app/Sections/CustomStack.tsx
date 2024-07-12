@@ -1,45 +1,175 @@
 "use client";
 
+import React, { useEffect, useState, useRef } from "react";
+import { Howl } from "howler";
+
 import Monster from "../icons/Monster";
 import Eye from "../emojis/Eye";
 
 interface Props {
   stackElement: any;
   customStack: any;
-  monsterHit: any;
-  cornerClass: any;
-  gamePower: any;
   techDisplay: any;
   setStackTitle: any;
   setTechDisplay: any;
   consolidatedStack: any;
   clickCustomStack: any;
-  score: any;
-  hitMonster: any;
   stackTitle: any;
-  playGame: any;
   customStackRef: any;
   customStackAnimationDuration: any;
+  gamePower: any;
+  setGamePower: any;
+  score: any;
+  setScore: any;
+  setCopy: any;
 }
 
 export default function CustomStack({
   stackElement,
   customStack,
-  monsterHit,
-  cornerClass,
-  gamePower,
   techDisplay,
   setStackTitle,
   setTechDisplay,
   consolidatedStack,
   clickCustomStack,
-  score,
-  hitMonster,
   stackTitle,
-  playGame,
   customStackRef,
   customStackAnimationDuration,
+  gamePower,
+  setGamePower,
+  score,
+  setScore,
+  setCopy,
 }: Props) {
+  const [monsterHit, setMonsterHit] = useState(false) as any;
+
+  const startGameSound = new Howl({
+    src: ["/sounds/start-game.wav"],
+    volume: 0.15,
+  });
+
+  const stopGameSound = new Howl({
+    src: ["/sounds/stop-game.wav"],
+    volume: 0.15,
+  });
+
+  const hit1Sound = new Howl({
+    src: ["/sounds/hit-1.wav"],
+    volume: 0.15,
+  });
+
+  const hit2Sound = new Howl({
+    src: ["/sounds/hit-2.wav"],
+    volume: 0.15,
+  });
+
+  const hit3Sound = new Howl({
+    src: ["/sounds/hit-3.wav"],
+    volume: 0.15,
+  });
+
+  const hit4Sound = new Howl({
+    src: ["/sounds/hit-4.wav"],
+    volume: 0.15,
+  });
+
+  const hit5Sound = new Howl({
+    src: ["/sounds/hit-5.wav"],
+    volume: 0.15,
+  });
+
+  async function playGame() {
+    if (gamePower) {
+      setScore(0);
+      stopGameSound.play();
+    }
+
+    if (!gamePower) {
+      startGameSound.play();
+    }
+    setGamePower((prev: any) => !prev);
+  }
+
+  async function hitMonster() {
+    if (gamePower) {
+      playHitSound();
+      setScore((prev: any) => prev + 1);
+      setMonsterHit(true);
+      setTimeout(() => {
+        setCopy(false);
+        setMonsterHit(false);
+      }, 30);
+    }
+  }
+
+  const [cornerClass, setCornerClass] = useState("game-position-center");
+
+  const gameIntervalRef = useRef() as any;
+
+  useEffect(() => {
+    if (gamePower) {
+      // Function to get a random integer between min and max (inclusive)
+      const getRandomInt = (min: any, max: any) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      };
+
+      // Array of corner classes
+      const cornerClasses = [
+        "game-position-center",
+        "game-position-top",
+        "game-position-bottom",
+        "game-position-left",
+        "game-position-right",
+        "game-position-bottom-right",
+        "game-position-top-right",
+        "game-position-bottom-left",
+        "game-position-top-left",
+      ];
+
+      // Function to randomly choose a corner class
+      const randomizeCorner = () => {
+        const randomIndex = getRandomInt(0, cornerClasses.length - 1);
+        setCornerClass(cornerClasses[randomIndex]);
+      };
+
+      // Randomize initially and then every 3 seconds
+      randomizeCorner();
+      gameIntervalRef.current = setInterval(randomizeCorner, 750);
+
+      // Clean up interval on component unmount
+      return () => clearInterval(gameIntervalRef.current);
+    }
+
+    if (!gamePower) {
+      setCornerClass("game-position-center");
+      clearInterval(gameIntervalRef.current);
+    }
+  }, [gamePower]);
+
+  async function playHitSound() {
+    const hit = Math.floor(Math.random() * 5) + 1;
+
+    if (hit === 1) {
+      hit1Sound.play();
+    }
+
+    if (hit === 2) {
+      hit2Sound.play();
+    }
+
+    if (hit === 3) {
+      hit3Sound.play();
+    }
+
+    if (hit === 4) {
+      hit4Sound.play();
+    }
+
+    if (hit === 5) {
+      hit5Sound.play();
+    }
+  }
+
   return (
     <div
       style={{

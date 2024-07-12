@@ -3,7 +3,6 @@
 import "./home.scss";
 
 import React, { useEffect, useState, useRef, createRef } from "react";
-import { Howl } from "howler";
 import ReactPlayer from "react-player";
 
 import ScrollBar from "./Sections/ScrollBar";
@@ -34,9 +33,10 @@ export default function Home({ tech }: Props) {
   const [copy, setCopy] = useState(false) as any;
   const [download, setDownload] = useState(false) as any;
   const [stackTitle, setStackTitle] = useState("") as any;
-  const [animationSpeed, setAnimationSpeed] = useState(4);
   const [score, setScore] = useState(0) as any;
-  const [monsterHit, setMonsterHit] = useState(false) as any;
+  const [animationSpeed, setAnimationSpeed] = useState(4);
+
+
   const [videoId, setVideoId] = useState(1);
   const stackElement = useRef() as any;
   const theaterElement = useRef() as any;
@@ -85,52 +85,7 @@ export default function Home({ tech }: Props) {
   const isDragging = useRef(false);
   const prevMouseX = useRef(0);
 
-  const startGameSound = new Howl({
-    src: ["/sounds/start-game.wav"],
-    volume: 0.15,
-  });
-
-  const stopGameSound = new Howl({
-    src: ["/sounds/stop-game.wav"],
-    volume: 0.15,
-  });
-
-  const hit1Sound = new Howl({
-    src: ["/sounds/hit-1.wav"],
-    volume: 0.15,
-  });
-
-  const hit2Sound = new Howl({
-    src: ["/sounds/hit-2.wav"],
-    volume: 0.15,
-  });
-
-  const hit3Sound = new Howl({
-    src: ["/sounds/hit-3.wav"],
-    volume: 0.15,
-  });
-
-  const hit4Sound = new Howl({
-    src: ["/sounds/hit-4.wav"],
-    volume: 0.15,
-  });
-
-  const hit5Sound = new Howl({
-    src: ["/sounds/hit-5.wav"],
-    volume: 0.15,
-  });
-
-  async function playGame() {
-    if (gamePower) {
-      setScore(0);
-      stopGameSound.play();
-    }
-
-    if (!gamePower) {
-      startGameSound.play();
-    }
-    setGamePower((prev) => !prev);
-  }
+  
 
   useEffect(() => {
     if (!isDragging.current) {
@@ -147,13 +102,6 @@ export default function Home({ tech }: Props) {
         document.documentElement.clientHeight;
     setScrolled((winScroll / height) * 100);
   }
-
-  const handleMouseDown = (e: any) => {
-    isDragging.current = true;
-    prevMouseX.current = e.clientX;
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-  };
 
   const handleMouseMove = (e: any) => {
     if (isDragging.current) {
@@ -564,85 +512,7 @@ export default function Home({ tech }: Props) {
     }
   }, [customStackRef]);
 
-  const [cornerClass, setCornerClass] = useState("game-position-center");
   const [gamePower, setGamePower] = useState(false);
-  const gameIntervalRef = useRef() as any;
-
-  useEffect(() => {
-    if (gamePower) {
-      // Function to get a random integer between min and max (inclusive)
-      const getRandomInt = (min: any, max: any) => {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      };
-
-      // Array of corner classes
-      const cornerClasses = [
-        "game-position-center",
-        "game-position-top",
-        "game-position-bottom",
-        "game-position-left",
-        "game-position-right",
-        "game-position-bottom-right",
-        "game-position-top-right",
-        "game-position-bottom-left",
-        "game-position-top-left",
-      ];
-
-      // Function to randomly choose a corner class
-      const randomizeCorner = () => {
-        const randomIndex = getRandomInt(0, cornerClasses.length - 1);
-        setCornerClass(cornerClasses[randomIndex]);
-      };
-
-      // Randomize initially and then every 3 seconds
-      randomizeCorner();
-      gameIntervalRef.current = setInterval(randomizeCorner, 750);
-
-      // Clean up interval on component unmount
-      return () => clearInterval(gameIntervalRef.current);
-    }
-
-    if (!gamePower) {
-      setCornerClass("game-position-center");
-      clearInterval(gameIntervalRef.current);
-    }
-  }, [gamePower]);
-
-  async function hitMonster() {
-    if (gamePower) {
-      playHitSound();
-      setScore((prev: any) => prev + 1);
-      setMonsterHit(true);
-      setTimeout(() => {
-        setCopy(false);
-        setMonsterHit(false);
-      }, 30);
-    }
-  }
-
-  async function playHitSound() {
-    const hit = Math.floor(Math.random() * 5) + 1;
-
-    if (hit === 1) {
-      hit1Sound.play();
-    }
-
-    if (hit === 2) {
-      hit2Sound.play();
-    }
-
-    if (hit === 3) {
-      hit3Sound.play();
-    }
-
-    if (hit === 4) {
-      hit4Sound.play();
-    }
-
-    if (hit === 5) {
-      hit5Sound.play();
-    }
-  }
 
   return (
     <div className="all">
@@ -666,18 +536,17 @@ export default function Home({ tech }: Props) {
               customStackAnimationDuration={customStackAnimationDuration}
               stackElement={stackElement}
               customStack={customStack}
-              monsterHit={monsterHit}
-              cornerClass={cornerClass}
-              gamePower={gamePower}
               techDisplay={techDisplay}
               setStackTitle={setStackTitle}
               setTechDisplay={setTechDisplay}
               consolidatedStack={consolidatedStack}
               clickCustomStack={clickCustomStack}
-              score={score}
-              hitMonster={hitMonster}
               stackTitle={stackTitle}
-              playGame={playGame}
+              gamePower={gamePower}
+              setGamePower={setGamePower}
+              score={score}
+              setScore={setScore}
+              setCopy={setCopy}
             />
 
             <LinkRoot

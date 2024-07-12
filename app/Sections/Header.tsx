@@ -21,81 +21,81 @@ export default function Header({
             style={{ animationDuration: `${nameAnimationDuration}s` }}
           >
             <span className="english-name">
-              <span className="english-name">TAYLOR LAUGHLIN</span>
+              <span className="english-name">MATT LAUGHLIN</span>
             </span>
             <span className="emoji-frog">
               <Frog />
             </span>
-            テーラー ロフリン
+            マット ロフリン
             <span className="emoji-frog">
               <Frog />
             </span>
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <span className="emoji-frog">
               <Frog />
             </span>
-            テーラー ロフリン
+            マット ロフリン
             <span className="emoji-frog">
               <Frog />
             </span>
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <span className="emoji-frog">
               <Frog />
             </span>
-            テーラー ロフリン
+            マット ロフリン
             <span className="emoji-frog">
               <Frog />
             </span>{" "}
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <span className="emoji-frog">
               <Frog />
             </span>
-            テーラー ロフリン
+            マット ロフリン
             <span className="emoji-frog">
               <Frog />
             </span>
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <span className="emoji-frog">
               <Frog />
             </span>
-            テーラー ロフリン
+            マット ロフリン
             <span className="emoji-frog">
               <Frog />
             </span>
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <span className="emoji-frog">
               <Frog />
             </span>
-            テーラー ロフリン
+            マット ロフリン
             <span className="emoji-frog">
               <Frog />
             </span>
           </div>
 
           <div className="name-horizontal-scrolling-items__item">
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <Frog />
-            テーラー ロフリン
+            マット ロフリン
             <Frog />
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <Frog />
-            テーラー ロフリン
+            マット ロフリン
             <Frog />
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <Frog />
-            テーラー ロフリン
+            マット ロフリン
             <Frog />
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <Frog />
-            テーラー ロフリン
+            マット ロフリン
             <Frog />
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <Frog />
-            テーラー ロフリン
+            マット ロフリン
             <Frog />
-            <span className="english-name">TAYLOR LAUGHLIN</span>
+            <span className="english-name">MATT LAUGHLIN</span>
             <Frog />
-            テーラー ロフリン
+            マット ロフリン
             <Frog />
           </div>
         </div>
