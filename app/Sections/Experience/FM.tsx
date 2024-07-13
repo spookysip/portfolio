@@ -89,7 +89,7 @@ export default function FM({
           client to communicate its progress to filmmakers
         </div>
 
-        <div className="experience-title-3">Product Manager</div>
+        {/* <div className="experience-title-3">Product Manager</div>
 
         <div className="timeframe-section-3">
           <Clock fill={"#ffff00"} stroke={"#363600"} />
@@ -207,13 +207,13 @@ export default function FM({
               and support
             </li>
           </ul>
-        </div>
+        </div> */}
 
         <div className="experience-title-3">Full-Stack Developer</div>
 
         <div className="timeframe-section-3">
           <Clock fill={"#ffff00"} stroke={"#363600"} />
-          <div className="timeframe-3">Jan. 2020 - Jun. 2021</div>
+          <div className="timeframe-3">Jan. 2020 - Nov. 2021</div>
         </div>
 
         <div

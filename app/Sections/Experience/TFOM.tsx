@@ -88,7 +88,14 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
           to clear their name
           <br />
           <br />{" "}
-          <span className="italics">*Manuscript available upon request</span>
+          <span
+            className="italics resume-color-highlight"
+            style={{
+              animationDelay: "1.8s",
+            }}
+          >
+            *Manuscript available upon request
+          </span>
         </div>
 
         <div className="experience-title-2">Writer</div>
