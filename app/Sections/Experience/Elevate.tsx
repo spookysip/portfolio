@@ -61,8 +61,7 @@ export default function Elevate() {
             Important
           </span>
           : While my previous role within this company is relevant to my
-          experience and worth including, it is personally important to me to
-          note that I believe{" "}
+          experience, it is personally important to me to note that I believe{" "}
           <span
             className="resume-color-highlight"
             style={{
@@ -80,9 +79,8 @@ export default function Elevate() {
           >
             unwavering support
           </span>{" "}
-          of inclusivity through all walks of life and embracing of all
-          marginalized communities and do not support nor endorse any systemic
-          influence that prohibits or hinders that.
+          of inclusivity through all walks of life and embracing of the queer
+          community and all marginalized communities
         </div>
 
         <div className="experience-title-5">Broadcast Director</div>

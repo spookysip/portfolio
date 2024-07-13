@@ -232,6 +232,22 @@ export default function Theater({
                       </span>
                     )}
                   </div>
+
+                  {videoId === 3 && (
+                    <div className="awards">
+                      <img
+                        className="awards-pic-1"
+                        src="/Awards_1.jpg"
+                        alt="Rescate Awards 1"
+                      />
+
+                      <img
+                        className="awards-pic-2"
+                        src="/Awards_2.jpg"
+                        alt="Rescate Awards 2"
+                      />
+                    </div>
+                  )}
                 </div>
               )
           )}

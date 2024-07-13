@@ -69,7 +69,7 @@ export default function MobileLinks({
 
       <div className="mobile-links-row-1">
         <div
-          className="mobile-link mobile-link-border-right"
+          className="mobile-link"
           onClick={() => window.open("https://github.com/spookysip")}
         >
           💽 GitHub
@@ -77,7 +77,8 @@ export default function MobileLinks({
             <Link />
           </div>
         </div>
-        <div
+
+        {/* <div
           className="mobile-link"
           onClick={() => window.open("https://linkedin.com/in/mattclaughlin")}
         >
@@ -85,7 +86,7 @@ export default function MobileLinks({
           <span className="link-icon link-color">
             <Link />
           </span>
-        </div>
+        </div> */}
       </div>
 
       <div className="mobile-links-row-2">

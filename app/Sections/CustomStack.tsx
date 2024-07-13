@@ -45,37 +45,37 @@ export default function CustomStack({
 
   const startGameSound = new Howl({
     src: ["/sounds/start-game.wav"],
-    volume: 0.15,
+    volume: 0.08,
   });
 
   const stopGameSound = new Howl({
     src: ["/sounds/stop-game.wav"],
-    volume: 0.15,
+    volume: 0.08,
   });
 
   const hit1Sound = new Howl({
     src: ["/sounds/hit-1.wav"],
-    volume: 0.15,
+    volume: 0.08,
   });
 
   const hit2Sound = new Howl({
     src: ["/sounds/hit-2.wav"],
-    volume: 0.15,
+    volume: 0.08,
   });
 
   const hit3Sound = new Howl({
     src: ["/sounds/hit-3.wav"],
-    volume: 0.15,
+    volume: 0.08,
   });
 
   const hit4Sound = new Howl({
     src: ["/sounds/hit-4.wav"],
-    volume: 0.15,
+    volume: 0.08,
   });
 
   const hit5Sound = new Howl({
     src: ["/sounds/hit-5.wav"],
-    volume: 0.15,
+    volume: 0.08,
   });
 
   async function playGame() {

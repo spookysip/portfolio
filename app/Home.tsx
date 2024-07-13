@@ -36,21 +36,20 @@ export default function Home({ tech }: Props) {
   const [score, setScore] = useState(0) as any;
   const [animationSpeed, setAnimationSpeed] = useState(4);
 
-
   const [videoId, setVideoId] = useState(1);
   const stackElement = useRef() as any;
   const theaterElement = useRef() as any;
   const [videos, setVideos] = useState([
     {
       id: 1,
-      url: "https://youtu.be/b59rxDB_JRg",
-      title: "THE FALL OF MANN (CONCEPT TEASER)",
+      url: "https://vimeo.com/983668282",
+      title: "THE FALL OF MANN (TONALITY TEASER)",
       role: "Writer~Editor",
-      year: 2021,
+      year: 2024,
     },
     {
       id: 2,
-      url: "https://vimeo.com/238017469",
+      url: "https://vimeo.com/983677026",
       title: "VOICEMAIL",
       role: "Writer~Director~Editor",
       descriptionTitle: "Voicemail",
@@ -65,7 +64,7 @@ export default function Home({ tech }: Props) {
     },
     {
       id: 4,
-      url: "https://vimeo.com/112625544",
+      url: "https://vimeo.com/983671844",
       title: "VAST EXPANSION",
       role: "Writer~Director~Editor",
       descriptionTitle: "Vast Expansion",
@@ -84,8 +83,6 @@ export default function Home({ tech }: Props) {
   const avatarRef = useRef(null);
   const isDragging = useRef(false);
   const prevMouseX = useRef(0);
-
-  
 
   useEffect(() => {
     if (!isDragging.current) {
@@ -275,14 +272,14 @@ export default function Home({ tech }: Props) {
     const bannerRect = experienceBannerRef.current.getBoundingClientRect();
     if (experienceBannerRef.current && bannerRect.top > 0) {
       const bannerRect = experienceBannerRef.current.getBoundingClientRect();
-      setBannerTop(bannerRect.top + window.scrollY - 120);
+      setBannerTop(bannerRect.top + window.scrollY - 96);
     }
   }
 
   async function updatePlaceholderBannerTop() {
     const bannerRect = placeholderRef.current.getBoundingClientRect();
     if (placeholderRef.current) {
-      setBannerTop(bannerRect.top + window.scrollY - 120);
+      setBannerTop(bannerRect.top + window.scrollY - 96);
     }
   }
 
