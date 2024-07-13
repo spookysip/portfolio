@@ -48,7 +48,7 @@ export default function WorldVentures() {
           that offers exclusive travel packages, discounted vacations, and
           unique travel experiences to its members. I had the opportunity to
           work on their video production team covering various live events and
-          international trips.
+          international trips
         </div>
 
         <div className="experience-title-6">
@@ -56,7 +56,7 @@ export default function WorldVentures() {
         </div>
         <div className="timeframe-section-6">
           <Clock fill={"#ffa8e7"} stroke={"#3F2939"} />
-          <div className="timeframe-6">Jul 2012 - Feb. 2014</div>
+          <div className="timeframe-6">Jul. 2012 - Feb. 2014</div>
         </div>
 
         <div
@@ -112,7 +112,7 @@ export default function WorldVentures() {
             </li>
 
             <li className="highlight-item-bottom">
-              🎙️ Helped develop and maintain an{" "}
+              🎙️ Helped develop and maintain a{" "}
               <span
                 className="resume-color-highlight"
                 style={{

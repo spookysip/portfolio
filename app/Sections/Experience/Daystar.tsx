@@ -64,7 +64,6 @@ export default function Daystar() {
           >
             worldwide
           </span>
-          .
         </div>
 
         <div className="experience-summary">
@@ -78,8 +77,7 @@ export default function Daystar() {
             Important
           </span>
           : While my previous role within this company is relevant to my
-          experience and worth including, it is personally important to me to
-          note that I believe{" "}
+          experience, it is personally important to me to note that I believe{" "}
           <span
             className="resume-color-highlight"
             style={{
@@ -97,9 +95,8 @@ export default function Daystar() {
           >
             unwavering support
           </span>{" "}
-          of inclusivity through all walks of life and embracing of all
-          marginalized communities and do not support nor endorse any systemic
-          influence that prohibits or hinders that.
+          of inclusivity through all walks of life and embracing of the queer
+          community and all marginalized communities
         </div>
 
         <div className="experience-title-4">
@@ -107,7 +104,7 @@ export default function Daystar() {
         </div>
         <div className="timeframe-section-4">
           <Clock fill={"#00c700"} stroke={"#003500"} />
-          <div className="timeframe-4">Jul. 2015 - Dec. 2016</div>
+          <div className="timeframe-4">Jul. 2015 - Dec. 2015</div>
         </div>
 
         <div
@@ -137,13 +134,14 @@ export default function Daystar() {
 
             <li className="highlight-item">
               🎬 Coordinated and managed logistics for shoots, including
-              securing locations, talent, crew, and equipment, resulting in
+              securing locations, talent, crew and equipment, resulting in
               <span
                 className="resume-color-highlight"
                 style={{
                   animationDelay: ".9s",
                 }}
               >
+                {" "}
                 seamless production processes
               </span>
             </li>
