@@ -45,9 +45,9 @@ html {
   font-size: 18px;
   // border-top: 3px solid #3b3281;
   // border-bottom: 4px solid #3b3281;
-  padding-top: 14px;
+  padding-top: 16px;
   position: relative;
-  margin-top: 120px;
+  margin-top: 93px;
   color: #181721;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -113,7 +113,7 @@ html {
 }
 
 .mobile-link {
-  width: 50%;
+  width: 100%;
   padding: 6px 10px;
   display: flex;
   flex-direction: row;
@@ -473,7 +473,7 @@ html {
   left: 0;
   z-index: 4;
   right: 0;
-  margin-top: 120px;
+  margin-top: 95px;
 }
 
 .custom-stack-title {
@@ -961,13 +961,34 @@ html {
 }
 
 .emoji-frog {
-  transform: translate(0px, 23px);
-  margin-top: -25px;
-  margin-left: 6px;
-  margin-right: 6px;
+  transform: translate(0px, 17px);
+  margin-top: -15px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .emoji-tv {
+  transform: translate(0px, 6.5px);
+  margin-top: -16px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.emoji-pen {
+  transform: translate(0px, 6.5px);
+  margin-top: -16px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.emoji-paint {
+  transform: translate(0px, 6.5px);
+  margin-top: -16px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.emoji-hands {
   transform: translate(0px, 6.5px);
   margin-top: -16px;
   margin-left: 8px;
@@ -1090,12 +1111,12 @@ html {
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
-  font-size: 60px;
-  padding-bottom: 17px;
+  font-size: 50px;
+  padding-bottom: 11px;
   font-family: var(--font-dela);
   // color: #a375e3;
   color: #00d26a;
-  padding-top: 12px;
+  padding-top: 8px;
   padding-left: 10px;
   background-color: #1b521e;
   position: fixed;
@@ -1649,7 +1670,7 @@ html {
 .player-wrapper-2 {
   position: relative;
   opacity: 1;
-  padding-top: 56.4%;
+  padding-top: 41.7%;
 }
 
 .player-wrapper-3 {
@@ -1893,4 +1914,22 @@ html {
   font-style: italic;
   font-family: var(--font-mont-medium);
   font-size: 17px;
+}
+
+.awards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 13px;
+}
+
+.awards-pic-1 {
+  width: 80%;
+  max-width: 500px;
+}
+
+.awards-pic-2 {
+  width: 80%;
+  max-width: 400px;
 }

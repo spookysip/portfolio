@@ -3,7 +3,7 @@ export default function Frog() {
     <svg
       className="emoji-frog"
       width="90"
-      height="90"
+      height="70"
       viewBox="0 0 311 311"
       fill="none"
     >

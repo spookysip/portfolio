@@ -432,8 +432,8 @@ export default function FM({
               >
                 organized reports
               </span>{" "}
-              to send to leadership for daily performance metics and operational
-              implementation
+              to send to leadership for daily performance metrics and
+              operational implementation
             </li>
           </ul>
         </div>
@@ -487,8 +487,8 @@ export default function FM({
 
             <li className="highlight-item">
               ✏️ Crafted compelling copy for various marketing materials,
-              including website content, email campaigns, and social media
-              posts, enhancing brand voice and{" "}
+              including website content, email campaigns and social media posts,
+              enhancing brand voice and{" "}
               <span
                 className="resume-color-highlight"
                 style={{
@@ -543,7 +543,7 @@ export default function FM({
         <div className="highlight-section">
           <ul className="highlights">
             <li className="highlight-item">
-              📞 Reached out to new perspective filmmakers,{" "}
+              📞 Reached out to new prospective filmmakers,{" "}
               <span
                 className="resume-color-highlight"
                 style={{
@@ -566,8 +566,8 @@ export default function FM({
                 maintained daily correspondence
               </span>{" "}
               with the filmmakers I signed, answering any questions they
-              presented and coordinated with them to determine 🧑‍🤝‍🧑 Managed
-              ongoing relationships and{" "}
+              presented and coordinated with them to determine new collaboration
+              opportunities{" "}
               <span
                 className="resume-color-highlight"
                 style={{

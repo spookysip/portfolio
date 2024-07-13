@@ -1,20 +1,18 @@
 "use client";
 
-import Developer1 from "../joyride/Developer1";
-import Developer2 from "../joyride/Developer2";
-import Developer3 from "../joyride/Developer3";
-
-import Admin1 from "../joyride/Admin1";
-import Admin2 from "../joyride/Admin2";
-import Admin3 from "../joyride/Admin3";
-
-import Media1 from "../joyride/Media1";
-import Media2 from "../joyride/Media2";
-import Media3 from "../joyride/Media3";
+import Developer from "../joyride/Developer";
+import Admin from "../joyride/Admin";
+import Media from "../joyride/Media";
+import Writer from "../joyride/Writer";
+import ProductManager from "../joyride/ProductManager";
+import Designer from "../joyride/Designer";
 
 import TV from "../emojis/TV";
 import Floppy from "../emojis/Floppy";
 import Folder from "../emojis/Folder";
+import Paint from "../emojis/Paint";
+import Hands from "../emojis/Hands";
+import Pen from "../emojis/Pen";
 
 interface Props {
   roleBannerRef: any;
@@ -34,93 +32,31 @@ export default function Header({
             style={{ animationDuration: `${roleAnimationDuration}s` }}
             className="horizontal-scrolling-items__item"
           >
-            <Developer1 />
+            <Developer />
             <Folder />
-            <Admin1 />
-            <span>
-              <TV />
-            </span>
-            <Media1 />
+            <Admin />
+            <TV />
+            <Media />
+            <Pen />
+            <Writer />
+            <Hands />
+            <ProductManager />
+            <Paint />
+            <Designer />
             <Floppy />
-            <Developer2 />
-            <Folder />
-            <Admin2 />
-            <span>
-              <TV />
-            </span>
-            <Media2 />
-            <Floppy />
-            <Developer3 />
-            <Folder />
-            <Admin3 />
-            <span>
-              <TV />
-            </span>
-            <Media3 />
-            <Floppy />
-            <Developer1 />
-            <Folder />
-            <Admin1 />
-            <span>
-              <TV />
-            </span>
-            <Media1 />
-            <Floppy />
-            <Developer2 />
-            <Folder />
-            <Admin2 />
-            <span>
-              <TV />
-            </span>
-            <Media2 />
-            <Floppy />
-            <Developer3 />
-            <Folder />
-            <Admin3 />
-            <span>
-              <TV />
-            </span>
-            <Media3 />
-            <Floppy />
-          </div>
 
-          <div className="horizontal-scrolling-items__item">
-            <Developer1 />
-            🗂️
-            <Admin1 />
-            📺
-            <Media1 />
-            💾
-            <Developer2 />
-            🗂️
-            <Admin2 />
-            📺
-            <Media1 />
-            💾
-            <Developer3 />
-            🗂️
-            <Admin3 />
-            📺
-            <Media1 />
-            💾
-            <Developer1 />
-            🗂️
-            <Admin1 />
-            📺
-            <Media1 />
-            💾
-            <Developer2 />
-            🗂️
-            <Admin2 />
-            📺
-            <Media1 />
-            💾
-            <Developer3 />
-            🗂️
-            <Admin3 />
-            📺
-            <Media1 />
-            💾
+            <Developer />
+            <Folder />
+            <Admin />
+            <TV />
+            <Media />
+            <Pen />
+            <Writer />
+            <Hands />
+            <ProductManager />
+            <Paint />
+            <Designer />
+            <Floppy />
           </div>
         </div>
       </div>

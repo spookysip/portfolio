@@ -96,7 +96,7 @@ export default function DesktopLinks({
         </span>
       </div>
 
-      <div
+      {/* <div
         className="link-parent"
         onClick={() => window.open("https://linkedin.com/in/mattclaughlin")}
       >
@@ -104,7 +104,7 @@ export default function DesktopLinks({
         <span className="link-icon link-color">
           <Link />
         </span>
-      </div>
+      </div> */}
 
       <div
         className="link-parent"

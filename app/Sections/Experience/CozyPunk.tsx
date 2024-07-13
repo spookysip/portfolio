@@ -70,7 +70,7 @@ export default function CozyPunk({
           </span>{" "}
           I created to be a comforting study buddy that makes working feel like
           a game. It allows users to play relaxing music and soundscapes, keep
-          track of quests to achieve, and run campaign/rest timers
+          track of quests to achieve and run campaign/rest timers
         </div>
 
         <div className="experience-title-1">
@@ -151,7 +151,7 @@ export default function CozyPunk({
                 for the entire site
               </span>
               . Utilized Adobe XD and Figma to translate designs and svg's into
-              a custom and fully responsive css design system.
+              a custom and fully responsive css design system
             </li>
 
             <li className="highlight-item">
@@ -166,7 +166,7 @@ export default function CozyPunk({
               </span>
               , optimizing data storage and retrieval processes. Implemented
               effective data schemas and management strategies , ensuring data
-              integrity, security, and scalability.
+              integrity, security and scalability
             </li>
 
             <li className="highlight-item-bottom">
@@ -180,7 +180,7 @@ export default function CozyPunk({
                 designing, coding and shipping
               </span>{" "}
               new features, auditing and improving infrastructure development
-              and refactoring the current codebase for improved performance.
+              and refactoring the current codebase for improved performance
             </li>
           </ul>
         </div>
