@@ -82,10 +82,12 @@ export default function CustomStack({
     if (gamePower) {
       setScore(0);
       stopGameSound.play();
+      startGameSound.stop();
     }
 
     if (!gamePower) {
       startGameSound.play();
+      stopGameSound.stop();
     }
     setGamePower((prev: any) => !prev);
   }
@@ -151,22 +153,37 @@ export default function CustomStack({
 
     if (hit === 1) {
       hit1Sound.play();
+      setTimeout(() => {
+        hit1Sound.stop();
+      }, 1000);
     }
 
     if (hit === 2) {
       hit2Sound.play();
+      setTimeout(() => {
+        hit2Sound.stop();
+      }, 1000);
     }
 
     if (hit === 3) {
       hit3Sound.play();
+      setTimeout(() => {
+        hit3Sound.stop();
+      }, 1000);
     }
 
     if (hit === 4) {
       hit4Sound.play();
+      setTimeout(() => {
+        hit4Sound.stop();
+      }, 1000);
     }
 
     if (hit === 5) {
       hit5Sound.play();
+      setTimeout(() => {
+        hit5Sound.stop();
+      }, 1000);
     }
   }
 
