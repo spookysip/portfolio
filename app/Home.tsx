@@ -253,8 +253,6 @@ export default function Home({ tech }: Props) {
 
   useEffect(() => {
     const handleBannerScroll = () => {
-      console.log(window.scrollY);
-      console.log(bannerTop);
       if (window.scrollY > bannerTop) {
         setIsSticky(true);
       } else {

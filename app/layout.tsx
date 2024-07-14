@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -122,6 +123,14 @@ export default function RootLayout({
       lang="en"
       className={`${robotoBlack.variable} ${robotoBold.variable} ${robotoMedium.variable} ${robotoRegular.variable} ${montSemiBold.variable} ${montMedium.variable} ${montRegular.variable} ${pixel.variable} ${fat.variable} ${sango.variable} ${canobis.variable} ${quiny.variable} ${raider.variable} ${bogam.variable} ${dela.variable} ${joyride.variable} ${dirtyline.variable}`}
     >
+      <Head>
+        <link rel="preload" href="/awards_1.jpg" as="image" />
+        <link rel="preload" href="/awards_2.jpg" as="image" />
+        <link rel="preconnect" href="https://vimeo.com/983668282" />
+        <link rel="preconnect" href="https://vimeo.com/983677026" />
+        <link rel="preconnect" href="https://vimeo.com/245921296" />
+        <link rel="preconnect" href="https://vimeo.com/983671844" />
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );

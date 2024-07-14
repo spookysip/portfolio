@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 
 import ReactPlayer from "react-player";
 
@@ -33,6 +33,29 @@ export default function Theater({
   setPlaying,
 }: Props) {
   const [load, setLoad] = useState(false) as any;
+  const [videoSize, setVideoSize] = useState({
+    width: "100%",
+    height: "auto",
+  }) as any;
+
+  const videoAspectRatio = 16 / 9;
+
+  useLayoutEffect(() => {
+    const windowWidth = window.innerWidth;
+    const videoWidth = windowWidth;
+    const videoHeight = videoWidth / videoAspectRatio;
+    async function updateVideoSize() {
+      setVideoSize({ width: "100%", height: videoHeight + 2 });
+    }
+
+    window.addEventListener("resize", updateVideoSize);
+    updateVideoSize();
+
+    return () => {
+      window.removeEventListener("resize", updateVideoSize);
+    };
+  }, []);
+
   return (
     <div>
       <div className="theater-title">
@@ -139,7 +162,13 @@ export default function Theater({
                 style={{ display: videoId === video.id ? "block" : "none" }}
               >
                 {!load && videoId === video.id && (
-                  <div className="video-load">
+                  <div
+                    className="video-load"
+                    style={{
+                      width: videoSize.width,
+                      height: videoSize.height,
+                    }}
+                  >
                     <div>
                       <Soda />
                     </div>
@@ -154,14 +183,18 @@ export default function Theater({
                   // className={!load ? "" : "react-player"}
                   className={`react-player ${load ? "loaded" : ""}`}
                   controls={true}
-                  preload={true}
                   loop={true}
                   playing={videoId === video.id && playing}
-                  onReady={() => setLoad(true)}
+                  onReady={() => {
+                    setTimeout(() => {
+                      setLoad(true);
+                    }, 300);
+                  }}
                   onPlay={() => setPlaying(true)}
                   onPause={() => setPlaying(false)}
                   width="100%"
                   height="100%"
+                  style={{ display: load ? "block" : "none" }}
                 />
               </div>
             </div>
