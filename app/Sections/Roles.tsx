@@ -39,10 +39,10 @@ export default function Header({
             <Media />
             <Pen />
             <Writer />
-            <Hands />
+            {/* <Hands />
             <ProductManager />
             <Paint />
-            <Designer />
+            <Designer /> */}
             <Floppy />
 
             <Developer />
@@ -52,10 +52,10 @@ export default function Header({
             <Media />
             <Pen />
             <Writer />
-            <Hands />
+            {/* <Hands />
             <ProductManager />
             <Paint />
-            <Designer />
+            <Designer /> */}
             <Floppy />
           </div>
         </div>
