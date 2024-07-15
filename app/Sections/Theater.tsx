@@ -214,8 +214,8 @@ export default function Theater({
                   <div className="video-description">
                     {videoId === 1 && (
                       <span>
-                        This is a concept teaser for my in progress graphic
-                        novel{" "}
+                        This is a concept teaser for my in progress sci-fi
+                        thriller graphic novel{" "}
                         <span className="video-description-highlight">
                           The Fall of Mann
                         </span>
