@@ -46,7 +46,7 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
               animationDelay: ".3s",
             }}
           >
-            graphic novel
+            sci-fi thriller graphic novel
           </span>{" "}
           that I wrote and is currently in the first draft phase. It tells the
           story of a cynical journalist named{" "}
