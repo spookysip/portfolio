@@ -214,15 +214,41 @@ export default function Theater({
                   <div className="video-description">
                     {videoId === 1 && (
                       <span>
-                        This is a concept teaser for my in progress graphic
-                        novel{" "}
+                        This is a "tonality teaser" from various inspirations
+                        for my in progress graphic novel{" "}
                         <span className="video-description-highlight">
                           The Fall of Mann
                         </span>
                         . It tells the story of a cynical journalist named
-                        Murray who is framed for the first murder in the
-                        isolated city of Mann and must now discover its true
-                        origins to clear their name.
+                        <span
+                          className="video-description-highlight"
+                          style={{ animationDelay: ".3s" }}
+                        >
+                          {" "}
+                          Murray
+                        </span>{" "}
+                        who is framed for the{" "}
+                        <span
+                          className="video-description-highlight"
+                          style={{ animationDelay: ".6s" }}
+                        >
+                          first murder
+                        </span>{" "}
+                        in the isolated city of{" "}
+                        <span
+                          className="video-description-highlight"
+                          style={{ animationDelay: ".9s" }}
+                        >
+                          Mann
+                        </span>{" "}
+                        and must now discover its{" "}
+                        <span
+                          className="video-description-highlight"
+                          style={{ animationDelay: "1.2s" }}
+                        >
+                          true origins
+                        </span>{" "}
+                        to clear their name.
                       </span>
                     )}
 
