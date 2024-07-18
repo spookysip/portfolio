@@ -1994,14 +1994,14 @@ html {
 }
 
 .photo {
-  width: 260px; /* Adjust the percentage to your needs */
+  width: 250px;
   height: auto;
   background-color: #ffffff;
   rotate: -3deg;
   transform: scale(1);
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
   @media screen and (max-width: $responsive) {
-    width: 230px;
+    width: 250px;
   }
 }
 

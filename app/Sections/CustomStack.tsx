@@ -205,7 +205,7 @@ export default function CustomStack({
             }
             onClick={() => setPhotoSelection("digital")}
           >
-            <div>Digital Me</div>
+            <div>Digital Matt</div>
           </div>
           <div
             className={
@@ -217,7 +217,7 @@ export default function CustomStack({
               setGamePower(false);
             }}
           >
-            <div>IRL Me</div>
+            <div>Matt IRL</div>
           </div>
         </div>
       )}
