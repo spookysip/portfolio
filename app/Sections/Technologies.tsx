@@ -11,6 +11,7 @@ interface Props {
   setGamePower: any;
   customStack: any;
   setCustomStackAnimationDuration: any;
+  setPhotoSelection: any;
 }
 
 export default function Technologies({
@@ -24,6 +25,7 @@ export default function Technologies({
   setGamePower,
   customStack,
   setCustomStackAnimationDuration,
+  setPhotoSelection,
 }: Props) {
   return (
     <div className="technologies-parent">
@@ -125,6 +127,7 @@ export default function Technologies({
                             );
                             setScore(0);
                             setGamePower(false);
+                            setPhotoSelection("digital");
                             setCustomStackAnimationDuration(
                               customStack.scrollWidth / 50
                             );
