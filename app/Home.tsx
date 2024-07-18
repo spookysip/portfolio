@@ -35,6 +35,7 @@ export default function Home({ tech }: Props) {
   const [stackTitle, setStackTitle] = useState("") as any;
   const [score, setScore] = useState(0) as any;
   const [animationSpeed, setAnimationSpeed] = useState(4);
+  const [photoSelection, setPhotoSelection] = useState("digital") as any;
 
   const [videoId, setVideoId] = useState(1);
   const stackElement = useRef() as any;
@@ -542,6 +543,8 @@ export default function Home({ tech }: Props) {
               score={score}
               setScore={setScore}
               setCopy={setCopy}
+              photoSelection={photoSelection}
+              setPhotoSelection={setPhotoSelection}
             />
 
             <LinkRoot
@@ -570,6 +573,7 @@ export default function Home({ tech }: Props) {
             setGamePower={setGamePower}
             customStack={customStackRef}
             setCustomStackAnimationDuration={setCustomStackAnimationDuration}
+            setPhotoSelection={setPhotoSelection}            
           />
         </div>
       </div>

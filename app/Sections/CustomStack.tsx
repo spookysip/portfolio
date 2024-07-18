@@ -22,6 +22,8 @@ interface Props {
   score: any;
   setScore: any;
   setCopy: any;
+  photoSelection: any;
+  setPhotoSelection: any
 }
 
 export default function CustomStack({
@@ -40,9 +42,11 @@ export default function CustomStack({
   score,
   setScore,
   setCopy,
+  photoSelection,
+  setPhotoSelection
 }: Props) {
   const [monsterHit, setMonsterHit] = useState(false) as any;
-  const [photoSelection, setPhotoSelection] = useState("digital") as any;
+
 
   const startGameSound = new Howl({
     src: ["/sounds/start-game.wav"],
