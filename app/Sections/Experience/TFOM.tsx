@@ -85,7 +85,7 @@ export default function TFOM({ setVideoId, theaterElement }: Props) {
           >
             true origins
           </span>{" "}
-          to clear their name
+          to clear his name
           <br />
           <br />{" "}
           <span
