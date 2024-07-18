@@ -124,6 +124,7 @@ export default function RootLayout({
       className={`${robotoBlack.variable} ${robotoBold.variable} ${robotoMedium.variable} ${robotoRegular.variable} ${montSemiBold.variable} ${montMedium.variable} ${montRegular.variable} ${pixel.variable} ${fat.variable} ${sango.variable} ${canobis.variable} ${quiny.variable} ${raider.variable} ${bogam.variable} ${dela.variable} ${joyride.variable} ${dirtyline.variable}`}
     >
       <Head>
+        <link rel="preload" href="/me.jpg" as="image" />
         <link rel="preload" href="/awards_1.jpg" as="image" />
         <link rel="preload" href="/awards_2.jpg" as="image" />
         <link rel="preconnect" href="https://vimeo.com/983668282" />
