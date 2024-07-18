@@ -1995,14 +1995,24 @@ html {
 
 .photo {
   width: 250px;
+  position: inline;
+  opacity: 1;
   height: auto;
   background-color: #ffffff;
   rotate: -3deg;
   transform: scale(1);
+  z-index: 1;
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
   @media screen and (max-width: $responsive) {
     width: 250px;
   }
+}
+
+.hide-photo {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  z-index: -3;
 }
 
 .photo:hover {
