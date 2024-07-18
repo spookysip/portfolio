@@ -248,7 +248,7 @@ export default function Theater({
                         >
                           true origins
                         </span>{" "}
-                        to clear their name.
+                        to clear his name.
                       </span>
                     )}
 
