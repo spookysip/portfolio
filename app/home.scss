@@ -168,7 +168,6 @@ html {
   flex-direction: row;
   height: 100%;
   // background-color: red;
-  // margin-top: -40px;
   min-height: 200px;
   box-sizing: border-box;
   border-top: 3px solid #ffa8e7;
@@ -179,6 +178,7 @@ html {
     // border-bottom: 3px solid #ffa8e7;
     border-top: none;
     margin-top: 0px;
+    min-height: 289px;
   }
 }
 
@@ -1932,4 +1932,121 @@ html {
 .awards-pic-2 {
   width: 80%;
   max-width: 400px;
+}
+
+.photo-selection-parent {
+  display: flex;
+  color: #ffa8e7;
+  // height: 70px;
+  font-family: var(--font-pixel);
+  @media screen and (max-width: $responsive) {
+    border-bottom: 3px solid #ffa8e7;
+  }
+}
+
+.digital-photo {
+  border-right: 3px solid #ffa8e7;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.irl-photo {
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digital-photo:hover,
+.irl-photo:hover {
+  background-color: #ffa8e7;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.digital-photo-selected {
+  background-color: #ffa8e7;
+  border-right: 3px solid #ffa8e7;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.irl-photo-selected {
+  background-color: #ffa8e7;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  width: 260px; /* Adjust the percentage to your needs */
+  height: auto;
+  background-color: #ffffff;
+  rotate: -3deg;
+  transform: scale(1);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+  @media screen and (max-width: $responsive) {
+    width: 230px;
+  }
+}
+
+.photo:hover {
+  animation: photoEnlarge 0.3s forwards;
+}
+
+.photo:not(:hover) {
+  animation: photoEnlargeReverse 0.3s forwards;
+}
+
+@keyframes photoEnlarge {
+  0% {
+    transform: scale(1);
+    rotate: -3deg;
+  }
+  100% {
+    transform: scale(1.1);
+    rotate: 3deg;
+  }
+}
+
+@keyframes photoEnlargeReverse {
+  0% {
+    transform: scale(1.1);
+    rotate: 3deg;
+  }
+  100% {
+    transform: scale(1);
+    rotate: -3deg;
+  }
+}
+
+.photo-section {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  box-sizing: border-box;
+  border-top: 3px solid #ffa8e7;
+  @media screen and (max-width: $responsive) {
+    border-top: none;
+    margin-top: 0px;
+    min-height: 319px;
+  }
 }

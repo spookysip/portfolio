@@ -42,47 +42,41 @@ export default function CustomStack({
   setCopy,
 }: Props) {
   const [monsterHit, setMonsterHit] = useState(false) as any;
+  const [photoSelection, setPhotoSelection] = useState("digital") as any;
 
   const startGameSound = new Howl({
     src: ["/sounds/start-game.wav"],
     volume: 0.08,
-    html5: true,
   });
 
   const stopGameSound = new Howl({
     src: ["/sounds/stop-game.wav"],
     volume: 0.08,
-    html5: true,
   });
 
   const hit1Sound = new Howl({
     src: ["/sounds/hit-1.wav"],
     volume: 0.08,
-    html5: true,
   });
 
   const hit2Sound = new Howl({
     src: ["/sounds/hit-2.wav"],
     volume: 0.08,
-    html5: true,
   });
 
   const hit3Sound = new Howl({
     src: ["/sounds/hit-3.wav"],
     volume: 0.08,
-    html5: true,
   });
 
   const hit4Sound = new Howl({
     src: ["/sounds/hit-4.wav"],
     volume: 0.08,
-    html5: true,
   });
 
   const hit5Sound = new Howl({
     src: ["/sounds/hit-5.wav"],
     volume: 0.08,
-    html5: true,
   });
 
   async function playGame() {
@@ -112,7 +106,6 @@ export default function CustomStack({
   }
 
   const [cornerClass, setCornerClass] = useState("game-position-center");
-
   const gameIntervalRef = useRef() as any;
 
   useEffect(() => {
@@ -202,19 +195,47 @@ export default function CustomStack({
         flexDirection: "column",
       }}
     >
+      {!customStack && (
+        <div className="photo-selection-parent">
+          <div
+            className={
+              photoSelection === "digital"
+                ? "digital-photo-selected"
+                : "digital-photo"
+            }
+            onClick={() => setPhotoSelection("digital")}
+          >
+            <div>Digital Me</div>
+          </div>
+          <div
+            className={
+              photoSelection === "irl" ? "irl-photo-selected" : "irl-photo"
+            }
+            onClick={() => {
+              setPhotoSelection("irl");
+              setScore(0);
+              setGamePower(false);
+            }}
+          >
+            <div>IRL Me</div>
+          </div>
+        </div>
+      )}
       <div className="title">
         <div ref={stackElement} />
 
         <div
           className={
-            !customStack && monsterHit
+            !customStack && monsterHit && photoSelection === "digital"
               ? `game-section game-background ${cornerClass}`
-              : !customStack && !monsterHit
+              : !customStack && !monsterHit && photoSelection === "digital"
               ? `game-section ${cornerClass}`
+              : !customStack && !monsterHit && photoSelection === "irl"
+              ? "photo-section"
               : "custom-stack"
           }
         >
-          {!customStack && (
+          {!customStack && photoSelection !== "irl" && (
             <div
               className={gamePower ? "move" : "frozen"}
               // style={{
@@ -226,6 +247,16 @@ export default function CustomStack({
             >
               <Monster />
             </div>
+          )}
+
+          {/* {photoSelection === "irl" && <div className="photo" />} */}
+
+          {photoSelection === "irl" && !customStack && (
+            <img
+              className="photo"
+              src="/Me.jpg"
+              alt="Matt Laughlin Profile Picture"
+            />
           )}
 
           <div className="custom-type">
@@ -346,7 +377,7 @@ export default function CustomStack({
       </div>
 
       <div>
-        {!customStack && (
+        {!customStack && photoSelection !== "irl" && (
           <div
             className={
               monsterHit ? "game-controls game-background" : "game-controls"
