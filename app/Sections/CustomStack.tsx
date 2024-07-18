@@ -205,7 +205,7 @@ export default function CustomStack({
             }
             onClick={() => setPhotoSelection("digital")}
           >
-            Digital Me
+            <div>Digital Me</div>
           </div>
           <div
             className={
@@ -217,7 +217,7 @@ export default function CustomStack({
               setGamePower(false);
             }}
           >
-            IRL Me
+            <div>IRL Me</div>
           </div>
         </div>
       )}
@@ -249,7 +249,15 @@ export default function CustomStack({
             </div>
           )}
 
-          {photoSelection === "irl" && <div className="photo" />}
+          {/* {photoSelection === "irl" && <div className="photo" />} */}
+
+          {photoSelection === "irl" && !customStack && (
+            <img
+              className="photo"
+              src="/Me.jpg"
+              alt="Matt Laughlin Profile Picture"
+            />
+          )}
 
           <div className="custom-type">
             <div

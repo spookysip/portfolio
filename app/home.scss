@@ -168,7 +168,6 @@ html {
   flex-direction: row;
   height: 100%;
   // background-color: red;
-  // margin-top: -40px;
   min-height: 200px;
   box-sizing: border-box;
   border-top: 3px solid #ffa8e7;
@@ -179,7 +178,7 @@ html {
     // border-bottom: 3px solid #ffa8e7;
     border-top: none;
     margin-top: 0px;
-    min-height: 290px;
+    min-height: 289px;
   }
 }
 
@@ -1938,6 +1937,7 @@ html {
 .photo-selection-parent {
   display: flex;
   color: #ffa8e7;
+  // height: 70px;
   font-family: var(--font-pixel);
   @media screen and (max-width: $responsive) {
     border-bottom: 3px solid #ffa8e7;
@@ -1949,12 +1949,18 @@ html {
   padding: 10px;
   width: 50%;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .irl-photo {
   padding: 10px;
   width: 50%;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .digital-photo:hover,
@@ -1971,6 +1977,9 @@ html {
   width: 50%;
   text-align: center;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .irl-photo-selected {
@@ -1979,14 +1988,21 @@ html {
   width: 50%;
   text-align: center;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .photo {
-  width: 220px;
-  height: 220px;
+  width: 260px; /* Adjust the percentage to your needs */
+  height: auto;
   background-color: #ffffff;
   rotate: -3deg;
   transform: scale(1);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+  @media screen and (max-width: $responsive) {
+    width: 230px;
+  }
 }
 
 .photo:hover {
@@ -2031,6 +2047,6 @@ html {
   @media screen and (max-width: $responsive) {
     border-top: none;
     margin-top: 0px;
-    min-height: 320px;
+    min-height: 319px;
   }
 }
