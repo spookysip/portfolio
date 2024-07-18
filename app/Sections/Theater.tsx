@@ -292,21 +292,19 @@ export default function Theater({
                     )}
                   </div>
 
-                  {videoId === 3 && (
-                    <div className="awards">
-                      <img
-                        className="awards-pic-1"
-                        src="/Awards_1.jpg"
-                        alt="Rescate Awards 1"
-                      />
+                  <div className="awards">
+                    <img
+                      className={videoId === 3 ? "awards-pic-1" : "hide-photo"}
+                      src="/Awards_1.jpg"
+                      alt="Rescate Awards 1"
+                    />
 
-                      <img
-                        className="awards-pic-2"
-                        src="/Awards_2.jpg"
-                        alt="Rescate Awards 2"
-                      />
-                    </div>
-                  )}
+                    <img
+                      className={videoId === 3 ? "awards-pic-2" : "hide-photo"}
+                      src="/Awards_2.jpg"
+                      alt="Rescate Awards 2"
+                    />
+                  </div>
                 </div>
               )
           )}

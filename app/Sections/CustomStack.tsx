@@ -251,13 +251,13 @@ export default function CustomStack({
 
           {/* {photoSelection === "irl" && <div className="photo" />} */}
 
-          {photoSelection === "irl" && !customStack && (
-            <img
-              className="photo"
-              src="/Me.jpg"
-              alt="Matt Laughlin Profile Picture"
-            />
-          )}
+          <img
+            className={
+              photoSelection === "irl" && !customStack ? "photo" : "hide-photo"
+            }
+            src="/Me.jpg"
+            alt="Matt Laughlin Profile Picture"
+          />
 
           <div className="custom-type">
             <div
