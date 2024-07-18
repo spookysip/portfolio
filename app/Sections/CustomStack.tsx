@@ -217,7 +217,7 @@ export default function CustomStack({
               setGamePower(false);
             }}
           >
-            <div>IRL Me</div>
+            <div>Me IRL</div>
           </div>
         </div>
       )}
