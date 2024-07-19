@@ -566,8 +566,7 @@ export default function FM({
                 maintained daily correspondence
               </span>{" "}
               with the filmmakers I signed, answering any questions they
-              presented and coordinated with them to determine new collaboration
-              opportunities{" "}
+              presented and coordinated with them to determine{" "}
               <span
                 className="resume-color-highlight"
                 style={{
