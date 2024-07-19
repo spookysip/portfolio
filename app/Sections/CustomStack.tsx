@@ -23,7 +23,7 @@ interface Props {
   setScore: any;
   setCopy: any;
   photoSelection: any;
-  setPhotoSelection: any
+  setPhotoSelection: any;
 }
 
 export default function CustomStack({
@@ -43,44 +43,50 @@ export default function CustomStack({
   setScore,
   setCopy,
   photoSelection,
-  setPhotoSelection
+  setPhotoSelection,
 }: Props) {
   const [monsterHit, setMonsterHit] = useState(false) as any;
-
 
   const startGameSound = new Howl({
     src: ["/sounds/start-game.wav"],
     volume: 0.08,
+    html5: true,
   });
 
   const stopGameSound = new Howl({
     src: ["/sounds/stop-game.wav"],
     volume: 0.08,
+    html5: true,
   });
 
   const hit1Sound = new Howl({
     src: ["/sounds/hit-1.wav"],
     volume: 0.08,
+    html5: true,
   });
 
   const hit2Sound = new Howl({
     src: ["/sounds/hit-2.wav"],
     volume: 0.08,
+    html5: true,
   });
 
   const hit3Sound = new Howl({
     src: ["/sounds/hit-3.wav"],
     volume: 0.08,
+    html5: true,
   });
 
   const hit4Sound = new Howl({
     src: ["/sounds/hit-4.wav"],
     volume: 0.08,
+    html5: true,
   });
 
   const hit5Sound = new Howl({
     src: ["/sounds/hit-5.wav"],
     volume: 0.08,
+    html5: true,
   });
 
   async function playGame() {
