@@ -131,6 +131,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://vimeo.com/983677026" />
         <link rel="preconnect" href="https://vimeo.com/245921296" />
         <link rel="preconnect" href="https://vimeo.com/983671844" />
+        <script
+          type="module"
+          src="https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm"
+        />
       </Head>
       <body className={inter.className}>{children}</body>
     </html>
