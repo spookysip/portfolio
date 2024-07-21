@@ -3,6 +3,7 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
 
 import ReactPlayer from "react-player";
+import "lite-vimeo-embed";
 
 import Popcorn from "../emojis/Popcorn";
 import Soda from "../icons/Soda";
@@ -38,14 +39,28 @@ export default function Theater({
     height: "auto",
   }) as any;
 
-  const videoAspectRatio = 16 / 9;
-
   useLayoutEffect(() => {
-    const windowWidth = window.innerWidth;
-    const videoWidth = windowWidth;
-    const videoHeight = videoWidth / videoAspectRatio;
     async function updateVideoSize() {
-      setVideoSize({ width: "100%", height: videoHeight + 2 });
+      if (videoId === 1 || videoId === 4) {
+        setVideoSize({
+          width: "100%",
+          height: window.innerWidth / (16 / 9) + 2,
+        });
+      }
+
+      if (videoId === 2) {
+        setVideoSize({
+          width: "100%",
+          height: window.innerWidth / (2.41 / 1) + 2,
+        });
+      }
+
+      if (videoId === 3) {
+        setVideoSize({
+          width: "100%",
+          height: window.innerWidth / (2.41 / 1) + 9.5,
+        });
+      }
     }
 
     window.addEventListener("resize", updateVideoSize);
@@ -54,7 +69,7 @@ export default function Theater({
     return () => {
       window.removeEventListener("resize", updateVideoSize);
     };
-  }, []);
+  }, [videoId]);
 
   return (
     <div>
@@ -126,6 +141,7 @@ export default function Theater({
             <div
               className="theater-seek-prev"
               onClick={() => {
+                setLoad(false);
                 handlePrev(videoId);
               }}
             >
@@ -135,6 +151,7 @@ export default function Theater({
             <div
               className="theater-seek-next"
               onClick={() => {
+                setLoad(false);
                 handleNext(videoId);
               }}
             >
@@ -149,13 +166,11 @@ export default function Theater({
                 className={
                   videoId === video.id && videoId === 1 && load
                     ? "player-wrapper-1"
-                    : videoId === video.id && videoId === 1 && !load
-                    ? "player-hide"
-                    : videoId === video.id && videoId === 2
+                    : videoId === video.id && videoId === 2 && load
                     ? "player-wrapper-2"
-                    : videoId === video.id && videoId === 3
+                    : videoId === video.id && videoId === 3 && load
                     ? "player-wrapper-3"
-                    : videoId === video.id && videoId === 4
+                    : videoId === video.id && videoId === 4 && load
                     ? "player-wrapper-4"
                     : undefined
                 }
@@ -175,27 +190,29 @@ export default function Theater({
                   </div>
                 )}
 
-                <ReactPlayer
-                  ref={playerRefs.current[index]}
-                  key={video.id}
-                  url={videoUrls[index]}
-                  // className={load ? "react-player" : "player-hide"}
-                  // className={!load ? "" : "react-player"}
-                  className={`react-player ${load ? "loaded" : ""}`}
-                  controls={true}
-                  loop={true}
-                  playing={videoId === video.id && playing}
-                  onReady={() => {
-                    setTimeout(() => {
-                      setLoad(true);
-                    }, 300);
-                  }}
-                  onPlay={() => setPlaying(true)}
-                  onPause={() => setPlaying(false)}
-                  width="100%"
-                  height="100%"
-                  style={{ display: load ? "block" : "none" }}
-                />
+                {videoId === video.id && (
+                  <ReactPlayer
+                    ref={playerRefs.current[index]}
+                    key={video.id}
+                    url={videoUrls[index]}
+                    // className={load ? "react-player" : "player-hide"}
+                    // className={!load ? "" : "react-player"}
+                    className={`react-player ${load ? "loaded" : ""}`}
+                    controls={true}
+                    loop={true}
+                    playing={videoId === video.id && playing}
+                    onReady={() => {
+                      setTimeout(() => {
+                        setLoad(true);
+                      }, 300);
+                    }}
+                    onPlay={() => setPlaying(true)}
+                    onPause={() => setPlaying(false)}
+                    width="100%"
+                    height="100%"
+                    style={{ display: load ? "block" : "none" }}
+                  />
+                )}
               </div>
             </div>
           ))}
