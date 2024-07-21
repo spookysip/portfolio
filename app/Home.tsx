@@ -465,47 +465,47 @@ export default function Home({ tech }: Props) {
       setRoleAnimationDuration(duration);
     }
 
-    if (customStack) {
-      const contentWidth = customStack.scrollWidth;
-      const duration = contentWidth / 28;
-      setCustomStackAnimationDuration(duration);
-    }
+    // if (customStack) {
+    //   const contentWidth = customStack.scrollWidth;
+    //   const duration = contentWidth / 28;
+    //   setCustomStackAnimationDuration(duration);
+    // }
 
-    if (linkContent1) {
-      const contentWidth = linkContent1.scrollWidth;
-      const duration = contentWidth / 35;
-      setLinkAnimationDuration1(duration);
-    }
+    // if (linkContent1) {
+    //   const contentWidth = linkContent1.scrollWidth;
+    //   const duration = contentWidth / 35;
+    //   setLinkAnimationDuration1(duration);
+    // }
 
-    if (linkContent2) {
-      const contentWidth = linkContent2.scrollWidth;
-      const duration = contentWidth / 35;
-      setLinkAnimationDuration2(duration);
-    }
+    // if (linkContent2) {
+    //   const contentWidth = linkContent2.scrollWidth;
+    //   const duration = contentWidth / 35;
+    //   setLinkAnimationDuration2(duration);
+    // }
 
-    if (techContent) {
-      const contentWidth = techContent.scrollWidth;
-      const duration = contentWidth / 20;
-      setTechAnimationDuration(duration);
-    }
+    // if (techContent) {
+    //   const contentWidth = techContent.scrollWidth;
+    //   const duration = contentWidth / 20;
+    //   setTechAnimationDuration(duration);
+    // }
 
-    if (theaterContent) {
-      const contentWidth = theaterContent.scrollWidth;
-      const duration = contentWidth / 25;
-      setTheaterAnimationDuration(duration);
-    }
+    // if (theaterContent) {
+    //   const contentWidth = theaterContent.scrollWidth;
+    //   const duration = contentWidth / 25;
+    //   setTheaterAnimationDuration(duration);
+    // }
 
-    if (experienceContent) {
-      const contentWidth = experienceContent.scrollWidth;
-      const duration = contentWidth / 60;
-      setExperienceAnimationDuration(duration);
-    }
+    // if (experienceContent) {
+    //   const contentWidth = experienceContent.scrollWidth;
+    //   const duration = contentWidth / 60;
+    //   setExperienceAnimationDuration(duration);
+    // }
 
-    if (backTopContent) {
-      const contentWidth = backTopContent.scrollWidth;
-      const duration = contentWidth / 45;
-      setBackTopAnimationDuration(duration);
-    }
+    // if (backTopContent) {
+    //   const contentWidth = backTopContent.scrollWidth;
+    //   const duration = contentWidth / 45;
+    //   setBackTopAnimationDuration(duration);
+    // }
   }, [customStackRef]);
 
   const [gamePower, setGamePower] = useState(false);
@@ -573,7 +573,7 @@ export default function Home({ tech }: Props) {
             setGamePower={setGamePower}
             customStack={customStackRef}
             setCustomStackAnimationDuration={setCustomStackAnimationDuration}
-            setPhotoSelection={setPhotoSelection}            
+            setPhotoSelection={setPhotoSelection}
           />
         </div>
       </div>
