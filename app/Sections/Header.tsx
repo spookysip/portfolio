@@ -38,65 +38,6 @@ export default function Header({
             <span className="emoji-frog">
               <Frog />
             </span>
-            <span className="english-name">MATT LAUGHLIN</span>
-            <span className="emoji-frog">
-              <Frog />
-            </span>
-            マット ロフリン
-            <span className="emoji-frog">
-              <Frog />
-            </span>{" "}
-            <span className="english-name">MATT LAUGHLIN</span>
-            <span className="emoji-frog">
-              <Frog />
-            </span>
-            マット ロフリン
-            <span className="emoji-frog">
-              <Frog />
-            </span>
-            <span className="english-name">MATT LAUGHLIN</span>
-            <span className="emoji-frog">
-              <Frog />
-            </span>
-            マット ロフリン
-            <span className="emoji-frog">
-              <Frog />
-            </span>
-            <span className="english-name">MATT LAUGHLIN</span>
-            <span className="emoji-frog">
-              <Frog />
-            </span>
-            マット ロフリン
-            <span className="emoji-frog">
-              <Frog />
-            </span>
-          </div>
-
-          <div className="name-horizontal-scrolling-items__item">
-            <span className="english-name">MATT LAUGHLIN</span>
-            <Frog />
-            マット ロフリン
-            <Frog />
-            <span className="english-name">MATT LAUGHLIN</span>
-            <Frog />
-            マット ロフリン
-            <Frog />
-            <span className="english-name">MATT LAUGHLIN</span>
-            <Frog />
-            マット ロフリン
-            <Frog />
-            <span className="english-name">MATT LAUGHLIN</span>
-            <Frog />
-            マット ロフリン
-            <Frog />
-            <span className="english-name">MATT LAUGHLIN</span>
-            <Frog />
-            マット ロフリン
-            <Frog />
-            <span className="english-name">MATT LAUGHLIN</span>
-            <Frog />
-            マット ロフリン
-            <Frog />
           </div>
         </div>
       </div>
