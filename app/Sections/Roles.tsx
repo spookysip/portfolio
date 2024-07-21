@@ -39,23 +39,6 @@ export default function Header({
             <Media />
             <Pen />
             <Writer />
-            {/* <Hands />
-            <ProductManager />
-            <Paint />
-            <Designer /> */}
-            <Floppy />
-
-            <Developer />
-            <Folder />
-            <Admin />
-            <TV />
-            <Media />
-            <Pen />
-            <Writer />
-            {/* <Hands />
-            <ProductManager />
-            <Paint />
-            <Designer /> */}
             <Floppy />
           </div>
         </div>
