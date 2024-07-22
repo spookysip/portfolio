@@ -1225,6 +1225,22 @@ html {
   }
 }
 
+.color2 {
+  animation: changeColor2 5s infinite;
+}
+
+.color3 {
+  animation: changeColor3 5s infinite;
+}
+
+.color4 {
+  animation: changeColor4 5s infinite;
+}
+
+.color5 {
+  animation: changeColor5 5s infinite;
+}
+
 @keyframes changeColor {
   0% {
     background-color: #6a2771;
@@ -1249,28 +1265,100 @@ html {
   }
 }
 
-.color-1 {
-  color: #6a2771;
+@keyframes changeColor2 {
+  0% {
+    color: #da2a2a;
+  }
+  16.67% {
+    color: #6a2771;
+  }
+  33.33% {
+    color: #ed702d;
+  }
+  50% {
+    color: #ffff00;
+  }
+  66.67% {
+    color: #00c700;
+  }
+  83.33% {
+    color: #5959ff;
+  }
+  100% {
+    color: #da2a2a;
+  }
 }
 
-.color-2 {
-  color: #ed702d;
+@keyframes changeColor3 {
+  0% {
+    color: #5959ff;
+  }
+  16.67% {
+    color: #da2a2a;
+  }
+  33.33% {
+    color: #6a2771;
+  }
+  50% {
+    color: #ed702d;
+  }
+  66.67% {
+    color: #ffff00;
+  }
+  83.33% {
+    color: #00c700;
+  }
+  100% {
+    color: #5959ff;
+  }
 }
 
-.color-3 {
-  color: #ffff00;
+@keyframes changeColor4 {
+  0% {
+    color: #00c700;
+  }
+  16.67% {
+    color: #5959ff;
+  }
+  33.33% {
+    color: #da2a2a;
+  }
+  50% {
+    color: #6a2771;
+  }
+  66.67% {
+    color: #ed702d;
+  }
+  83.33% {
+    color: #ffff00;
+  }
+  100% {
+    color: #00c700;
+  }
 }
 
-.color-4 {
-  color: #00c700;
-}
-
-.color-5 {
-  color: #5959ff;
-}
-
-.color-6 {
-  color: #da2a2a;
+@keyframes changeColor5 {
+  0% {
+    color: #ffff00;
+  }
+  16.67% {
+    color: #00c700;
+  }
+  33.33% {
+    color: #5959ff;
+  }
+  50% {
+    color: #da2a2a;
+  }
+  66.67% {
+    color: #6a2771;
+  }
+  83.33% {
+    color: #ed702d;
+  }
+  100% {
+    color: #ffff00;
+  }
 }
 
 .custom-stack-section {
