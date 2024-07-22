@@ -237,35 +237,13 @@ export default function Theater({
                           The Fall of Mann
                         </span>
                         . It tells the story of a cynical journalist named
-                        <span
-                          className="video-description-highlight"
-                          style={{ animationDelay: ".3s" }}
-                        >
-                          {" "}
-                          Murray
-                        </span>{" "}
-                        who is framed for the{" "}
-                        <span
-                          className="video-description-highlight"
-                          style={{ animationDelay: ".6s" }}
-                        >
-                          first murder
-                        </span>{" "}
-                        in the isolated city of{" "}
-                        <span
-                          className="video-description-highlight"
-                          style={{ animationDelay: ".9s" }}
-                        >
-                          Mann
-                        </span>{" "}
-                        and must now discover its{" "}
-                        <span
-                          className="video-description-highlight"
-                          style={{ animationDelay: "1.2s" }}
-                        >
-                          true origins
-                        </span>{" "}
-                        to clear his name.
+                        <span className="color2"> Murray</span> who is framed
+                        for the <span className="color3">first murder</span> in
+                        the isolated city of{" "}
+                        <span className="color4">Mann</span> and must now
+                        discover its{" "}
+                        <span className="color5">true origins</span> to clear
+                        his name.
                       </span>
                     )}
 
